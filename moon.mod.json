@@ -1,0 +1,10 @@
+{
+  "name": "illusory0x0/moonbit-wasm-nodejs-ts-template",
+  "version": "0.1.0",
+  "readme": "README.md",
+  "repository": "https://github.com/moonbit-community/moonbit-wasm-nodejs-ts-template",
+  "license": "Apache-2.0",
+  "keywords": ["wasm","nodejs","template","typescript"],
+  "description": "moonbit node.js wasm app template",
+  "source": "src"
+}
