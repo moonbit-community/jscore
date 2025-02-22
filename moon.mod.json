@@ -1,10 +1,10 @@
 {
-  "name": "illusory0x0/moonbit-wasm-nodejs-ts-template",
-  "version": "0.1.0",
+  "name": "illusory0x0/jcore",
+  "version": "0.1.1",
   "readme": "README.md",
-  "repository": "https://github.com/moonbit-community/moonbit-wasm-nodejs-ts-template",
+  "repository": "https://github.com/moonbit-community/jcore",
   "license": "Apache-2.0",
-  "keywords": ["wasm","nodejs","template","typescript"],
-  "description": "moonbit node.js wasm app template",
+  "keywords": ["wasm","ffi","javascript", "core"],
+  "description": "JavaScript core library' s wasm binding",
   "source": "src"
 }

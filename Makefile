@@ -1,8 +1,15 @@
-dev-ts:
-	npx swc ./src/ts --out-dir ./target --watch
-
-dev-mbt:
+mbt:
 	moon build --watch 
 
 dev:
-	node --watch-path=./target/wasm-gc/release/build/mbt/mbt.wasm  .\target\src\ts\app.js
+	npx tsx \
+	--test-update-snapshots \
+	--watch-path=target/wasm-gc/release/build/jcore.wasm \
+	--watch-path=./ts-import-object \
+	--watch-path=./test/test.ts \
+	./test/test.ts
+
+
+benchmark:
+	npx tsx \
+	./test/benchmark.ts
