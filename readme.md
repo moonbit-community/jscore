@@ -34,7 +34,7 @@ pnpm -D i @types/node tsx
 } 
 ```
 
-## use xxx.wasm in TypeScript
+## use wasm in NodeJs (TypeScript)
 
 ```moonbit
 // src/entry/entry.mbt
