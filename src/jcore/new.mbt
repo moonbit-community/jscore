@@ -188,7 +188,7 @@ pub fn JRegExp::new(pattern : JString) -> JRegExp = "new" "RegExp"
 fn JMap::_new() -> JMap[JAny, JAny] = "new" "Map"
 
 ///|
-fn JMap::new[K, V]() -> JMap[K, V] {
+pub fn JMap::new[K, V]() -> JMap[K, V] {
   JMap::_new() |> coerce
 }
 
@@ -238,7 +238,7 @@ pub fn JWeakRef::new[T : Js](target : T) -> JWeakRef[T] {
 fn JArray::_new() -> JArray[JAny] = "new" "Array"
 
 ///|
-fn JArray::new[T]() -> JArray[T] {
+pub fn JArray::new[T]() -> JArray[T] {
   coerce(JArray::_new)()
 }
 

@@ -1,4 +1,13 @@
 ///|
+typealias JTypedArray[T] = @jcore.JTypedArray[T]
+
+///|
+typealias @jcore.JArrayBuffer
+
+///|
+typealias JArray[T] = @jcore.JArray[T]
+
+///|
 let typed_arr : JTypedArray[Int] = JTypedArray::new(
   JArrayBuffer::new(1000 * 4),
   0,

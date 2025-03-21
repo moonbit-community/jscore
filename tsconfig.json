@@ -20,5 +20,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["test", "ts-import-object"]
+  "include": ["src", "ts-import-object"]
 }

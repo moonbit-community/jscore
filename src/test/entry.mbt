@@ -1,4 +1,91 @@
 ///|
+typealias @jcore.JTextDecoder
+
+///|
+typealias @jcore.JError
+
+///|
+typealias @jcore.JReferenceError
+
+///|
+typealias @jcore.JRangeError
+
+///|
+typealias @jcore.JEvalError
+
+///|
+typealias @jcore.JSyntaxError
+
+///|
+typealias @jcore.JTypeError
+
+///|
+typealias @jcore.JAggregateError
+
+///|
+typealias @jcore.JDataView
+
+///|
+typealias @jcore.JTextEncoder
+
+///|
+typealias @jcore.JNumber
+
+///|
+typealias @jcore.JRegExp
+
+///|
+typealias @jcore.JDate
+
+///|
+typealias @jcore.JSharedArrayBuffer
+
+///|
+typealias @jcore.JString
+
+///|
+typealias @jcore.JAny
+
+///|
+typealias @jcore.JInt32Array
+
+///|
+typealias JMap[K, V] = @jcore.JMap[K, V]
+
+///|
+typealias JWeakMap[K, V] = @jcore.JWeakMap[K, V]
+
+///|
+typealias JSet[V] = @jcore.JSet[V]
+
+///|
+typealias JWeakRef[V] = @jcore.JWeakRef[V]
+
+///|
+typealias JWeakSet[V] = @jcore.JWeakSet[V]
+
+///|
+typealias @jcore.JConsole
+
+///|
+typealias JTypedArray[T] = @jcore.JTypedArray[T]
+
+///|
+typealias @jcore.JArrayBuffer
+
+///|
+typealias JArray[T] = @jcore.JArray[T]
+
+///|
+let js_try_catch_finally = @jcore.js_try_catch_finally
+
+///|
+let js_throw = @jcore.js_throw
+
+///|
+let console = @jcore.console
+
+///|
 fn test_new() -> Unit {
   let msg = JTextDecoder::from_string("hello")
   let errors = JArray::from_array([
@@ -56,10 +143,10 @@ fn test_error() -> Unit {
 
 ///|
 fn test_global() -> Unit {
-  console.log(js_false)
-  console.log(js_true)
-  console.log(js_false)
-  console.log(js_undefined)
+  console.log(@jcore.js_false)
+  console.log(@jcore.js_true)
+  console.log(@jcore.js_false)
+  console.log(@jcore.js_undefined)
   // js_null |> ignore
 }
 

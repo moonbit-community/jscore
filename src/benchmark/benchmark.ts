@@ -1,9 +1,10 @@
 import fs from 'node:fs/promises';
-import { importObject } from '../ts-import-object/import-object.js'
+import { importObject } from '../../ts-import-object/import-object.js'
 
 import Benchmark from 'benchmark';
 
-const wasmBuffer = await fs.readFile('target/wasm-gc/release/build/jcore.wasm');
+let wasmUrl = './target/wasm-gc/release/build/benchmark/benchmark.wasm'
+const wasmBuffer = await fs.readFile(wasmUrl);
 const wasmModule = await WebAssembly.instantiate(wasmBuffer, importObject);
 let { 
   benchmark_array_op_set_fill_1000,

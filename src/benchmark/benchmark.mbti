@@ -1,0 +1,17 @@
+package illusory0x0/jcore/benchmark
+
+// Values
+fn benchmark_array_op_set_fill_1000() -> Unit
+
+fn benchmark_array_set_fill_1000() -> Unit
+
+fn benchmark_moonbit_fixedarray_fill_1000() -> Unit
+
+fn benchmark_typedarray_fill_1000() -> Unit
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

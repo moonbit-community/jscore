@@ -1,17 +1,7 @@
-package illusory0x0/jcore
+package illusory0x0/jcore/jcore
 
 // Values
-fn benchmark_array_op_set_fill_1000() -> Unit
-
-fn benchmark_array_set_fill_1000() -> Unit
-
-fn benchmark_moonbit_fixedarray_fill_1000() -> Unit
-
-fn benchmark_typedarray_fill_1000() -> Unit
-
 let console : JConsole
-
-fn entry_test() -> Unit
 
 let js_false : JAny
 
@@ -50,6 +40,7 @@ impl JArray {
   from_iterator[T](JIterator[T]) -> Self[T]
   get[T : Js_Array](Self[T], Int) -> T
   length[T](Self[T]) -> Int
+  new[T]() -> Self[T]
   op_get[T : Js](Self[T], Int) -> T
   op_set[T : Js](Self[T], Int, T) -> Unit
   set[T : Js_Array](Self[T], Int, T) -> Unit
@@ -178,6 +169,7 @@ impl JMap {
   entries[K, V](Self[K, V]) -> JIterator[JArray[JAny]]
   has[K : Js, V : Js](Self[K, V], K) -> Bool
   keys[K, V](Self[K, V]) -> JIterator[K]
+  new[K, V]() -> Self[K, V]
   op_get[K : Js, V : Js](Self[K, V], K) -> V?
   op_set[K : Js, V : Js](Self[K, V], K, V) -> Unit
   size[K, V](Self[K, V]) -> Int
