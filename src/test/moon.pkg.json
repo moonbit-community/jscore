@@ -3,7 +3,8 @@
   "link": {
     "wasm-gc": {
       "exports": [
-        "entry_test"
+        "entry_test",
+        "catch_panic"
       ]
     }
   },

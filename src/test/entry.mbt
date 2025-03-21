@@ -338,3 +338,13 @@ pub fn entry_test() -> Unit {
   test_typedarray()
   test_try_catch()
 }
+
+pub fn catch_panic() -> Unit {
+  js_try_catch_finally(fn() {
+    panic()
+  },fn(e) {
+    println("catch panic")
+  },fn() {
+
+  })
+}
