@@ -16,5 +16,5 @@ let main = async (backend: Backend, build_type : BuildType) => {
 
 
 main(Backend.wasm,BuildType.debug)   
-main(Backend.js,BuildType.debug) 
-main(Backend.wasm_gc,BuildType.debug) 
+// main(Backend.js,BuildType.debug) 
+// main(Backend.wasm_gc,BuildType.debug) 
