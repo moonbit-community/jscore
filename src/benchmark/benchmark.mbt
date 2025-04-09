@@ -1,11 +1,11 @@
 ///|
-typealias JTypedArray[T] = @jcore.JTypedArray[T]
+typealias JTypedArray[T] = @jscore.JTypedArray[T]
 
 ///|
-typealias @jcore.JArrayBuffer
+typealias @jscore.JArrayBuffer
 
 ///|
-typealias JArray[T] = @jcore.JArray[T]
+typealias JArray[T] = @jscore.JArray[T]
 
 ///|
 let typed_arr : JTypedArray[Int] = JTypedArray::new(

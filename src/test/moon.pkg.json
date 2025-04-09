@@ -21,6 +21,6 @@
     }
   },
   "import": [
-    "illusory0x0/jcore/jcore"
+    "illusory0x0/jscore/jscore"
   ]
 }

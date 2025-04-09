@@ -1,89 +1,89 @@
 ///|
-typealias @jcore.JTextDecoder
+typealias @jscore.JTextDecoder
 
 ///|
-typealias @jcore.JError
+typealias @jscore.JError
 
 ///|
-typealias @jcore.JReferenceError
+typealias @jscore.JReferenceError
 
 ///|
-typealias @jcore.JRangeError
+typealias @jscore.JRangeError
 
 ///|
-typealias @jcore.JEvalError
+typealias @jscore.JEvalError
 
 ///|
-typealias @jcore.JSyntaxError
+typealias @jscore.JSyntaxError
 
 ///|
-typealias @jcore.JTypeError
+typealias @jscore.JTypeError
 
 ///|
-typealias @jcore.JAggregateError
+typealias @jscore.JAggregateError
 
 ///|
-typealias @jcore.JDataView
+typealias @jscore.JDataView
 
 ///|
-typealias @jcore.JTextEncoder
+typealias @jscore.JTextEncoder
 
 ///|
-typealias @jcore.JNumber
+typealias @jscore.JNumber
 
 ///|
-typealias @jcore.JRegExp
+typealias @jscore.JRegExp
 
 ///|
-typealias @jcore.JDate
+typealias @jscore.JDate
 
 ///|
-typealias @jcore.JSharedArrayBuffer
+typealias @jscore.JSharedArrayBuffer
 
 ///|
-typealias @jcore.JString
+typealias @jscore.JString
 
 ///|
-typealias @jcore.JAny
+typealias @jscore.JAny
 
 ///|
-typealias @jcore.JInt32Array
+typealias @jscore.JInt32Array
 
 ///|
-typealias JMap[K, V] = @jcore.JMap[K, V]
+typealias JMap[K, V] = @jscore.JMap[K, V]
 
 ///|
-typealias JWeakMap[K, V] = @jcore.JWeakMap[K, V]
+typealias JWeakMap[K, V] = @jscore.JWeakMap[K, V]
 
 ///|
-typealias JSet[V] = @jcore.JSet[V]
+typealias JSet[V] = @jscore.JSet[V]
 
 ///|
-typealias JWeakRef[V] = @jcore.JWeakRef[V]
+typealias JWeakRef[V] = @jscore.JWeakRef[V]
 
 ///|
-typealias JWeakSet[V] = @jcore.JWeakSet[V]
+typealias JWeakSet[V] = @jscore.JWeakSet[V]
 
 ///|
-typealias @jcore.JConsole
+typealias @jscore.JConsole
 
 ///|
-typealias JTypedArray[T] = @jcore.JTypedArray[T]
+typealias JTypedArray[T] = @jscore.JTypedArray[T]
 
 ///|
-typealias @jcore.JArrayBuffer
+typealias @jscore.JArrayBuffer
 
 ///|
-typealias JArray[T] = @jcore.JArray[T]
+typealias JArray[T] = @jscore.JArray[T]
 
 ///|
-let js_try_catch_finally = @jcore.js_try_catch_finally
+let js_try_catch_finally = @jscore.js_try_catch_finally
 
 ///|
-let js_throw = @jcore.js_throw
+let js_throw = @jscore.js_throw
 
 ///|
-let console = @jcore.console
+let console = @jscore.console
 
 ///|
 fn test_new() -> Unit {
@@ -143,10 +143,10 @@ fn test_error() -> Unit {
 
 ///|
 fn test_global() -> Unit {
-  console.log(@jcore.js_false)
-  console.log(@jcore.js_true)
-  console.log(@jcore.js_false)
-  console.log(@jcore.js_undefined)
+  console.log(@jscore.js_false)
+  console.log(@jscore.js_true)
+  console.log(@jscore.js_false)
+  console.log(@jscore.js_undefined)
   // js_null |> ignore
 }
 
