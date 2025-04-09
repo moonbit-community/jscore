@@ -1,33 +1,33 @@
 ///|
-fn JMap::_get(self : JMap[JAny, JAny], index : JAny) -> JAny = "Map" "get"
+fn JMap::_get(self : JMap[JAny, JAny], index : JAny) -> JAny = "illusory0x0_core_Map" "get"
 
 ///|
-fn JMap::_set(self : JMap[JAny, JAny], index : JAny, value : JAny) = "Map" "set"
+fn JMap::_set(self : JMap[JAny, JAny], index : JAny, value : JAny) = "illusory0x0_core_Map" "set"
 
 ///|
-fn JMap::_has(self : JMap[JAny, JAny], index : JAny) -> Bool = "Map" "has"
+fn JMap::_has(self : JMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_Map" "has"
 
 ///|
-fn JMap::_delete(self : JMap[JAny, JAny], index : JAny) -> Bool = "Map" "delete"
+fn JMap::_delete(self : JMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_Map" "delete"
 
 ///|
-fn JMap::_clear(self : JMap[JAny, JAny]) = "Map" "clear"
+fn JMap::_clear(self : JMap[JAny, JAny]) = "illusory0x0_core_Map" "clear"
 
 // TODO
-// fn JMap::_forEach(self : JMap[JAny,JAny]) = "Map" "forEach"
-// fn JMap::_groupBy(self : JMap[JAny,JAny]) = "Map" "static_groupBy"
+// fn JMap::_forEach(self : JMap[JAny,JAny]) = "illusory0x0_core_Map" "forEach"
+// fn JMap::_groupBy(self : JMap[JAny,JAny]) = "illusory0x0_core_Map" "static_groupBy"
 
 ///|
-fn JMap::_keys(self : JMap[JAny, JAny]) -> JArray[JAny] = "Map" "keys"
+fn JMap::_keys(self : JMap[JAny, JAny]) -> JArray[JAny] = "illusory0x0_core_Map" "keys"
 
 ///|
-fn JMap::_values(self : JMap[JAny, JAny]) -> JArray[JAny] = "Map" "values"
+fn JMap::_values(self : JMap[JAny, JAny]) -> JArray[JAny] = "illusory0x0_core_Map" "values"
 
 ///|
-fn JMap::_size(self : JMap[JAny, JAny]) -> Int = "Map" "get_size"
+fn JMap::_size(self : JMap[JAny, JAny]) -> Int = "illusory0x0_core_Map" "get_size"
 
 ///|
-fn JMap::_entries(self : JMap[JAny, JAny]) -> JArray[JArray[JAny]] = "Map" "entries"
+fn JMap::_entries(self : JMap[JAny, JAny]) -> JArray[JArray[JAny]] = "illusory0x0_core_Map" "entries"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get)
 pub fn JMap::op_get[K : Js, V : Js](self : JMap[K, V], index : K) -> V? {

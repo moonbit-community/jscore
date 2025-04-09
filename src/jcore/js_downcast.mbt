@@ -2,34 +2,34 @@
 impl Js with downcast(self : JAny) -> Self = "%identity"
 
 ///|
-fn _any_to_byte(x : JAny) -> Byte = "global" "coerce"
+fn _any_to_byte(x : JAny) -> Byte = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_i16(x : JAny) -> Int16 = "global" "coerce"
+fn _any_to_i16(x : JAny) -> Int16 = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_u16(x : JAny) -> UInt16 = "global" "coerce"
+fn _any_to_u16(x : JAny) -> UInt16 = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_u32(x : JAny) -> UInt = "global" "coerce"
+fn _any_to_u32(x : JAny) -> UInt = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_u64(x : JAny) -> UInt64 = "global" "coerce"
+fn _any_to_u64(x : JAny) -> UInt64 = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_i64(x : JAny) -> Int64 = "global" "coerce"
+fn _any_to_i64(x : JAny) -> Int64 = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_i32(x : JAny) -> Int = "global" "coerce"
+fn _any_to_i32(x : JAny) -> Int = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_f32(x : JAny) -> Float = "global" "coerce"
+fn _any_to_f32(x : JAny) -> Float = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_f64(x : JAny) -> Double = "global" "coerce"
+fn _any_to_f64(x : JAny) -> Double = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _any_to_bool(x : JAny) -> Bool = "global" "coerce"
+fn _any_to_bool(x : JAny) -> Bool = "illusory0x0_core_global" "coerce"
 
 ///|
 pub impl Js for Byte with downcast(x : JAny) -> Byte {

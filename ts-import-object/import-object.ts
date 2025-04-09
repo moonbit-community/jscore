@@ -103,3 +103,28 @@ export let importObject = {
   DataView: prototype_to_ffi(DataView),
   Array : prototype_to_ffi(Array)
 }
+
+export let import_object = (obj : any) => {
+  let ns = "illusory0x0_core"
+  obj[`${ns}_new`] = prototype_to_new(classes)
+  obj["spectest"] =  spectest
+  obj["moonbit:ffi"] = { make_closure }
+  obj[`${ns}_global`] = global 
+  obj[`${ns}_String`] = prototype_to_ffi(String)
+  obj[`${ns}_ArrayBuffer`] = prototype_to_ffi(ArrayBuffer)
+  obj[`${ns}_SharedArrayBuffer`] = prototype_to_ffi(SharedArrayBuffer)
+  obj[`${ns}_TextDecoder`] = prototype_to_ffi(TextDecoder)
+  obj[`${ns}_TextEncoder`] = prototype_to_ffi(TextEncoder)
+  obj[`${ns}_Error`] = prototype_to_ffi(Error)
+  obj[`${ns}_Console`] = prototype_to_ffi(Console)
+  obj[`${ns}_Date`] = prototype_to_ffi(Date)
+  obj[`${ns}_RegExp`] = prototype_to_ffi(RegExp)
+  obj[`${ns}_Map`] = prototype_to_ffi(Map)
+  obj[`${ns}_Set`] = prototype_to_ffi(Set)
+  obj[`${ns}_WeakMap`] = prototype_to_ffi(WeakMap)
+  obj[`${ns}_WeakSet`] = prototype_to_ffi(WeakSet)
+  obj[`${ns}_WeakRef`] = prototype_to_ffi(WeakRef)
+  obj[`${ns}_DataView`] = prototype_to_ffi(DataView)
+  obj[`${ns}_Array`] = prototype_to_ffi(Array)
+  return obj
+}

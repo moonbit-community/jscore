@@ -1,14 +1,14 @@
 ///|
-fn JWeakMap::_get(self : JWeakMap[JAny, JAny], index : JAny) -> JAny = "WeakMap" "get"
+fn JWeakMap::_get(self : JWeakMap[JAny, JAny], index : JAny) -> JAny = "illusory0x0_core_WeakMap" "get"
 
 ///|
-fn JWeakMap::_set(self : JWeakMap[JAny, JAny], index : JAny, value : JAny) = "WeakMap" "set"
+fn JWeakMap::_set(self : JWeakMap[JAny, JAny], index : JAny, value : JAny) = "illusory0x0_core_WeakMap" "set"
 
 ///|
-fn JWeakMap::_has(self : JWeakMap[JAny, JAny], index : JAny) -> Bool = "WeakMap" "has"
+fn JWeakMap::_has(self : JWeakMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_WeakMap" "has"
 
 ///|
-fn JWeakMap::_delete(self : JWeakMap[JAny, JAny], index : JAny) -> Bool = "WeakMap" "delete"
+fn JWeakMap::_delete(self : JWeakMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_WeakMap" "delete"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/get)
 pub fn JWeakMap::op_get[K : Js_Object, V : Js_Object](

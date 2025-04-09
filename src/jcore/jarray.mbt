@@ -1,11 +1,10 @@
 ///|
-fn JArray::_empty() -> JArray[JAny] = "new" "Array"
 
 ///|
-fn JArray::_length(self : JArray[JAny]) -> Int = "global" "length"
+fn JArray::_length(self : JArray[JAny]) -> Int = "illusory0x0_core_global" "length"
 
 ///|
-fn JArray::_from(it : JIterator[JAny]) -> JArray[JAny] = "Array" "static_from"
+fn JArray::_from(it : JIterator[JAny]) -> JArray[JAny] = "illusory0x0_core_Array" "static_from"
 
 ///|
 fn JArray::_op_get(self : JArray[JAny], index : Int) -> JAny {

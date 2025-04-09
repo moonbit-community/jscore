@@ -1,5 +1,5 @@
 ///|
-fn JTypedArray::_length(self : JTypedArray[JAny]) -> Int = "global" "length"
+fn JTypedArray::_length(self : JTypedArray[JAny]) -> Int = "illusory0x0_core_global" "length"
 
 ///|
 pub fn JTypedArray::length[T](self : JTypedArray[T]) -> Int {

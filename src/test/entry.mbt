@@ -151,12 +151,6 @@ fn test_global() -> Unit {
 }
 
 ///|
-fn test_try_catch() -> Unit {
-  let e = JError::new(JTextDecoder::from_string(""))
-  js_try_catch_finally(fn() { js_throw(e) }, fn(e) { console.log(e) }, fn() {  })
-}
-
-///|
 fn test_arraybuffer() -> Unit {
   let buf = JArrayBuffer::new(1024)
   console.log(buf.byteLength())
@@ -170,7 +164,7 @@ fn test_arraybuffer() -> Unit {
 
 ///|
 fn test_console() -> Unit {
-  console.clear()
+  // console.clear()
   let timer1 = JTextDecoder::from_string("timer1")
   console.time(timer1)
   console.log(0)
@@ -321,9 +315,9 @@ fn test_textencoder() -> Unit {
 
 ///|
 pub fn entry_test() -> Unit {
+  println("BEGIN TEST")
   test_array()
   test_arraybuffer()
-  test_console()
   test_dataview()
   test_date()
   test_error()
@@ -336,15 +330,24 @@ pub fn entry_test() -> Unit {
   test_textdecoder_from_string()
   test_textencoder()
   test_typedarray()
-  test_try_catch()
+  test_console()
+  // test_try_catch() 
+  println("END TEST")
 }
 
-pub fn catch_panic() -> Unit {
-  js_try_catch_finally(fn() {
-    panic()
-  },fn(e) {
-    println("catch panic")
-  },fn() {
-
-  })
+///|
+/// wasm backend doesn't support now.
+/// https://github.com/moonbitlang/moonbit-docs/issues/620
+fn test_try_catch() -> Unit {
+  let e = JError::new(JTextDecoder::from_string(""))
+  js_try_catch_finally(fn() { js_throw(e) }, fn(e) { console.log(e) }, fn() {  })
 }
+// pub fn catch_panic() -> Unit {
+//   js_try_catch_finally(fn() {
+//     panic()
+//   },fn(e) {
+//     println("catch panic")
+//   },fn() {
+
+//   })
+// }

@@ -1,15 +1,13 @@
 mbt:
-	moon build --watch 
+	moon build --watch --target all --debug
 
 test:
 	npx tsx \
-	--test-update-snapshots \
-	--watch-path=target\wasm-gc\release\build\test\test.wasm \
-	--watch-path=./ts-import-object \
+	--watch-path=target \
 	--watch-path=./src/test/test.ts \
 	./src/test/test.ts
 
-
 benchmark:
+	moon build --target all --release 
 	npx tsx \
 	src\benchmark\benchmark.ts

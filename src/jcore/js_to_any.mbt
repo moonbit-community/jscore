@@ -1,32 +1,32 @@
 ///|
-fn _byte_to_any(x : Byte) -> JAny = "global" "coerce"
+fn _byte_to_any(x : Byte) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _u16_to_any(x : UInt16) -> JAny = "global" "coerce"
+fn _u16_to_any(x : UInt16) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _u32_to_any(x : UInt) -> JAny = "global" "coerce"
+fn _u32_to_any(x : UInt) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _u64_to_any(x : UInt64) -> JAny = "global" "coerce"
+fn _u64_to_any(x : UInt64) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _i16_to_any(x : Int16) -> JAny = "global" "coerce"
+fn _i16_to_any(x : Int16) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _i64_to_any(x : Int64) -> JAny = "global" "coerce"
+fn _i64_to_any(x : Int64) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _i32_to_any(x : Int) -> JAny = "global" "coerce"
+fn _i32_to_any(x : Int) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _f32_to_any(x : Float) -> JAny = "global" "coerce"
+fn _f32_to_any(x : Float) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _f64_to_any(x : Double) -> JAny = "global" "coerce"
+fn _f64_to_any(x : Double) -> JAny = "illusory0x0_core_global" "coerce"
 
 ///|
-fn _bool_to_any(x : Bool) -> JAny = "global" "number_to_bool"
+fn _bool_to_any(x : Bool) -> JAny = "illusory0x0_core_global" "number_to_bool"
 
 ///|
 pub impl Js for Int with to_any(self) {

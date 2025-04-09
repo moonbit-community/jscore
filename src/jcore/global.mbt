@@ -1,23 +1,23 @@
 ///|
-fn _true() -> JAny = "global" "true"
+fn _true() -> JAny = "illusory0x0_core_global" "true"
 
 ///|
-fn _false() -> JAny = "global" "false"
+fn _false() -> JAny = "illusory0x0_core_global" "false"
 
 ///|
-fn _null() -> JAny = "global" "null"
+fn _null() -> JAny = "illusory0x0_core_global" "null"
 
 ///|
-fn _undefined() -> JAny = "global" "undefined"
+fn _undefined() -> JAny = "illusory0x0_core_global" "undefined"
 
 ///|
-fn js_typeof(self : JAny) -> JString = "global" "typeof"
+fn js_typeof(self : JAny) -> JString = "illusory0x0_core_global" "typeof"
 
 ///|
-fn js_instanceof(self : JAny, constructor : JAny) -> Bool = "global" "instanceof"
+fn js_instanceof(self : JAny, constructor : JAny) -> Bool = "illusory0x0_core_global" "instanceof"
 
 ///|
-fn js_equal(self : JAny, other : JAny) -> Bool = "global" "equal"
+fn js_equal(self : JAny, other : JAny) -> Bool = "illusory0x0_core_global" "equal"
 
 ///|
 impl Eq for JAny with op_equal(self, other) {
@@ -41,13 +41,13 @@ pub fn js_try_catch_finally(
   fn_try : () -> Unit,
   fn_catch : (JError) -> Unit,
   fn_finally : () -> Unit
-) = "global" "try_catch_finally"
+) = "illusory0x0_core_global" "try_catch_finally"
 
 ///|
-pub fn js_throw(e : JError) = "global" "throw_error"
+pub fn js_throw(e : JError) = "illusory0x0_core_global" "throw_error"
 
 ///|
-fn _utf16Decoder() -> JTextDecoder = "global" "utf16Decoder"
+fn _utf16Decoder() -> JTextDecoder = "illusory0x0_core_global" "utf16Decoder"
 
 ///|
 pub let utf16Decoder : JTextDecoder = _utf16Decoder()
@@ -56,7 +56,7 @@ pub let utf16Decoder : JTextDecoder = _utf16Decoder()
 let buffer : Ref[JArrayBuffer] = Ref::new(JArrayBuffer::new(8192 << 1))
 
 ///|
-fn _console() -> JConsole = "global" "console"
+fn _console() -> JConsole = "illusory0x0_core_global" "console"
 
 ///|
 pub let console : JConsole = _console()

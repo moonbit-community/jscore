@@ -1,11 +1,11 @@
 ///|
-fn JWeakSet::_has(self : JWeakSet[JAny], value : JAny) -> Bool = "WeakSet" "has"
+fn JWeakSet::_has(self : JWeakSet[JAny], value : JAny) -> Bool = "illusory0x0_core_WeakSet" "has"
 
 ///|
-fn JWeakSet::_add(self : JWeakSet[JAny], value : JAny) = "WeakSet" "add"
+fn JWeakSet::_add(self : JWeakSet[JAny], value : JAny) = "illusory0x0_core_WeakSet" "add"
 
 ///|
-fn JWeakSet::_delete(self : JWeakSet[JAny], value : JAny) = "WeakSet" "delete"
+fn JWeakSet::_delete(self : JWeakSet[JAny], value : JAny) = "illusory0x0_core_WeakSet" "delete"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/has)
 pub fn JWeakSet::has[T : Js_Object](self : JWeakSet[T], value : T) -> Bool {

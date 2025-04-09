@@ -1,4 +1,6 @@
 
+import fs from 'node:fs/promises';
+
 export let make_closure = (funcref: Function, closure: unknown) => funcref.bind(null, closure)
 
 export let object_setter = (obj: Record<any, any>, index: any, value: any): void => { obj[index] = value }
@@ -67,3 +69,63 @@ export let prototype_to_ffi = (ty: Prototype): WebAssembly.ModuleImports => {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 // TypedArray is intrinsic
 // https://tc39.es/ecma262/multipage/indexed-collections.html#sec-%typedarray%-intrinsic-object
+
+
+
+export enum Backend {
+  js,
+  wasm,
+  wasm_gc,
+}
+
+export enum BuildType {
+  debug = "debug",
+  release = "release"
+}
+
+export let panic = () => { throw Error("panic") }
+
+
+export let moonbit_ffi = async (
+  backend: Backend,
+  cwd: string,
+  build_type: BuildType,
+  package_path: string,
+  import_object: (dest: any) => void): Promise<WebAssembly.Exports> => {
+
+  let backend_path = null
+
+  if (backend === Backend.js) {
+    backend_path = "js"
+  } else if (backend === Backend.wasm) {
+    backend_path = "wasm"
+  } else if (backend === Backend.wasm_gc) {
+    backend_path = "wasm-gc"
+  } else {
+    panic()
+  }
+  let backend_suffix = null
+
+  if (backend === Backend.js) {
+    backend_suffix = "js"
+  } else if (backend === Backend.wasm || backend === Backend.wasm_gc) {
+    backend_suffix = "wasm"
+  } else {
+    panic()
+  }
+
+  if (backend === Backend.js) {
+    let import_path = `file:///${cwd}/target/${backend_path}/${build_type}/build/${package_path}/${package_path}.${backend_suffix}`
+    import_object(globalThis)
+    return import(import_path)
+  } if (backend === Backend.wasm || backend === Backend.wasm_gc) {
+    let importObject = {}
+    import_object(importObject)
+    let import_path = `target/${backend_path}/${build_type}/build/${package_path}/${package_path}.${backend_suffix}`
+    // fetch API doesn't fetch resource from file protocol, e.g. `file:///`
+    let instance = await WebAssembly.instantiate(await fs.readFile(import_path), importObject)
+    return instance.instance.exports
+  } else {
+    return panic()
+  }
+}

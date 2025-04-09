@@ -1,8 +1,8 @@
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)
-pub fn JDate::now() -> Double = "Date" "static_now"
+pub fn JDate::now() -> Double = "illusory0x0_core_Date" "static_now"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
-pub fn JDate::parse(self : JString) -> Double = "Date" "static_parse"
+pub fn JDate::parse(self : JString) -> Double = "illusory0x0_core_Date" "static_parse"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC)
 pub fn JDate::utc(
@@ -13,35 +13,34 @@ pub fn JDate::utc(
   minutes : Int,
   seconds : Int,
   milliseconds : Int
-) -> JDate = "Date" "static_UTC"
+) -> JDate = "illusory0x0_core_Date" "static_UTC"
 
 ///|
-pub fn JDate::from_timestamp(timestamp : Double) -> JDate = "new" "Date"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON)
-pub fn JDate::toJSON(self : JDate) -> JObject = "Date" "toJSON"
+pub fn JDate::toJSON(self : JDate) -> JObject = "illusory0x0_core_Date" "toJSON"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)
-pub fn JDate::toLocaleString(self : JDate) -> JString = "Date" "toLocaleString"
+pub fn JDate::toLocaleString(self : JDate) -> JString = "illusory0x0_core_Date" "toLocaleString"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString)
-pub fn JDate::toLocaleDateString(self : JDate) -> JString = "Date" "toLocaleDateString"
+pub fn JDate::toLocaleDateString(self : JDate) -> JString = "illusory0x0_core_Date" "toLocaleDateString"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString)
-pub fn JDate::toLocaleTimeString(self : JDate) -> JString = "Date" "toLocaleTimeString"
+pub fn JDate::toLocaleTimeString(self : JDate) -> JString = "illusory0x0_core_Date" "toLocaleTimeString"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString)
-pub fn JDate::toString(self : JDate) -> JString = "Date" "toString"
+pub fn JDate::toString(self : JDate) -> JString = "illusory0x0_core_Date" "toString"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString)
-pub fn JDate::toDateString(self : JDate) -> JString = "Date" "toDateString"
+pub fn JDate::toDateString(self : JDate) -> JString = "illusory0x0_core_Date" "toDateString"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString)
-pub fn JDate::toTimeString(self : JDate) -> JString = "Date" "toTimeString"
+pub fn JDate::toTimeString(self : JDate) -> JString = "illusory0x0_core_Date" "toTimeString"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
-pub fn JDate::toISOString(self : JDate) -> JString = "Date" "toISOString"
+pub fn JDate::toISOString(self : JDate) -> JString = "illusory0x0_core_Date" "toISOString"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString)
-pub fn JDate::toUTCString(self : JDate) -> JString = "Date" "toUTCString"
+pub fn JDate::toUTCString(self : JDate) -> JString = "illusory0x0_core_Date" "toUTCString"
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toGMTString)

@@ -1,5 +1,5 @@
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/decode)
-fn JTextDecoder::_decode(self : JTextDecoder, buffer : JAny) -> JString = "TextDecoder" "decode"
+fn JTextDecoder::_decode(self : JTextDecoder, buffer : JAny) -> JString = "illusory0x0_core_TextDecoder" "decode"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/decode)
 pub fn JTextDecoder::decode[T](
@@ -10,10 +10,10 @@ pub fn JTextDecoder::decode[T](
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/encoding)
-pub fn JTextDecoder::encoding(self : JTextDecoder) -> JString = "TextDecoder" "get_encoding"
+pub fn JTextDecoder::encoding(self : JTextDecoder) -> JString = "illusory0x0_core_TextDecoder" "get_encoding"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/fatal)
-pub fn JTextDecoder::fatal(self : JTextDecoder) -> Bool = "TextDecoder" "get_fatal"
+pub fn JTextDecoder::fatal(self : JTextDecoder) -> Bool = "illusory0x0_core_TextDecoder" "get_fatal"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/ignoreBOM)
-pub fn JTextDecoder::ignoreBOM(self : JTextDecoder) -> Bool = "TextDecoder" "get_ignoreBOM"
+pub fn JTextDecoder::ignoreBOM(self : JTextDecoder) -> Bool = "illusory0x0_core_TextDecoder" "get_ignoreBOM"

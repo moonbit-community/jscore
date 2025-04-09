@@ -1,5 +1,5 @@
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
-pub fn JString::charCodeAt(self : JString, index : Int) -> Char = "String" "charCodeAt"
+pub fn JString::charCodeAt(self : JString, index : Int) -> Char = "illusory0x0_core_String" "charCodeAt"
 
 ///|
 pub fn JString::op_get(self : JString, index : Int) -> Char {
@@ -7,7 +7,7 @@ pub fn JString::op_get(self : JString, index : Int) -> Char {
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length)
-pub fn JString::length(self : JString) -> Int = "global" "length"
+pub fn JString::length(self : JString) -> Int = "illusory0x0_core_global" "length"
 
 ///|
 pub fn JString::to_string(self : JString) -> String {

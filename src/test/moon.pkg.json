@@ -6,6 +6,18 @@
         "entry_test",
         "catch_panic"
       ]
+    },
+    "wasm": {
+      "exports": [
+        "entry_test",
+        "catch_panic"
+      ]
+    },
+    "js": {
+      "exports": [
+        "entry_test",
+        "catch_panic"
+      ]
     }
   },
   "import": [
