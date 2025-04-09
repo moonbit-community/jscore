@@ -82,7 +82,7 @@ pub impl Js for Byte with to_any(self) {
 pub impl Js for Any with to_any(self) = "%identity"
 
 ///|
-pub impl Js for JError with to_any(self) = "%identity"
+pub impl Js for Error_ with to_any(self) = "%identity"
 
 ///|
 pub impl Js for AggregateError with to_any(self) = "%identity"
@@ -109,7 +109,7 @@ pub impl Js for TextEncoder with to_any(self) = "%identity"
 pub impl Js for Object with to_any(self) = "%identity"
 
 ///|
-pub impl Js for JString with to_any(self) = "%identity"
+pub impl Js for String_ with to_any(self) = "%identity"
 
 ///|
 pub impl Js for ArrayBuffer with to_any(self) = "%identity"

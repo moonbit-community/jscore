@@ -1,5 +1,5 @@
 ///|
-pub impl Js_Object for JError with to_object(self) = "%identity"
+pub impl Js_Object for Error_ with to_object(self) = "%identity"
 
 ///|
 pub impl Js_Object for AggregateError with to_object(self) = "%identity"
@@ -26,7 +26,7 @@ pub impl Js_Object for TextEncoder with to_object(self) = "%identity"
 pub impl Js_Object for Object with to_object(self) = "%identity"
 
 ///|
-pub impl Js_Object for JString with to_object(self) = "%identity"
+pub impl Js_Object for String_ with to_object(self) = "%identity"
 
 ///|
 pub impl Js_Object for ArrayBuffer with to_object(self) = "%identity"

@@ -11,11 +11,11 @@ let js_false : Any
 
 let js_null : Any
 
-fn js_throw(JError) -> Unit
+fn js_throw(Error_) -> Unit
 
 let js_true : Any
 
-fn js_try_catch_finally(() -> Unit, (JError) -> Unit, () -> Unit) -> Unit
+fn js_try_catch_finally(() -> Unit, (Error_) -> Unit, () -> Unit) -> Unit
 
 let js_undefined : Any
 
@@ -24,7 +24,7 @@ let utf16Decoder : TextDecoder
 // Types and methods
 pub extern type AggregateError
 impl AggregateError {
-  new(Array[JError], JString) -> Self
+  new(Array[Error_], String_) -> Self
 }
 impl Js for AggregateError
 impl Js_Error for AggregateError
@@ -72,21 +72,21 @@ pub extern type Console
 impl Console {
   assert_[T : Js](Self, Bool, T) -> Unit
   clear(Self) -> Unit
-  count(Self, JString) -> Unit
-  countReset(Self, JString) -> Unit
+  count(Self, String_) -> Unit
+  countReset(Self, String_) -> Unit
   debug[T : Js](Self, T) -> Unit
   dir[T : Js](Self, T) -> Unit
   dirxml[T : Js](Self, T) -> Unit
   error[T : Js](Self, T) -> Unit
-  group(Self, JString) -> Unit
-  groupCollapsed(Self, JString) -> Unit
-  groupEnd(Self, JString) -> Unit
+  group(Self, String_) -> Unit
+  groupCollapsed(Self, String_) -> Unit
+  groupEnd(Self, String_) -> Unit
   info[T : Js](Self, T) -> Unit
   log[T : Js](Self, T) -> Unit
   table[T](Self, Array[T]) -> Unit
-  time(Self, JString) -> Unit
-  timeEnd(Self, JString) -> Unit
-  timeLog(Self, JString) -> Unit
+  time(Self, String_) -> Unit
+  timeEnd(Self, String_) -> Unit
+  timeLog(Self, String_) -> Unit
   trace(Self) -> Unit
   warn[T : Js](Self, T) -> Unit
 }
@@ -128,16 +128,16 @@ impl Date {
   from_timestamp(Double) -> Self
   new(Int, Int, Int, Int, Int, Int, Int) -> Self
   now() -> Double
-  parse(JString) -> Double
-  toDateString(Self) -> JString
-  toISOString(Self) -> JString
+  parse(String_) -> Double
+  toDateString(Self) -> String_
+  toISOString(Self) -> String_
   toJSON(Self) -> Object
-  toLocaleDateString(Self) -> JString
-  toLocaleString(Self) -> JString
-  toLocaleTimeString(Self) -> JString
-  toString(Self) -> JString
-  toTimeString(Self) -> JString
-  toUTCString(Self) -> JString
+  toLocaleDateString(Self) -> String_
+  toLocaleString(Self) -> String_
+  toLocaleTimeString(Self) -> String_
+  toString(Self) -> String_
+  toTimeString(Self) -> String_
+  toUTCString(Self) -> String_
   utc(Int, Int, Int, Int, Int, Int, Int) -> Self
 }
 impl Js for Date
@@ -145,7 +145,7 @@ impl Js_Object for Date
 
 pub extern type EvalError
 impl EvalError {
-  new(JString) -> Self
+  new(String_) -> Self
 }
 impl Js for EvalError
 impl Js_Error for EvalError
@@ -155,26 +155,26 @@ pub extern type Iterator[T]
 impl[T] Js for Iterator[T]
 impl[T] Js_Object for Iterator[T]
 
-pub extern type JError
-impl JError {
-  message(Self) -> JString
-  name(Self) -> JString
-  new(JString) -> Self
-  toString(Self) -> JString
+pub extern type Error_
+impl Error_ {
+  message(Self) -> String_
+  name(Self) -> String_
+  new(String_) -> Self
+  toString(Self) -> String_
 }
-impl Js for JError
-impl Js_Error for JError
-impl Js_Object for JError
+impl Js for Error_
+impl Js_Error for Error_
+impl Js_Object for Error_
 
-pub extern type JString
-impl JString {
+pub extern type String_
+impl String_ {
   charCodeAt(Self, Int) -> Char
   length(Self) -> Int
   op_get(Self, Int) -> Char
   to_string(Self) -> String
 }
-impl Js for JString
-impl Js_Object for JString
+impl Js for String_
+impl Js_Object for String_
 
 pub extern type Map[K, V]
 impl Map {
@@ -201,15 +201,15 @@ impl Js for Number
 pub extern type Object
 impl Object {
   empty() -> Self
-  op_get(Self, JString) -> Any
-  op_set(Self, JString, Any) -> Unit
+  op_get(Self, String_) -> Any
+  op_set(Self, String_, Any) -> Unit
 }
 impl Js for Object
 impl Js_Object for Object
 
 pub extern type RangeError
 impl RangeError {
-  new(JString) -> Self
+  new(String_) -> Self
 }
 impl Js for RangeError
 impl Js_Error for RangeError
@@ -217,7 +217,7 @@ impl Js_Object for RangeError
 
 pub extern type ReferenceError
 impl ReferenceError {
-  new(JString) -> Self
+  new(String_) -> Self
 }
 impl Js for ReferenceError
 impl Js_Error for ReferenceError
@@ -225,8 +225,8 @@ impl Js_Object for ReferenceError
 
 pub extern type RegExp
 impl RegExp {
-  new(JString) -> Self
-  toString(Self) -> JString
+  new(String_) -> Self
+  toString(Self) -> String_
 }
 impl Js for RegExp
 impl Js_Object for RegExp
@@ -267,7 +267,7 @@ impl Js_Object for SharedArrayBuffer
 
 pub extern type SyntaxError
 impl SyntaxError {
-  new(JString) -> Self
+  new(String_) -> Self
 }
 impl Js for SyntaxError
 impl Js_Error for SyntaxError
@@ -275,19 +275,19 @@ impl Js_Object for SyntaxError
 
 pub extern type TextDecoder
 impl TextDecoder {
-  decode[T](Self, TypedArray[T]) -> JString
-  encoding(Self) -> JString
+  decode[T](Self, TypedArray[T]) -> String_
+  encoding(Self) -> String_
   fatal(Self) -> Bool
-  from_string(String) -> JString
+  from_string(String) -> String_
   ignoreBOM(Self) -> Bool
-  new(JString) -> Self
+  new(String_) -> Self
 }
 
 pub extern type TextEncoder
 impl TextEncoder {
-  encode(Self, JString) -> TypedArray[Byte]
-  encodeInto(Self, JString, TypedArray[Byte]) -> Object
-  encoding(Self) -> JString
+  encode(Self, String_) -> TypedArray[Byte]
+  encodeInto(Self, String_, TypedArray[Byte]) -> Object
+  encoding(Self) -> String_
   new() -> Self
 }
 impl Js for TextEncoder
@@ -295,7 +295,7 @@ impl Js_Object for TextEncoder
 
 pub extern type TypeError
 impl TypeError {
-  new(JString) -> Self
+  new(String_) -> Self
 }
 impl Js for TypeError
 impl Js_Error for TypeError
@@ -356,7 +356,7 @@ pub typealias Int32Array = TypedArray[Int]
 
 pub typealias Int8Array = TypedArray[Byte]
 
-pub typealias JInt16Array = TypedArray[Int16]
+pub typealias Int16Array = TypedArray[Int16]
 
 pub typealias Uint16Array = TypedArray[UInt16]
 
@@ -399,10 +399,10 @@ impl Js_Array for Float
 impl Js_Array for Double
 
 pub trait Js_Error : Js {
-  to_error(Self) -> JError
-  name(Self) -> JString
-  message(Self) -> JString
-  toString(Self) -> JString
+  to_error(Self) -> Error_
+  name(Self) -> String_
+  message(Self) -> String_
+  toString(Self) -> String_
 }
 
 pub trait Js_Object : Js {

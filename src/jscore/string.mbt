@@ -1,16 +1,16 @@
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
-pub fn JString::charCodeAt(self : JString, index : Int) -> Char = "illusory0x0_core_String" "charCodeAt"
+pub fn String_::charCodeAt(self : String_, index : Int) -> Char = "illusory0x0_core_String" "charCodeAt"
 
 ///|
-pub fn JString::op_get(self : JString, index : Int) -> Char {
+pub fn String_::op_get(self : String_, index : Int) -> Char {
   self.charCodeAt(index)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length)
-pub fn JString::length(self : JString) -> Int = "illusory0x0_core_global" "length"
+pub fn String_::length(self : String_) -> Int = "illusory0x0_core_global" "length"
 
 ///|
-pub fn JString::to_string(self : JString) -> String {
+pub fn String_::to_string(self : String_) -> String {
   let slen = self.length()
   let blen = slen << 1
   let arr : FixedArray[Byte] = FixedArray::make(blen, 0)

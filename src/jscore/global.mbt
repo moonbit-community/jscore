@@ -11,7 +11,7 @@ fn _null() -> Any = "illusory0x0_core_global" "null"
 fn _undefined() -> Any = "illusory0x0_core_global" "undefined"
 
 ///|
-fn js_typeof(self : Any) -> JString = "illusory0x0_core_global" "typeof"
+fn js_typeof(self : Any) -> String_ = "illusory0x0_core_global" "typeof"
 
 ///|
 fn js_instanceof(self : Any, constructor : Any) -> Bool = "illusory0x0_core_global" "instanceof"
@@ -39,12 +39,12 @@ pub let js_undefined : Any = _undefined()
 ///|
 pub fn js_try_catch_finally(
   fn_try : () -> Unit,
-  fn_catch : (JError) -> Unit,
+  fn_catch : (Error_) -> Unit,
   fn_finally : () -> Unit
 ) = "illusory0x0_core_global" "try_catch_finally"
 
 ///|
-pub fn js_throw(e : JError) = "illusory0x0_core_global" "throw_error"
+pub fn js_throw(e : Error_) = "illusory0x0_core_global" "throw_error"
 
 ///|
 fn _utf16Decoder() -> TextDecoder = "illusory0x0_core_global" "utf16Decoder"
@@ -62,7 +62,7 @@ fn _console() -> Console = "illusory0x0_core_global" "console"
 pub let console : Console = _console()
 
 ///|
-pub fn TextDecoder::from_string(str : String) -> JString {
+pub fn TextDecoder::from_string(str : String) -> String_ {
   let slen = str.length()
   let blen = slen << 1
   if blen >= buffer.val.byteLength() {

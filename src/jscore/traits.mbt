@@ -12,10 +12,10 @@ pub trait Js_Array {
 
 ///|
 pub trait Js_Error: Js {
-  to_error(Self) -> JError
-  name(Self) -> JString
-  message(Self) -> JString
-  toString(Self) -> JString
+  to_error(Self) -> Error_
+  name(Self) -> String_
+  message(Self) -> String_
+  toString(Self) -> String_
 }
 
 ///|

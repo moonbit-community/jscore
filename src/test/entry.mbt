@@ -1,7 +1,7 @@
 ///|
 typealias @jscore.(
   TextDecoder,
-  JError,
+  Error_,
   ReferenceError,
   RangeError,
   EvalError,
@@ -14,7 +14,7 @@ typealias @jscore.(
   RegExp,
   Date,
   SharedArrayBuffer,
-  JString,
+  String_,
   Any,
   Int32Array,
   Map[K, V],
@@ -41,7 +41,7 @@ let console = @jscore.console
 fn test_new() -> Unit {
   let msg = TextDecoder::from_string("hello")
   let errors = Array::from_builtin([
-    JError::new(msg),
+    Error_::new(msg),
     RangeError::new(msg).to_error(),
     EvalError::new(msg).to_error(),
     SyntaxError::new(msg).to_error(),
@@ -79,7 +79,7 @@ fn test_error() -> Unit {
   let msg = TextDecoder::from_string("hello")
   let msg = TextDecoder::from_string("hello")
   let errors = [
-    JError::new(msg),
+    Error_::new(msg),
     RangeError::new(msg).to_error(),
     EvalError::new(msg).to_error(),
     SyntaxError::new(msg).to_error(),
@@ -163,7 +163,7 @@ fn test_regexp() -> Unit {
 
 ///|
 fn test_map() -> Unit {
-  let map : Map[JString, Int] = Map::new()
+  let map : Map[String_, Int] = Map::new()
   map[TextDecoder::from_string("a")] = 0
   map[TextDecoder::from_string("b")] = 1
   console.log(map)
@@ -291,7 +291,7 @@ pub fn entry_test() -> Unit {
 /// wasm backend doesn't support now.
 /// https://github.com/moonbitlang/moonbit-docs/issues/620
 fn test_try_catch() -> Unit {
-  let e = JError::new(TextDecoder::from_string(""))
+  let e = Error_::new(TextDecoder::from_string(""))
   js_try_catch_finally(fn() { js_throw(e) }, fn(e) { console.log(e) }, fn() {  })
 }
 // pub fn catch_panic() -> Unit {

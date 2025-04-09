@@ -61,13 +61,13 @@ pub fn Console::dirxml[T : Js](self : Console, data : T) -> Unit {
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/time_static)
-pub fn Console::time(self : Console, label : JString) = "illusory0x0_core_Console" "time"
+pub fn Console::time(self : Console, label : String_) = "illusory0x0_core_Console" "time"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/timeLog_static)
-pub fn Console::timeLog(self : Console, label : JString) = "illusory0x0_core_Console" "timeLog"
+pub fn Console::timeLog(self : Console, label : String_) = "illusory0x0_core_Console" "timeLog"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/timeEnd_static)
-pub fn Console::timeEnd(self : Console, label : JString) = "illusory0x0_core_Console" "timeEnd"
+pub fn Console::timeEnd(self : Console, label : String_) = "illusory0x0_core_Console" "timeEnd"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/trace_static)
 pub fn Console::trace(self : Console) = "illusory0x0_core_Console" "trace"
@@ -85,16 +85,16 @@ pub fn Console::assert_[T : Js](
 pub fn Console::clear(self : Console) = "illusory0x0_core_Console" "clear"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/count_static)
-pub fn Console::count(self : Console, label : JString) = "illusory0x0_core_Console" "count"
+pub fn Console::count(self : Console, label : String_) = "illusory0x0_core_Console" "count"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/countReset_static)
-pub fn Console::countReset(self : Console, label : JString) = "illusory0x0_core_Console" "countReset"
+pub fn Console::countReset(self : Console, label : String_) = "illusory0x0_core_Console" "countReset"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/group_static)
-pub fn Console::group(self : Console, label : JString) = "illusory0x0_core_Console" "group"
+pub fn Console::group(self : Console, label : String_) = "illusory0x0_core_Console" "group"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/groupEnd_static)
-pub fn Console::groupEnd(self : Console, label : JString) = "illusory0x0_core_Console" "groupEnd"
+pub fn Console::groupEnd(self : Console, label : String_) = "illusory0x0_core_Console" "groupEnd"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/table_static)
 /// TODO: add support for Object
@@ -103,4 +103,4 @@ pub fn Console::table[T](self : Console, data : Array[T]) -> Unit {
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/console/groupCollapsed_static)
-pub fn Console::groupCollapsed(self : Console, label : JString) = "illusory0x0_core_Console" "groupCollapsed"
+pub fn Console::groupCollapsed(self : Console, label : String_) = "illusory0x0_core_Console" "groupCollapsed"

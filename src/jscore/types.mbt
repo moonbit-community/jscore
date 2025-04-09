@@ -8,7 +8,7 @@ pub extern type Object
 pub extern type Array[T]
 
 ///|
-pub extern type JError
+pub extern type Error_
 
 ///|
 pub extern type AggregateError
@@ -32,7 +32,7 @@ pub extern type TypeError
 pub extern type URIError
 
 ///|
-pub extern type JString
+pub extern type String_
 
 ///|
 pub extern type TextDecoder
@@ -59,7 +59,7 @@ pub typealias Uint32Array = TypedArray[UInt]
 pub typealias Int8Array = TypedArray[Byte]
 
 ///|
-pub typealias JInt16Array = TypedArray[Int16]
+pub typealias Int16Array = TypedArray[Int16]
 
 ///|
 pub extern type Console
@@ -113,5 +113,5 @@ pub extern type WeakRef[T]
 pub extern type Iterator[T]
 
 // TODO
-// pub extern type JFinalizationRegistry
-// pub extern type JPromise[T]
+// pub extern type FinalizationRegistry
+// pub extern type Promise[T]

@@ -1,5 +1,5 @@
 ///|
-pub impl Js_Error for JError with to_error(self) = "%identity"
+pub impl Js_Error for Error_ with to_error(self) = "%identity"
 
 ///|
 pub impl Js_Error for AggregateError with to_error(self) = "%identity"

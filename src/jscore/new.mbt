@@ -1,25 +1,25 @@
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Error)
-pub fn JError::new(msg : JString) -> JError = "illusory0x0_core_new" "Error"
+pub fn Error_::new(msg : String_) -> Error_ = "illusory0x0_core_new" "Error"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError/RangeError)
-pub fn RangeError::new(msg : JString) -> RangeError = "illusory0x0_core_new" "RangeError"
+pub fn RangeError::new(msg : String_) -> RangeError = "illusory0x0_core_new" "RangeError"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError/EvalError)
-pub fn EvalError::new(msg : JString) -> EvalError = "illusory0x0_core_new" "EvalError"
+pub fn EvalError::new(msg : String_) -> EvalError = "illusory0x0_core_new" "EvalError"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError/SyntaxError)
-pub fn SyntaxError::new(msg : JString) -> SyntaxError = "illusory0x0_core_new" "SyntaxError"
+pub fn SyntaxError::new(msg : String_) -> SyntaxError = "illusory0x0_core_new" "SyntaxError"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError/TypeError)
-pub fn TypeError::new(msg : JString) -> TypeError = "illusory0x0_core_new" "TypeError"
+pub fn TypeError::new(msg : String_) -> TypeError = "illusory0x0_core_new" "TypeError"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError/ReferenceError)
-pub fn ReferenceError::new(msg : JString) -> ReferenceError = "illusory0x0_core_new" "ReferenceError"
+pub fn ReferenceError::new(msg : String_) -> ReferenceError = "illusory0x0_core_new" "ReferenceError"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError)
 pub fn AggregateError::new(
-  xs : Array[JError],
-  msg : JString
+  xs : Array[Error_],
+  msg : String_
 ) -> AggregateError = "illusory0x0_core_new" "AggregateError"
 
 ///|
@@ -55,7 +55,7 @@ fn TypedArray::_i16_new(
   buffer : ArrayBuffer,
   offset : Int,
   length : Int
-) -> JInt16Array = "illusory0x0_core_new" "Int16Array"
+) -> Int16Array = "illusory0x0_core_new" "Int16Array"
 
 ///|
 fn TypedArray::_i32_new(
@@ -165,7 +165,7 @@ pub fn ArrayBuffer::new(len : Int) -> ArrayBuffer = "illusory0x0_core_new" "Arra
 pub fn TextEncoder::new() -> TextEncoder = "illusory0x0_core_new" "TextEncoder"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/TextDecoder)
-pub fn TextDecoder::new(label : JString) -> TextDecoder = "illusory0x0_core_new" "TextDecoder"
+pub fn TextDecoder::new(label : String_) -> TextDecoder = "illusory0x0_core_new" "TextDecoder"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/Number)
 pub fn Number::new(value : Any) -> Number = "illusory0x0_core_new" "Number"
@@ -182,7 +182,7 @@ pub fn Date::new(
 ) -> Date = "illusory0x0_core_new" "Date"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp)
-pub fn RegExp::new(pattern : JString) -> RegExp = "illusory0x0_core_new" "RegExp"
+pub fn RegExp::new(pattern : String_) -> RegExp = "illusory0x0_core_new" "RegExp"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Map)
 fn Map::_new() -> Map[Any, Any] = "illusory0x0_core_new" "Map"
