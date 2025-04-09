@@ -1,80 +1,32 @@
 ///|
-typealias @jscore.JTextDecoder
-
-///|
-typealias @jscore.JError
-
-///|
-typealias @jscore.JReferenceError
-
-///|
-typealias @jscore.JRangeError
-
-///|
-typealias @jscore.JEvalError
-
-///|
-typealias @jscore.JSyntaxError
-
-///|
-typealias @jscore.JTypeError
-
-///|
-typealias @jscore.JAggregateError
-
-///|
-typealias @jscore.JDataView
-
-///|
-typealias @jscore.JTextEncoder
-
-///|
-typealias @jscore.JNumber
-
-///|
-typealias @jscore.JRegExp
-
-///|
-typealias @jscore.JDate
-
-///|
-typealias @jscore.JSharedArrayBuffer
-
-///|
-typealias @jscore.JString
-
-///|
-typealias @jscore.JAny
-
-///|
-typealias @jscore.JInt32Array
-
-///|
-typealias JMap[K, V] = @jscore.JMap[K, V]
-
-///|
-typealias JWeakMap[K, V] = @jscore.JWeakMap[K, V]
-
-///|
-typealias JSet[V] = @jscore.JSet[V]
-
-///|
-typealias JWeakRef[V] = @jscore.JWeakRef[V]
-
-///|
-typealias JWeakSet[V] = @jscore.JWeakSet[V]
-
-///|
-typealias @jscore.JConsole
-
-///|
-typealias JTypedArray[T] = @jscore.JTypedArray[T]
-
-///|
-typealias @jscore.JArrayBuffer
-
-///|
-typealias JArray[T] = @jscore.JArray[T]
+typealias @jscore.(
+  JTextDecoder,
+  JError,
+  JReferenceError,
+  JRangeError,
+  JEvalError,
+  JSyntaxError,
+  JTypeError,
+  JAggregateError,
+  JDataView,
+  JTextEncoder,
+  JNumber,
+  JRegExp,
+  JDate,
+  JSharedArrayBuffer,
+  JString,
+  JAny,
+  JInt32Array,
+  JMap[K, V],
+  JWeakMap[K, V],
+  JSet[V],
+  JWeakRef[V],
+  JWeakSet[V],
+  JConsole,
+  JTypedArray[T],
+  JArrayBuffer,
+  JArray[T]
+)
 
 ///|
 let js_try_catch_finally = @jscore.js_try_catch_finally
