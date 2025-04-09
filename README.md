@@ -1,4 +1,4 @@
-# illusory0x0/jscore
+# illusory0x0/jscore (WIP)
 
 # Description
 
