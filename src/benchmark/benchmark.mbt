@@ -1,11 +1,5 @@
 ///|
-typealias JTypedArray[T] = @jscore.JTypedArray[T]
-
-///|
-typealias @jscore.JArrayBuffer
-
-///|
-typealias JArray[T] = @jscore.JArray[T]
+typealias @jscore.(JArrayBuffer, JArray[T], JTypedArray[T])
 
 ///|
 let typed_arr : JTypedArray[Int] = JTypedArray::new(
