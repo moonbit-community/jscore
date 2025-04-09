@@ -10,6 +10,9 @@ type Char = number
 type Float = number 
 type Double = number 
 
+type Int64 = BigInt
+type UInt64 = BigInt
+
 // Missing Int64 and UInt64
 // https://stackoverflow.com/questions/24037751/how-to-do-64bit-integer-arithmetic-in-node-js
 
