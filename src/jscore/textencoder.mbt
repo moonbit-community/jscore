@@ -1,12 +1,12 @@
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder/encoding)
-pub fn JTextEncoder::encoding(self : JTextEncoder) -> JString = "illusory0x0_core_TextEncoder" "get_encoding"
+pub fn TextEncoder::encoding(self : TextEncoder) -> JString = "illusory0x0_core_TextEncoder" "get_encoding"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder/encode)
-pub fn JTextEncoder::encode(self : JTextEncoder, str : JString) -> JUint8Array = "illusory0x0_core_TextEncoder" "encode"
+pub fn TextEncoder::encode(self : TextEncoder, str : JString) -> Uint8Array = "illusory0x0_core_TextEncoder" "encode"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder/encodeInto)
-pub fn JTextEncoder::encodeInto(
-  self : JTextEncoder,
+pub fn TextEncoder::encodeInto(
+  self : TextEncoder,
   str : JString,
-  buf : JUint8Array
-) -> JObject = "illusory0x0_core_TextEncoder" "encodeInto"
+  buf : Uint8Array
+) -> Object = "illusory0x0_core_TextEncoder" "encodeInto"

@@ -1,126 +1,126 @@
 ///|
-fn JSet::_has(self : JSet[JAny], value : JAny) -> Bool = "illusory0x0_core_Set" "has"
+fn Set::_has(self : Set[Any], value : Any) -> Bool = "illusory0x0_core_Set" "has"
 
 ///|
-fn JSet::_add(self : JSet[JAny], value : JAny) = "illusory0x0_core_Set" "add"
+fn Set::_add(self : Set[Any], value : Any) = "illusory0x0_core_Set" "add"
 
 ///|
-fn JSet::_delete(self : JSet[JAny], value : JAny) = "illusory0x0_core_Set" "delete"
+fn Set::_delete(self : Set[Any], value : Any) = "illusory0x0_core_Set" "delete"
 
 ///|
-fn JSet::_clear(self : JSet[JAny]) = "illusory0x0_core_Set" "clear"
+fn Set::_clear(self : Set[Any]) = "illusory0x0_core_Set" "clear"
 
 ///|
-fn JSet::_size(self : JSet[JAny]) -> Int = "illusory0x0_core_Set" "get_size"
+fn Set::_size(self : Set[Any]) -> Int = "illusory0x0_core_Set" "get_size"
 
 ///|
-fn JSet::_entries(self : JSet[JAny]) -> JIterator[JAny] = "illusory0x0_core_Set" "entries"
+fn Set::_entries(self : Set[Any]) -> Iterator[Any] = "illusory0x0_core_Set" "entries"
 
 ///|
-fn JSet::_values(self : JSet[JAny]) -> JIterator[JAny] = "illusory0x0_core_Set" "values"
+fn Set::_values(self : Set[Any]) -> Iterator[Any] = "illusory0x0_core_Set" "values"
 
 ///|
-fn JSet::_keys(self : JSet[JAny]) -> JIterator[JAny] = "illusory0x0_core_Set" "keys"
+fn Set::_keys(self : Set[Any]) -> Iterator[Any] = "illusory0x0_core_Set" "keys"
 
 ///|
-fn JSet::_union(self : JSet[JAny], other : JSet[JAny]) -> JSet[JAny] = "illusory0x0_core_Set" "union"
+fn Set::_union(self : Set[Any], other : Set[Any]) -> Set[Any] = "illusory0x0_core_Set" "union"
 
 ///|
-fn JSet::_intersection(self : JSet[JAny], other : JSet[JAny]) -> JSet[JAny] = "illusory0x0_core_Set" "intersection"
+fn Set::_intersection(self : Set[Any], other : Set[Any]) -> Set[Any] = "illusory0x0_core_Set" "intersection"
 
 ///|
-fn JSet::_difference(self : JSet[JAny], other : JSet[JAny]) -> JSet[JAny] = "illusory0x0_core_Set" "difference"
+fn Set::_difference(self : Set[Any], other : Set[Any]) -> Set[Any] = "illusory0x0_core_Set" "difference"
 
 ///|
-fn JSet::_symmetricDifference(
-  self : JSet[JAny],
-  other : JSet[JAny]
-) -> JSet[JAny] = "illusory0x0_core_Set" "symmetricDifference"
+fn Set::_symmetricDifference(
+  self : Set[Any],
+  other : Set[Any]
+) -> Set[Any] = "illusory0x0_core_Set" "symmetricDifference"
 
 ///|
-fn JSet::_isSubsetOf(self : JSet[JAny], other : JSet[JAny]) -> Bool = "illusory0x0_core_Set" "isSubsetOf"
+fn Set::_isSubsetOf(self : Set[Any], other : Set[Any]) -> Bool = "illusory0x0_core_Set" "isSubsetOf"
 
 ///|
-fn JSet::_isSupersetOf(self : JSet[JAny], ohter : JSet[JAny]) -> Bool = "illusory0x0_core_Set" "isSupersetOf"
+fn Set::_isSupersetOf(self : Set[Any], ohter : Set[Any]) -> Bool = "illusory0x0_core_Set" "isSupersetOf"
 
 ///|
-fn JSet::_isDisjointFrom(self : JSet[JAny], other : JSet[JAny]) -> Bool = "illusory0x0_core_Set" "isDisjointFrom"
+fn Set::_isDisjointFrom(self : Set[Any], other : Set[Any]) -> Bool = "illusory0x0_core_Set" "isDisjointFrom"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has)
-pub fn JSet::has[T : Js](self : JSet[T], value : T) -> Bool {
-  coerce(JSet::_has)(self, value.to_any())
+pub fn Set::has[T : Js](self : Set[T], value : T) -> Bool {
+  coerce(Set::_has)(self, value.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add)
-pub fn JSet::add[T : Js](self : JSet[T], value : T) -> Unit {
-  coerce(JSet::_add)(self, value.to_any())
+pub fn Set::add[T : Js](self : Set[T], value : T) -> Unit {
+  coerce(Set::_add)(self, value.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete)
-pub fn JSet::delete[T : Js](self : JSet[T], value : T) -> Unit {
-  coerce(JSet::_delete)(self, value.to_any())
+pub fn Set::delete[T : Js](self : Set[T], value : T) -> Unit {
+  coerce(Set::_delete)(self, value.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear)
-pub fn JSet::clear[T](self : JSet[T]) -> Unit {
-  coerce(JSet::_clear)(self)
+pub fn Set::clear[T](self : Set[T]) -> Unit {
+  coerce(Set::_clear)(self)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/entries)
-pub fn JSet::entries[T](self : JSet[T]) -> JIterator[JArray[JAny]] {
-  coerce(JSet::_entries)(self)
+pub fn Set::entries[T](self : Set[T]) -> Iterator[Array[Any]] {
+  coerce(Set::_entries)(self)
 }
 
 // TODO
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach)
-// fn JSet::forEach(self : JSet[JAny]) = "illusory0x0_core_Set" "forEach"
+// fn Set::forEach(self : Set[Any]) = "illusory0x0_core_Set" "forEach"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size)
-pub fn JSet::size[T](self : JSet[T]) -> Int {
-  coerce(JSet::_size)(self)
+pub fn Set::size[T](self : Set[T]) -> Int {
+  coerce(Set::_size)(self)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/values)
-pub fn JSet::values[T](self : JSet[T]) -> JIterator[T] {
-  coerce(JSet::_values)(self)
+pub fn Set::values[T](self : Set[T]) -> Iterator[T] {
+  coerce(Set::_values)(self)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys)
-pub fn JSet::keys[T](self : JSet[T]) -> JIterator[T] {
-  coerce(JSet::_keys)(self)
+pub fn Set::keys[T](self : Set[T]) -> Iterator[T] {
+  coerce(Set::_keys)(self)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/union)
-pub fn JSet::union[T](self : JSet[T], other : JSet[T]) -> JSet[T] {
-  coerce(JSet::_union)(self, other)
+pub fn Set::union[T](self : Set[T], other : Set[T]) -> Set[T] {
+  coerce(Set::_union)(self, other)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection)
-pub fn JSet::intersection[T](self : JSet[T], other : JSet[T]) -> JSet[T] {
-  coerce(JSet::_intersection)(self, other)
+pub fn Set::intersection[T](self : Set[T], other : Set[T]) -> Set[T] {
+  coerce(Set::_intersection)(self, other)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/difference)
-pub fn JSet::difference[T](self : JSet[T], other : JSet[T]) -> JSet[T] {
-  coerce(JSet::_difference)(self, other)
+pub fn Set::difference[T](self : Set[T], other : Set[T]) -> Set[T] {
+  coerce(Set::_difference)(self, other)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/symmetricDifference)
-pub fn JSet::symmetricDifference[T](self : JSet[T], other : JSet[T]) -> JSet[T] {
-  coerce(JSet::_symmetricDifference)(self, other)
+pub fn Set::symmetricDifference[T](self : Set[T], other : Set[T]) -> Set[T] {
+  coerce(Set::_symmetricDifference)(self, other)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isSubsetOf)
-pub fn JSet::isSubsetOf[T](self : JSet[T], other : JSet[T]) -> Bool {
-  coerce(JSet::_isSubsetOf)(self, other)
+pub fn Set::isSubsetOf[T](self : Set[T], other : Set[T]) -> Bool {
+  coerce(Set::_isSubsetOf)(self, other)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isSupersetOf)
-pub fn JSet::isSupersetOf[T](self : JSet[T], other : JSet[T]) -> Bool {
-  coerce(JSet::_isSupersetOf)(self, other)
+pub fn Set::isSupersetOf[T](self : Set[T], other : Set[T]) -> Bool {
+  coerce(Set::_isSupersetOf)(self, other)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isDisjointFrom)
-pub fn JSet::isDisjointFrom[T](self : JSet[T], other : JSet[T]) -> Bool {
-  coerce(JSet::_isDisjointFrom)(self, other)
+pub fn Set::isDisjointFrom[T](self : Set[T], other : Set[T]) -> Bool {
+  coerce(Set::_isDisjointFrom)(self, other)
 }

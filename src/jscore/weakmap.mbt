@@ -1,21 +1,21 @@
 ///|
-fn JWeakMap::_get(self : JWeakMap[JAny, JAny], index : JAny) -> JAny = "illusory0x0_core_WeakMap" "get"
+fn WeakMap::_get(self : WeakMap[Any, Any], index : Any) -> Any = "illusory0x0_core_WeakMap" "get"
 
 ///|
-fn JWeakMap::_set(self : JWeakMap[JAny, JAny], index : JAny, value : JAny) = "illusory0x0_core_WeakMap" "set"
+fn WeakMap::_set(self : WeakMap[Any, Any], index : Any, value : Any) = "illusory0x0_core_WeakMap" "set"
 
 ///|
-fn JWeakMap::_has(self : JWeakMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_WeakMap" "has"
+fn WeakMap::_has(self : WeakMap[Any, Any], index : Any) -> Bool = "illusory0x0_core_WeakMap" "has"
 
 ///|
-fn JWeakMap::_delete(self : JWeakMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_WeakMap" "delete"
+fn WeakMap::_delete(self : WeakMap[Any, Any], index : Any) -> Bool = "illusory0x0_core_WeakMap" "delete"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/get)
-pub fn JWeakMap::op_get[K : Js_Object, V : Js_Object](
-  self : JWeakMap[K, V],
+pub fn WeakMap::op_get[K : Js_Object, V : Js_Object](
+  self : WeakMap[K, V],
   index : K
 ) -> V? {
-  let map : JWeakMap[JAny, JAny] = self |> coerce
+  let map : WeakMap[Any, Any] = self |> coerce
   let res = map._get(index.to_any())
   if res == js_undefined {
     None
@@ -25,29 +25,29 @@ pub fn JWeakMap::op_get[K : Js_Object, V : Js_Object](
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/set)
-pub fn JWeakMap::op_set[K : Js_Object, V : Js_Object](
-  self : JWeakMap[K, V],
+pub fn WeakMap::op_set[K : Js_Object, V : Js_Object](
+  self : WeakMap[K, V],
   index : K,
   value : V
 ) -> Unit {
-  let map : JWeakMap[JAny, JAny] = self |> coerce
+  let map : WeakMap[Any, Any] = self |> coerce
   map._set(index.to_any(), value.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/has)
-pub fn JWeakMap::has[K : Js_Object, V : Js_Object](
-  self : JWeakMap[K, V],
+pub fn WeakMap::has[K : Js_Object, V : Js_Object](
+  self : WeakMap[K, V],
   index : K
 ) -> Bool {
-  let map : JWeakMap[JAny, JAny] = self |> coerce
+  let map : WeakMap[Any, Any] = self |> coerce
   map._has(index.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/delete)
-pub fn JWeakMap::delete[K : Js_Object, V : Js_Object](
-  self : JWeakMap[K, V],
+pub fn WeakMap::delete[K : Js_Object, V : Js_Object](
+  self : WeakMap[K, V],
   index : K
 ) -> Bool {
-  let map : JWeakMap[JAny, JAny] = self |> coerce
+  let map : WeakMap[Any, Any] = self |> coerce
   map._delete(index.to_any())
 }

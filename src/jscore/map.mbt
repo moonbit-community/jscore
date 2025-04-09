@@ -1,37 +1,37 @@
 ///|
-fn JMap::_get(self : JMap[JAny, JAny], index : JAny) -> JAny = "illusory0x0_core_Map" "get"
+fn Map::_get(self : Map[Any, Any], index : Any) -> Any = "illusory0x0_core_Map" "get"
 
 ///|
-fn JMap::_set(self : JMap[JAny, JAny], index : JAny, value : JAny) = "illusory0x0_core_Map" "set"
+fn Map::_set(self : Map[Any, Any], index : Any, value : Any) = "illusory0x0_core_Map" "set"
 
 ///|
-fn JMap::_has(self : JMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_Map" "has"
+fn Map::_has(self : Map[Any, Any], index : Any) -> Bool = "illusory0x0_core_Map" "has"
 
 ///|
-fn JMap::_delete(self : JMap[JAny, JAny], index : JAny) -> Bool = "illusory0x0_core_Map" "delete"
+fn Map::_delete(self : Map[Any, Any], index : Any) -> Bool = "illusory0x0_core_Map" "delete"
 
 ///|
-fn JMap::_clear(self : JMap[JAny, JAny]) = "illusory0x0_core_Map" "clear"
+fn Map::_clear(self : Map[Any, Any]) = "illusory0x0_core_Map" "clear"
 
 // TODO
-// fn JMap::_forEach(self : JMap[JAny,JAny]) = "illusory0x0_core_Map" "forEach"
-// fn JMap::_groupBy(self : JMap[JAny,JAny]) = "illusory0x0_core_Map" "static_groupBy"
+// fn Map::_forEach(self : Map[Any,Any]) = "illusory0x0_core_Map" "forEach"
+// fn Map::_groupBy(self : Map[Any,Any]) = "illusory0x0_core_Map" "static_groupBy"
 
 ///|
-fn JMap::_keys(self : JMap[JAny, JAny]) -> JArray[JAny] = "illusory0x0_core_Map" "keys"
+fn Map::_keys(self : Map[Any, Any]) -> Array[Any] = "illusory0x0_core_Map" "keys"
 
 ///|
-fn JMap::_values(self : JMap[JAny, JAny]) -> JArray[JAny] = "illusory0x0_core_Map" "values"
+fn Map::_values(self : Map[Any, Any]) -> Array[Any] = "illusory0x0_core_Map" "values"
 
 ///|
-fn JMap::_size(self : JMap[JAny, JAny]) -> Int = "illusory0x0_core_Map" "get_size"
+fn Map::_size(self : Map[Any, Any]) -> Int = "illusory0x0_core_Map" "get_size"
 
 ///|
-fn JMap::_entries(self : JMap[JAny, JAny]) -> JArray[JArray[JAny]] = "illusory0x0_core_Map" "entries"
+fn Map::_entries(self : Map[Any, Any]) -> Array[Array[Any]] = "illusory0x0_core_Map" "entries"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get)
-pub fn JMap::op_get[K : Js, V : Js](self : JMap[K, V], index : K) -> V? {
-  let map : JMap[JAny, JAny] = self |> coerce
+pub fn Map::op_get[K : Js, V : Js](self : Map[K, V], index : K) -> V? {
+  let map : Map[Any, Any] = self |> coerce
   let res = map._get(index.to_any())
   if res == js_undefined {
     None
@@ -41,50 +41,50 @@ pub fn JMap::op_get[K : Js, V : Js](self : JMap[K, V], index : K) -> V? {
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set)
-pub fn JMap::op_set[K : Js, V : Js](
-  self : JMap[K, V],
+pub fn Map::op_set[K : Js, V : Js](
+  self : Map[K, V],
   index : K,
   value : V
 ) -> Unit {
-  let map : JMap[JAny, JAny] = self |> coerce
+  let map : Map[Any, Any] = self |> coerce
   map._set(index.to_any(), value.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has)
-pub fn JMap::has[K : Js, V : Js](self : JMap[K, V], index : K) -> Bool {
-  let map : JMap[JAny, JAny] = self |> coerce
+pub fn Map::has[K : Js, V : Js](self : Map[K, V], index : K) -> Bool {
+  let map : Map[Any, Any] = self |> coerce
   map._has(index.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete)
-pub fn JMap::delete[K : Js, V : Js](self : JMap[K, V], index : K) -> Bool {
-  let map : JMap[JAny, JAny] = self |> coerce
+pub fn Map::delete[K : Js, V : Js](self : Map[K, V], index : K) -> Bool {
+  let map : Map[Any, Any] = self |> coerce
   map._delete(index.to_any())
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear)
-pub fn JMap::clear[K, V](self : JMap[K, V]) -> Unit {
-  let map : JMap[JAny, JAny] = self |> coerce
+pub fn Map::clear[K, V](self : Map[K, V]) -> Unit {
+  let map : Map[Any, Any] = self |> coerce
   map._clear()
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size)
-pub fn JMap::size[K, V](self : JMap[K, V]) -> Int {
-  let map : JMap[JAny, JAny] = self |> coerce
+pub fn Map::size[K, V](self : Map[K, V]) -> Int {
+  let map : Map[Any, Any] = self |> coerce
   map._size()
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries)
-pub fn JMap::entries[K, V](self : JMap[K, V]) -> JIterator[JArray[JAny]] {
-  coerce(JMap::_entries)(self)
+pub fn Map::entries[K, V](self : Map[K, V]) -> Iterator[Array[Any]] {
+  coerce(Map::_entries)(self)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys)
-pub fn JMap::keys[K, V](self : JMap[K, V]) -> JIterator[K] {
-  coerce(JMap::_keys)(self)
+pub fn Map::keys[K, V](self : Map[K, V]) -> Iterator[K] {
+  coerce(Map::_keys)(self)
 }
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values)
-pub fn JMap::values[K, V](self : JMap[K, V]) -> JIterator[K] {
-  coerce(JMap::_values)(self)
+pub fn Map::values[K, V](self : Map[K, V]) -> Iterator[K] {
+  coerce(Map::_values)(self)
 }

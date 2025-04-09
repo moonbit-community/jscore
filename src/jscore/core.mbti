@@ -1,43 +1,43 @@
 package illusory0x0/jcore/jcore
 
 // Values
-let console : JConsole
+let console : Console
 
-let js_false : JAny
+let js_false : Any
 
-let js_null : JAny
+let js_null : Any
 
 fn js_throw(JError) -> Unit
 
-let js_true : JAny
+let js_true : Any
 
 fn js_try_catch_finally(() -> Unit, (JError) -> Unit, () -> Unit) -> Unit
 
-let js_undefined : JAny
+let js_undefined : Any
 
-let utf16Decoder : JTextDecoder
+let utf16Decoder : TextDecoder
 
 // Types and methods
-pub extern type JAggregateError
-impl JAggregateError {
-  new(JArray[JError], JString) -> Self
+pub extern type AggregateError
+impl AggregateError {
+  new(Array[JError], JString) -> Self
 }
-impl Js for JAggregateError
-impl Js_Error for JAggregateError
-impl Js_Object for JAggregateError
+impl Js for AggregateError
+impl Js_Error for AggregateError
+impl Js_Object for AggregateError
 
-pub extern type JAny
-impl JAny {
+pub extern type Any
+impl Any {
   from_json(Json) -> Self
 }
-impl Js for JAny
-impl Js_Array for JAny
+impl Js for Any
+impl Js_Array for Any
 
-pub extern type JArray[T]
-impl JArray {
+pub extern type Array[T]
+impl Array {
   empty[T]() -> Self[T]
   from_array[T : Js](Array[T]) -> Self[T]
-  from_iterator[T](JIterator[T]) -> Self[T]
+  from_iterator[T](Iterator[T]) -> Self[T]
   get[T : Js_Array](Self[T], Int) -> T
   length[T](Self[T]) -> Int
   new[T]() -> Self[T]
@@ -45,14 +45,14 @@ impl JArray {
   op_set[T : Js](Self[T], Int, T) -> Unit
   set[T : Js_Array](Self[T], Int, T) -> Unit
 }
-impl[T] Js for JArray[T]
-impl[T] Js_Object for JArray[T]
+impl[T] Js for Array[T]
+impl[T] Js_Object for Array[T]
 
-pub extern type JArrayBuffer
-impl JArrayBuffer {
+pub extern type ArrayBuffer
+impl ArrayBuffer {
   byteLength(Self) -> Int
   detached(Self) -> Bool
-  isView(JAny) -> Bool
+  isView(Any) -> Bool
   maxByteLength(Self) -> Int
   new(Int) -> Self
   resizable(Self) -> Bool
@@ -61,11 +61,11 @@ impl JArrayBuffer {
   transfer(Self, Int) -> Self
   transferToFixedLength(Self, Int) -> Self
 }
-impl Js for JArrayBuffer
-impl Js_Object for JArrayBuffer
+impl Js for ArrayBuffer
+impl Js_Object for ArrayBuffer
 
-pub extern type JConsole
-impl JConsole {
+pub extern type Console
+impl Console {
   assert_[T : Js](Self, Bool, T) -> Unit
   clear(Self) -> Unit
   count(Self, JString) -> Unit
@@ -79,19 +79,19 @@ impl JConsole {
   groupEnd(Self, JString) -> Unit
   info[T : Js](Self, T) -> Unit
   log[T : Js](Self, T) -> Unit
-  table[T](Self, JArray[T]) -> Unit
+  table[T](Self, Array[T]) -> Unit
   time(Self, JString) -> Unit
   timeEnd(Self, JString) -> Unit
   timeLog(Self, JString) -> Unit
   trace(Self) -> Unit
   warn[T : Js](Self, T) -> Unit
 }
-impl Js for JConsole
-impl Js_Object for JConsole
+impl Js for Console
+impl Js_Object for Console
 
-pub extern type JDataView
-impl JDataView {
-  buffer(Self) -> JArrayBuffer
+pub extern type DataView
+impl DataView {
+  buffer(Self) -> ArrayBuffer
   byteLength(Self) -> Int
   byteOffset(Self) -> Int
   getBigInt64(Self, Int, Bool) -> Int64
@@ -104,7 +104,7 @@ impl JDataView {
   getUint16(Self, Int, Bool) -> UInt16
   getUint32(Self, Int, Bool) -> UInt
   getUint8(Self, Int) -> Byte
-  new(JArrayBuffer, Int, Int) -> Self
+  new(ArrayBuffer, Int, Int) -> Self
   setBigInt64(Self, Int, Int64, Bool) -> Unit
   setBigUint64(Self, Int, UInt64, Bool) -> Unit
   setFloat32(Self, Int, Float, Bool) -> Unit
@@ -116,18 +116,18 @@ impl JDataView {
   setUint32(Self, Int, UInt, Bool) -> Unit
   setUint8(Self, Int, Byte) -> Unit
 }
-impl Js for JDataView
-impl Js_Object for JDataView
+impl Js for DataView
+impl Js_Object for DataView
 
-pub extern type JDate
-impl JDate {
+pub extern type Date
+impl Date {
   from_timestamp(Double) -> Self
   new(Int, Int, Int, Int, Int, Int, Int) -> Self
   now() -> Double
   parse(JString) -> Double
   toDateString(Self) -> JString
   toISOString(Self) -> JString
-  toJSON(Self) -> JObject
+  toJSON(Self) -> Object
   toLocaleDateString(Self) -> JString
   toLocaleString(Self) -> JString
   toLocaleTimeString(Self) -> JString
@@ -136,8 +136,8 @@ impl JDate {
   toUTCString(Self) -> JString
   utc(Int, Int, Int, Int, Int, Int, Int) -> Self
 }
-impl Js for JDate
-impl Js_Object for JDate
+impl Js for Date
+impl Js_Object for Date
 
 pub extern type JError
 impl JError {
@@ -150,97 +150,97 @@ impl Js for JError
 impl Js_Error for JError
 impl Js_Object for JError
 
-pub extern type JEvalError
-impl JEvalError {
+pub extern type EvalError
+impl EvalError {
   new(JString) -> Self
 }
-impl Js for JEvalError
-impl Js_Error for JEvalError
-impl Js_Object for JEvalError
+impl Js for EvalError
+impl Js_Error for EvalError
+impl Js_Object for EvalError
 
-pub extern type JIterator[T]
-impl[T] Js for JIterator[T]
-impl[T] Js_Object for JIterator[T]
+pub extern type Iterator[T]
+impl[T] Js for Iterator[T]
+impl[T] Js_Object for Iterator[T]
 
-pub extern type JMap[K, V]
-impl JMap {
+pub extern type Map[K, V]
+impl Map {
   clear[K, V](Self[K, V]) -> Unit
   delete[K : Js, V : Js](Self[K, V], K) -> Bool
-  entries[K, V](Self[K, V]) -> JIterator[JArray[JAny]]
+  entries[K, V](Self[K, V]) -> Iterator[Array[Any]]
   has[K : Js, V : Js](Self[K, V], K) -> Bool
-  keys[K, V](Self[K, V]) -> JIterator[K]
+  keys[K, V](Self[K, V]) -> Iterator[K]
   new[K, V]() -> Self[K, V]
   op_get[K : Js, V : Js](Self[K, V], K) -> V?
   op_set[K : Js, V : Js](Self[K, V], K, V) -> Unit
   size[K, V](Self[K, V]) -> Int
-  values[K, V](Self[K, V]) -> JIterator[K]
+  values[K, V](Self[K, V]) -> Iterator[K]
 }
-impl[K, V] Js for JMap[K, V]
-impl[K, V] Js_Object for JMap[K, V]
+impl[K, V] Js for Map[K, V]
+impl[K, V] Js_Object for Map[K, V]
 
-pub extern type JNumber
-impl JNumber {
-  new(JAny) -> Self
+pub extern type Number
+impl Number {
+  new(Any) -> Self
 }
-impl Js for JNumber
+impl Js for Number
 
-pub extern type JObject
-impl JObject {
+pub extern type Object
+impl Object {
   empty() -> Self
-  op_get(Self, JString) -> JAny
-  op_set(Self, JString, JAny) -> Unit
+  op_get(Self, JString) -> Any
+  op_set(Self, JString, Any) -> Unit
 }
-impl Js for JObject
-impl Js_Object for JObject
+impl Js for Object
+impl Js_Object for Object
 
-pub extern type JRangeError
-impl JRangeError {
+pub extern type RangeError
+impl RangeError {
   new(JString) -> Self
 }
-impl Js for JRangeError
-impl Js_Error for JRangeError
-impl Js_Object for JRangeError
+impl Js for RangeError
+impl Js_Error for RangeError
+impl Js_Object for RangeError
 
-pub extern type JReferenceError
-impl JReferenceError {
+pub extern type ReferenceError
+impl ReferenceError {
   new(JString) -> Self
 }
-impl Js for JReferenceError
-impl Js_Error for JReferenceError
-impl Js_Object for JReferenceError
+impl Js for ReferenceError
+impl Js_Error for ReferenceError
+impl Js_Object for ReferenceError
 
-pub extern type JRegExp
-impl JRegExp {
+pub extern type RegExp
+impl RegExp {
   new(JString) -> Self
   toString(Self) -> JString
 }
-impl Js for JRegExp
-impl Js_Object for JRegExp
+impl Js for RegExp
+impl Js_Object for RegExp
 
-pub extern type JSet[V]
-impl JSet {
+pub extern type Set[V]
+impl Set {
   add[T : Js](Self[T], T) -> Unit
   clear[T](Self[T]) -> Unit
   delete[T : Js](Self[T], T) -> Unit
   difference[T](Self[T], Self[T]) -> Self[T]
-  entries[T](Self[T]) -> JIterator[JArray[JAny]]
+  entries[T](Self[T]) -> Iterator[Array[Any]]
   has[T : Js](Self[T], T) -> Bool
   intersection[T](Self[T], Self[T]) -> Self[T]
   isDisjointFrom[T](Self[T], Self[T]) -> Bool
   isSubsetOf[T](Self[T], Self[T]) -> Bool
   isSupersetOf[T](Self[T], Self[T]) -> Bool
-  keys[T](Self[T]) -> JIterator[T]
+  keys[T](Self[T]) -> Iterator[T]
   new[V]() -> Self[V]
   size[T](Self[T]) -> Int
   symmetricDifference[T](Self[T], Self[T]) -> Self[T]
   union[T](Self[T], Self[T]) -> Self[T]
-  values[T](Self[T]) -> JIterator[T]
+  values[T](Self[T]) -> Iterator[T]
 }
-impl[T] Js for JSet[T]
-impl[T] Js_Object for JSet[T]
+impl[T] Js for Set[T]
+impl[T] Js_Object for Set[T]
 
-pub extern type JSharedArrayBuffer
-impl JSharedArrayBuffer {
+pub extern type SharedArrayBuffer
+impl SharedArrayBuffer {
   byteLength(Self) -> Int
   grow(Self, Int) -> Unit
   growable(Self) -> Bool
@@ -248,8 +248,8 @@ impl JSharedArrayBuffer {
   new(Int) -> Self
   slice(Self, Int, Int) -> Self
 }
-impl Js for JSharedArrayBuffer
-impl Js_Object for JSharedArrayBuffer
+impl Js for SharedArrayBuffer
+impl Js_Object for SharedArrayBuffer
 
 pub extern type JString
 impl JString {
@@ -261,17 +261,17 @@ impl JString {
 impl Js for JString
 impl Js_Object for JString
 
-pub extern type JSyntaxError
-impl JSyntaxError {
+pub extern type SyntaxError
+impl SyntaxError {
   new(JString) -> Self
 }
-impl Js for JSyntaxError
-impl Js_Error for JSyntaxError
-impl Js_Object for JSyntaxError
+impl Js for SyntaxError
+impl Js_Error for SyntaxError
+impl Js_Object for SyntaxError
 
-pub extern type JTextDecoder
-impl JTextDecoder {
-  decode[T](Self, JTypedArray[T]) -> JString
+pub extern type TextDecoder
+impl TextDecoder {
+  decode[T](Self, TypedArray[T]) -> JString
   encoding(Self) -> JString
   fatal(Self) -> Bool
   from_string(String) -> JString
@@ -279,91 +279,91 @@ impl JTextDecoder {
   new(JString) -> Self
 }
 
-pub extern type JTextEncoder
-impl JTextEncoder {
-  encode(Self, JString) -> JTypedArray[Byte]
-  encodeInto(Self, JString, JTypedArray[Byte]) -> JObject
+pub extern type TextEncoder
+impl TextEncoder {
+  encode(Self, JString) -> TypedArray[Byte]
+  encodeInto(Self, JString, TypedArray[Byte]) -> Object
   encoding(Self) -> JString
   new() -> Self
 }
-impl Js for JTextEncoder
-impl Js_Object for JTextEncoder
+impl Js for TextEncoder
+impl Js_Object for TextEncoder
 
-pub extern type JTypeError
-impl JTypeError {
+pub extern type TypeError
+impl TypeError {
   new(JString) -> Self
 }
-impl Js for JTypeError
-impl Js_Error for JTypeError
-impl Js_Object for JTypeError
+impl Js for TypeError
+impl Js_Error for TypeError
+impl Js_Object for TypeError
 
-pub extern type JTypedArray[T]
-impl JTypedArray {
+pub extern type TypedArray[T]
+impl TypedArray {
   length[T](Self[T]) -> Int
-  make[T : Js_TypedArray](JArrayBuffer, Int, Int) -> Self[T]
-  new[T : Js_TypedArray](JArrayBuffer, Int, Int) -> Self[T]
+  make[T : Js_TypedArray](ArrayBuffer, Int, Int) -> Self[T]
+  new[T : Js_TypedArray](ArrayBuffer, Int, Int) -> Self[T]
   op_get[T : Js_TypedArray](Self[T], Int) -> T
   op_set[T : Js_TypedArray](Self[T], Int, T) -> Unit
 }
-impl[T] Js for JTypedArray[T]
-impl[T] Js_Object for JTypedArray[T]
+impl[T] Js for TypedArray[T]
+impl[T] Js_Object for TypedArray[T]
 
-pub extern type JURIError
+pub extern type URIError
 
-pub extern type JWeakMap[K, V]
-impl JWeakMap {
+pub extern type WeakMap[K, V]
+impl WeakMap {
   delete[K : Js_Object, V : Js_Object](Self[K, V], K) -> Bool
   has[K : Js_Object, V : Js_Object](Self[K, V], K) -> Bool
   new[K, V]() -> Self[K, V]
   op_get[K : Js_Object, V : Js_Object](Self[K, V], K) -> V?
   op_set[K : Js_Object, V : Js_Object](Self[K, V], K, V) -> Unit
 }
-impl[K, V] Js for JWeakMap[K, V]
-impl[K, V] Js_Object for JWeakMap[K, V]
+impl[K, V] Js for WeakMap[K, V]
+impl[K, V] Js_Object for WeakMap[K, V]
 
-pub extern type JWeakRef[T]
-impl JWeakRef {
+pub extern type WeakRef[T]
+impl WeakRef {
   deref[T : Js_Object](Self[T]) -> T?
   new[T : Js](T) -> Self[T]
 }
-impl[T] Js for JWeakRef[T]
-impl[T] Js_Object for JWeakRef[T]
+impl[T] Js for WeakRef[T]
+impl[T] Js_Object for WeakRef[T]
 
-pub extern type JWeakSet[V]
-impl JWeakSet {
+pub extern type WeakSet[V]
+impl WeakSet {
   add[T : Js_Object](Self[T], T) -> Unit
   delete[T : Js_Object](Self[T], T) -> Unit
   has[T : Js_Object](Self[T], T) -> Bool
   new[V]() -> Self[V]
 }
-impl[T] Js for JWeakSet[T]
-impl[T] Js_Object for JWeakSet[T]
+impl[T] Js for WeakSet[T]
+impl[T] Js_Object for WeakSet[T]
 
 // Type aliases
-pub typealias JBigInt64Array = JTypedArray[Int64]
+pub typealias BigInt64Array = TypedArray[Int64]
 
-pub typealias JBigUint64Array = JTypedArray[UInt64]
+pub typealias BigUint64Array = TypedArray[UInt64]
 
-pub typealias JFloat32Array = JTypedArray[Float]
+pub typealias Float32Array = TypedArray[Float]
 
-pub typealias JFloat64Array = JTypedArray[Double]
+pub typealias Float64Array = TypedArray[Double]
 
-pub typealias JInt16Array = JTypedArray[Int16]
+pub typealias JInt16Array = TypedArray[Int16]
 
-pub typealias JInt32Array = JTypedArray[Int]
+pub typealias Int32Array = TypedArray[Int]
 
-pub typealias JInt8Array = JTypedArray[Byte]
+pub typealias Int8Array = TypedArray[Byte]
 
-pub typealias JUint16Array = JTypedArray[UInt16]
+pub typealias Uint16Array = TypedArray[UInt16]
 
-pub typealias JUint32Array = JTypedArray[UInt]
+pub typealias Uint32Array = TypedArray[UInt]
 
-pub typealias JUint8Array = JTypedArray[Byte]
+pub typealias Uint8Array = TypedArray[Byte]
 
 // Traits
 pub(open) trait Js {
-  to_any(Self) -> JAny
-  downcast(JAny) -> Self
+  to_any(Self) -> Any
+  downcast(Any) -> Self
 }
 impl Js::downcast
 impl Js for Bool
@@ -379,8 +379,8 @@ impl Js for Double
 impl[T : Js] Js for T?
 
 pub trait Js_Array {
-  get(JArray[Self], Int) -> Self
-  set(JArray[Self], Int, Self) -> Unit
+  get(Array[Self], Int) -> Self
+  set(Array[Self], Int, Self) -> Unit
 }
 impl Js_Array for Bool
 impl Js_Array for Byte
@@ -402,13 +402,13 @@ pub trait Js_Error : Js {
 }
 
 pub trait Js_Object : Js {
-  to_object(Self) -> JObject
+  to_object(Self) -> Object
 }
 
 pub trait Js_TypedArray {
-  get(JTypedArray[Self], Int) -> Self
-  set(JTypedArray[Self], Int, Self) -> Unit
-  new(JArrayBuffer, Int, Int) -> JTypedArray[Self]
+  get(TypedArray[Self], Int) -> Self
+  set(TypedArray[Self], Int, Self) -> Unit
+  new(ArrayBuffer, Int, Int) -> TypedArray[Self]
 }
 impl Js_TypedArray for Byte
 impl Js_TypedArray for Char

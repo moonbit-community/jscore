@@ -1,22 +1,22 @@
 ///|
-fn JTypedArray::_length(self : JTypedArray[JAny]) -> Int = "illusory0x0_core_global" "length"
+fn TypedArray::_length(self : TypedArray[Any]) -> Int = "illusory0x0_core_global" "length"
 
 ///|
-pub fn JTypedArray::length[T](self : JTypedArray[T]) -> Int {
-  coerce(JTypedArray::_length)(self)
+pub fn TypedArray::length[T](self : TypedArray[T]) -> Int {
+  coerce(TypedArray::_length)(self)
 }
 
 ///|
-pub fn JTypedArray::op_get[T : Js_TypedArray](
-  self : JTypedArray[T],
+pub fn TypedArray::op_get[T : Js_TypedArray](
+  self : TypedArray[T],
   index : Int
 ) -> T {
   T::get(self, index)
 }
 
 ///|
-pub fn JTypedArray::op_set[T : Js_TypedArray](
-  self : JTypedArray[T],
+pub fn TypedArray::op_set[T : Js_TypedArray](
+  self : TypedArray[T],
   index : Int,
   value : T
 ) -> Unit {
@@ -24,11 +24,11 @@ pub fn JTypedArray::op_set[T : Js_TypedArray](
 }
 
 ///|
-pub fn JTypedArray::make[T : Js_TypedArray](
-  buffer : JArrayBuffer,
+pub fn TypedArray::make[T : Js_TypedArray](
+  buffer : ArrayBuffer,
   byteOffset : Int,
   length : Int
-) -> JTypedArray[T] {
+) -> TypedArray[T] {
   T::new(buffer, byteOffset, length)
 }
 

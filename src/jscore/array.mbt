@@ -1,46 +1,46 @@
 ///|
 
 ///|
-fn JArray::_length(self : JArray[JAny]) -> Int = "illusory0x0_core_global" "length"
+fn Array::_length(self : Array[Any]) -> Int = "illusory0x0_core_global" "length"
 
 ///|
-fn JArray::_from(it : JIterator[JAny]) -> JArray[JAny] = "illusory0x0_core_Array" "static_from"
+fn Array::_from(it : Iterator[Any]) -> Array[Any] = "illusory0x0_core_Array" "static_from"
 
 ///|
-fn JArray::_op_get(self : JArray[JAny], index : Int) -> JAny {
-  JAny::get(self, index)
+fn Array::_op_get(self : Array[Any], index : Int) -> Any {
+  Any::get(self, index)
 }
 
 ///|
-fn JArray::_op_set(self : JArray[JAny], index : Int, value : JAny) -> Unit {
-  JAny::set(self, index, value)
+fn Array::_op_set(self : Array[Any], index : Int, value : Any) -> Unit {
+  Any::set(self, index, value)
 }
 
 ///|
-pub fn JArray::empty[T]() -> JArray[T] {
-  coerce(JArray::_empty())
+pub fn Array::empty[T]() -> Array[T] {
+  coerce(Array::_empty())
 }
 
 ///|
-pub fn JArray::op_get[T : Js](self : JArray[T], index : Int) -> T {
-  let arr : JArray[JAny] = coerce(self)
+pub fn Array::op_get[T : Js](self : Array[T], index : Int) -> T {
+  let arr : Array[Any] = coerce(self)
   arr._op_get(index) |> Js::downcast
 }
 
 ///|
-pub fn JArray::op_set[T : Js](self : JArray[T], index : Int, value : T) -> Unit {
-  let arr : JArray[JAny] = coerce(self)
+pub fn Array::op_set[T : Js](self : Array[T], index : Int, value : T) -> Unit {
+  let arr : Array[Any] = coerce(self)
   arr._op_set(index, value.to_any())
 }
 
 ///|
-pub fn JArray::get[T : Js_Array](self : JArray[T], index : Int) -> T {
+pub fn Array::get[T : Js_Array](self : Array[T], index : Int) -> T {
   T::get(self, index)
 }
 
 ///|
-pub fn JArray::set[T : Js_Array](
-  self : JArray[T],
+pub fn Array::set[T : Js_Array](
+  self : Array[T],
   index : Int,
   value : T
 ) -> Unit {
@@ -48,13 +48,13 @@ pub fn JArray::set[T : Js_Array](
 }
 
 ///|
-pub fn JArray::length[T](self : JArray[T]) -> Int {
-  coerce(JArray::_length)(self)
+pub fn Array::length[T](self : Array[T]) -> Int {
+  coerce(Array::_length)(self)
 }
 
 ///|
-pub fn JArray::from_array[T : Js](xs : Array[T]) -> JArray[T] {
-  let res = JArray::empty()
+pub fn Array::from_builtin[T : Js](xs : @builtin.Array[T]) -> Array[T] {
+  let res = Array::empty()
   for i, x in xs {
     res[i] = x
   }
@@ -62,6 +62,6 @@ pub fn JArray::from_array[T : Js](xs : Array[T]) -> JArray[T] {
 }
 
 ///|
-pub fn JArray::from_iterator[T](it : JIterator[T]) -> JArray[T] {
-  coerce(JArray::_from)(it)
+pub fn Array::from_iterator[T](it : Iterator[T]) -> Array[T] {
+  coerce(Array::_from)(it)
 }

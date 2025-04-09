@@ -1,18 +1,18 @@
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/byteLength)
-pub fn JSharedArrayBuffer::byteLength(self : JSharedArrayBuffer) -> Int = "illusory0x0_core_SharedArrayBuffer" "get_byteLength"
+pub fn SharedArrayBuffer::byteLength(self : SharedArrayBuffer) -> Int = "illusory0x0_core_SharedArrayBuffer" "get_byteLength"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/slice)
-pub fn JSharedArrayBuffer::slice(
-  self : JSharedArrayBuffer,
+pub fn SharedArrayBuffer::slice(
+  self : SharedArrayBuffer,
   start : Int,
   end : Int
-) -> JSharedArrayBuffer = "illusory0x0_core_SharedArrayBuffer" "slice"
+) -> SharedArrayBuffer = "illusory0x0_core_SharedArrayBuffer" "slice"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/maxByteLength)
-pub fn JSharedArrayBuffer::maxByteLength(self : JSharedArrayBuffer) -> Int = "illusory0x0_core_SharedArrayBuffer" "get_maxByteLength"
+pub fn SharedArrayBuffer::maxByteLength(self : SharedArrayBuffer) -> Int = "illusory0x0_core_SharedArrayBuffer" "get_maxByteLength"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/growable)
-pub fn JSharedArrayBuffer::growable(self : JSharedArrayBuffer) -> Bool = "illusory0x0_core_SharedArrayBuffer" "get_growable"
+pub fn SharedArrayBuffer::growable(self : SharedArrayBuffer) -> Bool = "illusory0x0_core_SharedArrayBuffer" "get_growable"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/grow)
-pub fn JSharedArrayBuffer::grow(self : JSharedArrayBuffer, newByteLength : Int) = "illusory0x0_core_SharedArrayBuffer" "grow"
+pub fn SharedArrayBuffer::grow(self : SharedArrayBuffer, newByteLength : Int) = "illusory0x0_core_SharedArrayBuffer" "grow"

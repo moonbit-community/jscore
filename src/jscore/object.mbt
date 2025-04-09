@@ -1,7 +1,7 @@
 ///|
 
 ///|
-pub fn JObject::op_get(self : JObject, key : JString) -> JAny = "illusory0x0_core_global" "get"
+pub fn Object::op_get(self : Object, key : JString) -> Any = "illusory0x0_core_global" "get"
 
 ///|
-pub fn JObject::op_set(self : JObject, key : JString, value : JAny) = "illusory0x0_core_global" "set"
+pub fn Object::op_set(self : Object, key : JString, value : Any) = "illusory0x0_core_global" "set"

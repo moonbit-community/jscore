@@ -1,40 +1,40 @@
 ///|
-fn _true() -> JAny = "illusory0x0_core_global" "true"
+fn _true() -> Any = "illusory0x0_core_global" "true"
 
 ///|
-fn _false() -> JAny = "illusory0x0_core_global" "false"
+fn _false() -> Any = "illusory0x0_core_global" "false"
 
 ///|
-fn _null() -> JAny = "illusory0x0_core_global" "null"
+fn _null() -> Any = "illusory0x0_core_global" "null"
 
 ///|
-fn _undefined() -> JAny = "illusory0x0_core_global" "undefined"
+fn _undefined() -> Any = "illusory0x0_core_global" "undefined"
 
 ///|
-fn js_typeof(self : JAny) -> JString = "illusory0x0_core_global" "typeof"
+fn js_typeof(self : Any) -> JString = "illusory0x0_core_global" "typeof"
 
 ///|
-fn js_instanceof(self : JAny, constructor : JAny) -> Bool = "illusory0x0_core_global" "instanceof"
+fn js_instanceof(self : Any, constructor : Any) -> Bool = "illusory0x0_core_global" "instanceof"
 
 ///|
-fn js_equal(self : JAny, other : JAny) -> Bool = "illusory0x0_core_global" "equal"
+fn js_equal(self : Any, other : Any) -> Bool = "illusory0x0_core_global" "equal"
 
 ///|
-impl Eq for JAny with op_equal(self, other) {
+impl Eq for Any with op_equal(self, other) {
   self.js_equal(other)
 }
 
 ///|
-pub let js_true : JAny = _true()
+pub let js_true : Any = _true()
 
 ///|
-pub let js_false : JAny = _false()
+pub let js_false : Any = _false()
 
 ///|
-pub let js_null : JAny = _null()
+pub let js_null : Any = _null()
 
 ///|
-pub let js_undefined : JAny = _undefined()
+pub let js_undefined : Any = _undefined()
 
 ///|
 pub fn js_try_catch_finally(
@@ -47,29 +47,29 @@ pub fn js_try_catch_finally(
 pub fn js_throw(e : JError) = "illusory0x0_core_global" "throw_error"
 
 ///|
-fn _utf16Decoder() -> JTextDecoder = "illusory0x0_core_global" "utf16Decoder"
+fn _utf16Decoder() -> TextDecoder = "illusory0x0_core_global" "utf16Decoder"
 
 ///|
-pub let utf16Decoder : JTextDecoder = _utf16Decoder()
+pub let utf16Decoder : TextDecoder = _utf16Decoder()
 
 ///|
-let buffer : Ref[JArrayBuffer] = Ref::new(JArrayBuffer::new(8192 << 1))
+let buffer : Ref[ArrayBuffer] = Ref::new(ArrayBuffer::new(8192 << 1))
 
 ///|
-fn _console() -> JConsole = "illusory0x0_core_global" "console"
+fn _console() -> Console = "illusory0x0_core_global" "console"
 
 ///|
-pub let console : JConsole = _console()
+pub let console : Console = _console()
 
 ///|
-pub fn JTextDecoder::from_string(str : String) -> JString {
+pub fn TextDecoder::from_string(str : String) -> JString {
   let slen = str.length()
   let blen = slen << 1
   if blen >= buffer.val.byteLength() {
-    buffer.val = JArrayBuffer::new(blen)
+    buffer.val = ArrayBuffer::new(blen)
   }
   let buf = buffer.val
-  let arr : JTypedArray[UInt16] = JTypedArray::make(buf, 0, slen)
+  let arr : TypedArray[UInt16] = TypedArray::make(buf, 0, slen)
   for i in 0..<slen {
     arr[i] = str[i].to_int().to_uint16()
   }
@@ -77,24 +77,24 @@ pub fn JTextDecoder::from_string(str : String) -> JString {
 }
 
 ///|
-pub fn JAny::from_json(json : Json) -> JAny {
+pub fn Any::from_json(json : Json) -> Any {
   match json {
     Array(arr) => {
-      let res : JArray[JAny] = JArray::empty()
+      let res : Array[Any] = Array::empty()
       for i in 0..<arr.length() {
-        res[i] = JAny::from_json(arr[i])
+        res[i] = Any::from_json(arr[i])
       }
       res |> Js::to_any
     }
-    String(str) => JTextDecoder::from_string(str) |> Js::to_any
+    String(str) => TextDecoder::from_string(str) |> Js::to_any
     Number(num) => num |> Js::to_any
     False => js_false
     True => js_true
     Null => js_null
     Object(map) => {
-      let obj = JObject::empty()
+      let obj = Object::empty()
       for key, val in map {
-        obj[JTextDecoder::from_string(key)] = JAny::from_json(val).to_any()
+        obj[TextDecoder::from_string(key)] = Any::from_json(val).to_any()
       }
       obj.to_any()
     }
@@ -102,10 +102,10 @@ pub fn JAny::from_json(json : Json) -> JAny {
 }
 
 ///|
-fn map_to_any(map : Map[String, JAny]) -> JAny {
-  let obj = JObject::empty()
+fn map_to_any(map : @builtin.Map[String, Any]) -> Any {
+  let obj = Object::empty()
   for key, val in map {
-    obj[JTextDecoder::from_string(key)] = val.to_any()
+    obj[TextDecoder::from_string(key)] = val.to_any()
   }
   obj.to_any()
 }

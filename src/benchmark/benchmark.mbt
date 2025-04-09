@@ -1,9 +1,9 @@
 ///|
-typealias @jscore.(JArrayBuffer, JArray[T], JTypedArray[T])
+typealias @jscore.(ArrayBuffer, Array[T], TypedArray[T])
 
 ///|
-let typed_arr : JTypedArray[Int] = JTypedArray::new(
-  JArrayBuffer::new(1000 * 4),
+let typed_arr : TypedArray[Int] = TypedArray::new(
+  ArrayBuffer::new(1000 * 4),
   0,
   1000,
 )
@@ -16,7 +16,7 @@ pub fn benchmark_typedarray_fill_1000() -> Unit {
 }
 
 ///|
-let arr : JArray[Int] = JArray::new()
+let arr : Array[Int] = Array::new()
 
 ///|
 pub fn benchmark_array_op_set_fill_1000() -> Unit {

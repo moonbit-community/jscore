@@ -1,31 +1,31 @@
 ///|
 typealias @jscore.(
-  JTextDecoder,
+  TextDecoder,
   JError,
-  JReferenceError,
-  JRangeError,
-  JEvalError,
-  JSyntaxError,
-  JTypeError,
-  JAggregateError,
-  JDataView,
-  JTextEncoder,
-  JNumber,
-  JRegExp,
-  JDate,
-  JSharedArrayBuffer,
+  ReferenceError,
+  RangeError,
+  EvalError,
+  SyntaxError,
+  TypeError,
+  AggregateError,
+  DataView,
+  TextEncoder,
+  Number,
+  RegExp,
+  Date,
+  SharedArrayBuffer,
   JString,
-  JAny,
-  JInt32Array,
-  JMap[K, V],
-  JWeakMap[K, V],
-  JSet[V],
-  JWeakRef[V],
-  JWeakSet[V],
-  JConsole,
-  JTypedArray[T],
-  JArrayBuffer,
-  JArray[T]
+  Any,
+  Int32Array,
+  Map[K, V],
+  WeakMap[K, V],
+  Set[V],
+  WeakRef[V],
+  WeakSet[V],
+  Console,
+  TypedArray[T],
+  ArrayBuffer,
+  Array[T]
 )
 
 ///|
@@ -39,52 +39,52 @@ let console = @jscore.console
 
 ///|
 fn test_new() -> Unit {
-  let msg = JTextDecoder::from_string("hello")
-  let errors = JArray::from_array([
+  let msg = TextDecoder::from_string("hello")
+  let errors = Array::from_builtin([
     JError::new(msg),
-    JRangeError::new(msg).to_error(),
-    JEvalError::new(msg).to_error(),
-    JSyntaxError::new(msg).to_error(),
-    JTypeError::new(msg).to_error(),
-    JReferenceError::new(msg).to_error(),
+    RangeError::new(msg).to_error(),
+    EvalError::new(msg).to_error(),
+    SyntaxError::new(msg).to_error(),
+    TypeError::new(msg).to_error(),
+    ReferenceError::new(msg).to_error(),
   ])
-  JAggregateError::new(JArray::empty(), msg) |> ignore
-  let buf = JArrayBuffer::new(1024)
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[Byte]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[Int16]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[Int]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[Int64]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[UInt16]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[UInt]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[UInt64]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[Float]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[Double]) |> ignore
-  (JTypedArray::new(buf, 0, 0) : JTypedArray[Char]) |> ignore
-  JTextDecoder::new(JTextDecoder::from_string("utf-8")) |> ignore
-  JTextEncoder::new() |> ignore
-  JNumber::new(msg.to_any()) |> ignore
-  JDate::new(2025, 3, 6, 8, 19, 20, 20) |> ignore
-  JRegExp::new(JTextDecoder::from_string("abc")) |> ignore
-  (JMap::new() : JMap[Int, Int]) |> ignore
-  (JWeakMap::new() : JWeakMap[Int, Int]) |> ignore
-  (JSet::new() : JSet[Int]) |> ignore
-  (JWeakSet::new() : JWeakSet[Int]) |> ignore
-  JSharedArrayBuffer::new(1024) |> ignore
-  JDataView::new(buf, 0, 1024) |> ignore
-  JWeakRef::new(buf.to_any()) |> ignore
+  AggregateError::new(Array::empty(), msg) |> ignore
+  let buf = ArrayBuffer::new(1024)
+  (TypedArray::new(buf, 0, 0) : TypedArray[Byte]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[Int16]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[Int]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[Int64]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[UInt16]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[UInt]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[UInt64]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[Float]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[Double]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[Char]) |> ignore
+  TextDecoder::new(TextDecoder::from_string("utf-8")) |> ignore
+  TextEncoder::new() |> ignore
+  Number::new(msg.to_any()) |> ignore
+  Date::new(2025, 3, 6, 8, 19, 20, 20) |> ignore
+  RegExp::new(TextDecoder::from_string("abc")) |> ignore
+  (Map::new() : Map[Int, Int]) |> ignore
+  (WeakMap::new() : WeakMap[Int, Int]) |> ignore
+  (Set::new() : Set[Int]) |> ignore
+  (WeakSet::new() : WeakSet[Int]) |> ignore
+  SharedArrayBuffer::new(1024) |> ignore
+  DataView::new(buf, 0, 1024) |> ignore
+  WeakRef::new(buf.to_any()) |> ignore
 }
 
 ///|
 fn test_error() -> Unit {
-  let msg = JTextDecoder::from_string("hello")
-  let msg = JTextDecoder::from_string("hello")
+  let msg = TextDecoder::from_string("hello")
+  let msg = TextDecoder::from_string("hello")
   let errors = [
     JError::new(msg),
-    JRangeError::new(msg).to_error(),
-    JEvalError::new(msg).to_error(),
-    JSyntaxError::new(msg).to_error(),
-    JTypeError::new(msg).to_error(),
-    JReferenceError::new(msg).to_error(),
+    RangeError::new(msg).to_error(),
+    EvalError::new(msg).to_error(),
+    SyntaxError::new(msg).to_error(),
+    TypeError::new(msg).to_error(),
+    ReferenceError::new(msg).to_error(),
   ]
   for e in errors {
     println(e.name().to_string())
@@ -104,7 +104,7 @@ fn test_global() -> Unit {
 
 ///|
 fn test_arraybuffer() -> Unit {
-  let buf = JArrayBuffer::new(1024)
+  let buf = ArrayBuffer::new(1024)
   console.log(buf.byteLength())
   console.log(buf.maxByteLength())
   console.log(buf.resizable())
@@ -117,7 +117,7 @@ fn test_arraybuffer() -> Unit {
 ///|
 fn test_console() -> Unit {
   // console.clear()
-  let timer1 = JTextDecoder::from_string("timer1")
+  let timer1 = TextDecoder::from_string("timer1")
   console.time(timer1)
   console.log(0)
   console.info(0)
@@ -128,22 +128,22 @@ fn test_console() -> Unit {
   for i in 0..<5 {
     console.timeLog(timer1)
   }
-  console.log("time end" |> JTextDecoder::from_string)
+  console.log("time end" |> TextDecoder::from_string)
   console.timeEnd(timer1)
   console.trace()
-  console.assert_(1 == 2, JTextDecoder::from_string("1 == 2"))
+  console.assert_(1 == 2, TextDecoder::from_string("1 == 2"))
   console.count(timer1)
 }
 
 ///|
 fn test_date() -> Unit {
-  let timestamp = JDate::now()
+  let timestamp = Date::now()
   console.log(timestamp)
-  let time = JTextDecoder::from_string("2019-01-01T00:00:00.000Z")
+  let time = TextDecoder::from_string("2019-01-01T00:00:00.000Z")
   console.log(time)
-  let timestamp = JDate::parse(time)
+  let timestamp = Date::parse(time)
   console.log(timestamp)
-  let date = JDate::from_timestamp(JDate::now())
+  let date = Date::from_timestamp(Date::now())
   console.log(date)
   console.log(date.toLocaleString())
   console.log(date.toLocaleDateString())
@@ -157,24 +157,24 @@ fn test_date() -> Unit {
 
 ///|
 fn test_regexp() -> Unit {
-  let re = JRegExp::new(JTextDecoder::from_string("abc"))
+  let re = RegExp::new(TextDecoder::from_string("abc"))
   console.log(re.toString())
 }
 
 ///|
 fn test_map() -> Unit {
-  let map : JMap[JString, Int] = JMap::new()
-  map[JTextDecoder::from_string("a")] = 0
-  map[JTextDecoder::from_string("b")] = 1
+  let map : Map[JString, Int] = Map::new()
+  map[TextDecoder::from_string("a")] = 0
+  map[TextDecoder::from_string("b")] = 1
   console.log(map)
   console.log(map.entries())
   console.log(map.keys())
   console.log(map.values())
-  console.log(map.entries() |> JArray::from_iterator)
-  console.log(map.keys() |> JArray::from_iterator)
-  console.log(map.values() |> JArray::from_iterator)
-  console.log(map[JTextDecoder::from_string("a")])
-  console.log(map[JTextDecoder::from_string("c")])
+  console.log(map.entries() |> Array::from_iterator)
+  console.log(map.keys() |> Array::from_iterator)
+  console.log(map.values() |> Array::from_iterator)
+  console.log(map[TextDecoder::from_string("a")])
+  console.log(map[TextDecoder::from_string("c")])
 
   // Map::clear
   map.clear()
@@ -184,16 +184,16 @@ fn test_map() -> Unit {
 
 ///|
 fn test_set() -> Unit {
-  let set1 : JSet[Int] = JSet::new()
+  let set1 : Set[Int] = Set::new()
   set1.add(0)
   set1.add(1)
   set1.add(2)
-  let set2 : JSet[Int] = JSet::new()
+  let set2 : Set[Int] = Set::new()
   set2.add(4)
   set2.add(5)
   set2.add(6)
-  console.log(set1.union(set2).isSupersetOf(JSet::new()))
-  console.log(JSet::new().isSubsetOf(set1))
+  console.log(set1.union(set2).isSupersetOf(Set::new()))
+  console.log(Set::new().isSubsetOf(set1))
   console.log(set1.intersection(set2))
   console.log(set1)
   console.log(set2)
@@ -203,17 +203,17 @@ fn test_set() -> Unit {
 
 ///|
 fn test_dataview() -> Unit {
-  let buf = JArrayBuffer::new(2)
-  let dv = JDataView::new(buf, 0, 2)
+  let buf = ArrayBuffer::new(2)
+  let dv = DataView::new(buf, 0, 2)
   dv.setUint16(0, 0xff, true)
   console.log(dv)
   dv.setUint16(0, 0xff, false)
   console.log(dv)
   console.log(dv.byteLength())
   console.log(dv.byteOffset())
-  let arr : JArray[JAny] = JArray::empty()
-  let arr1 : JArray[Double] = JArray::empty()
-  let arr2 : JArray[Int] = JArray::empty()
+  let arr : Array[Any] = Array::empty()
+  let arr1 : Array[Double] = Array::empty()
+  let arr2 : Array[Int] = Array::empty()
   arr1[0] = 1.2
   arr2[0] = 99
   arr[0] = arr1.to_any()
@@ -223,10 +223,10 @@ fn test_dataview() -> Unit {
 
 ///|
 fn test_array() -> Unit {
-  let arr1 : JArray[Int] = JArray::empty()
+  let arr1 : Array[Int] = Array::empty()
   arr1[0] = 322
   console.log(arr1)
-  let arr1 : JArray[Double] = JArray::empty()
+  let arr1 : Array[Double] = Array::empty()
   arr1[0] = 2.35
   console.log(arr1)
   console.log(arr1.length())
@@ -234,34 +234,34 @@ fn test_array() -> Unit {
 
 ///|
 fn test_typedarray() -> Unit {
-  let arr : JInt32Array = JTypedArray::make(JArrayBuffer::new(4 * 10), 0, 10)
+  let arr : Int32Array = TypedArray::make(ArrayBuffer::new(4 * 10), 0, 10)
   arr[0] = 99
   console.log(arr)
 }
 
 ///|
 fn test_textdecoder_from_string() -> Unit {
-  console.log(JTextDecoder::from_string("hello world"))
-  console.log(JTextDecoder::from_string("你好"))
-  console.log(JTextDecoder::from_string("🐬"))
+  console.log(TextDecoder::from_string("hello world"))
+  console.log(TextDecoder::from_string("你好"))
+  console.log(TextDecoder::from_string("🐬"))
 }
 
 ///|
 fn test_json_to_any() -> Unit {
   let x = { "x": 1, "y": 2, "is_point": true, "arr": [1, 2, 3] }
-    |> JAny::from_json
+    |> Any::from_json
   console.log(x)
 }
 
 ///|
 fn test_textencoder() -> Unit {
-  let encoder = JTextEncoder::new()
+  let encoder = TextEncoder::new()
   console.log(encoder.encoding())
-  let buf = encoder.encode(JTextDecoder::from_string("hello"))
+  let buf = encoder.encode(TextDecoder::from_string("hello"))
   console.log(buf)
-  let buf = JArrayBuffer::new(4096)
-  let buf = JTypedArray::new(buf, 0, 4096)
-  let status = encoder.encodeInto(JTextDecoder::from_string("hello"), buf)
+  let buf = ArrayBuffer::new(4096)
+  let buf = TypedArray::new(buf, 0, 4096)
+  let status = encoder.encodeInto(TextDecoder::from_string("hello"), buf)
   console.log(status)
 }
 
@@ -291,7 +291,7 @@ pub fn entry_test() -> Unit {
 /// wasm backend doesn't support now.
 /// https://github.com/moonbitlang/moonbit-docs/issues/620
 fn test_try_catch() -> Unit {
-  let e = JError::new(JTextDecoder::from_string(""))
+  let e = JError::new(TextDecoder::from_string(""))
   js_try_catch_finally(fn() { js_throw(e) }, fn(e) { console.log(e) }, fn() {  })
 }
 // pub fn catch_panic() -> Unit {

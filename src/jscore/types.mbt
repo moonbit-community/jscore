@@ -1,116 +1,116 @@
 ///|
-pub extern type JAny
+pub extern type Any
 
 ///|
-pub extern type JObject
+pub extern type Object
 
 ///|
-pub extern type JArray[T]
+pub extern type Array[T]
 
 ///|
 pub extern type JError
 
 ///|
-pub extern type JAggregateError
+pub extern type AggregateError
 
 ///|
-pub extern type JEvalError
+pub extern type EvalError
 
 ///|
-pub extern type JRangeError
+pub extern type RangeError
 
 ///|
-pub extern type JReferenceError
+pub extern type ReferenceError
 
 ///|
-pub extern type JSyntaxError
+pub extern type SyntaxError
 
 ///|
-pub extern type JTypeError
+pub extern type TypeError
 
 ///|
-pub extern type JURIError
+pub extern type URIError
 
 ///|
 pub extern type JString
 
 ///|
-pub extern type JTextDecoder
+pub extern type TextDecoder
 
 ///|
-pub extern type JTextEncoder
+pub extern type TextEncoder
 
 ///|
-pub extern type JTypedArray[T]
+pub extern type TypedArray[T]
 
 ///|
-pub extern type JArrayBuffer
+pub extern type ArrayBuffer
 
 ///|
-pub typealias JUint8Array = JTypedArray[Byte]
+pub typealias Uint8Array = TypedArray[Byte]
 
 ///|
-pub typealias JUint16Array = JTypedArray[UInt16]
+pub typealias Uint16Array = TypedArray[UInt16]
 
 ///|
-pub typealias JUint32Array = JTypedArray[UInt]
+pub typealias Uint32Array = TypedArray[UInt]
 
 ///|
-pub typealias JInt8Array = JTypedArray[Byte]
+pub typealias Int8Array = TypedArray[Byte]
 
 ///|
-pub typealias JInt16Array = JTypedArray[Int16]
+pub typealias JInt16Array = TypedArray[Int16]
 
 ///|
-pub extern type JConsole
+pub extern type Console
 
 ///|
-pub typealias JInt32Array = JTypedArray[Int]
+pub typealias Int32Array = TypedArray[Int]
 
 ///|
-pub typealias JFloat32Array = JTypedArray[Float]
+pub typealias Float32Array = TypedArray[Float]
 
 ///|
-pub typealias JFloat64Array = JTypedArray[Double]
+pub typealias Float64Array = TypedArray[Double]
 
 ///|
-pub typealias JBigInt64Array = JTypedArray[Int64]
+pub typealias BigInt64Array = TypedArray[Int64]
 
 ///|
-pub typealias JBigUint64Array = JTypedArray[UInt64]
+pub typealias BigUint64Array = TypedArray[UInt64]
 
 ///|
-pub extern type JNumber
+pub extern type Number
 
 ///|
-pub extern type JDate
+pub extern type Date
 
 ///|
-pub extern type JRegExp
+pub extern type RegExp
 
 ///|
-pub extern type JMap[K, V]
+pub extern type Map[K, V]
 
 ///|
-pub extern type JSet[V]
+pub extern type Set[V]
 
 ///|
-pub extern type JWeakMap[K, V]
+pub extern type WeakMap[K, V]
 
 ///|
-pub extern type JWeakSet[V]
+pub extern type WeakSet[V]
 
 ///|
-pub extern type JSharedArrayBuffer
+pub extern type SharedArrayBuffer
 
 ///|
-pub extern type JDataView
+pub extern type DataView
 
 ///|
-pub extern type JWeakRef[T]
+pub extern type WeakRef[T]
 
 ///|
-pub extern type JIterator[T]
+pub extern type Iterator[T]
 
 // TODO
 // pub extern type JFinalizationRegistry

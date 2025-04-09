@@ -1,13 +1,13 @@
 ///|
 pub(open) trait Js {
-  to_any(Self) -> JAny
-  downcast(JAny) -> Self
+  to_any(Self) -> Any
+  downcast(Any) -> Self
 }
 
 ///|
 pub trait Js_Array {
-  get(JArray[Self], Int) -> Self
-  set(JArray[Self], Int, Self) -> Unit
+  get(Array[Self], Int) -> Self
+  set(Array[Self], Int, Self) -> Unit
 }
 
 ///|
@@ -20,9 +20,9 @@ pub trait Js_Error: Js {
 
 ///|
 pub trait Js_TypedArray {
-  get(JTypedArray[Self], Int) -> Self
-  set(JTypedArray[Self], Int, Self) -> Unit
-  new(JArrayBuffer, Int, Int) -> JTypedArray[Self]
+  get(TypedArray[Self], Int) -> Self
+  set(TypedArray[Self], Int, Self) -> Unit
+  new(ArrayBuffer, Int, Int) -> TypedArray[Self]
 }
 
 ///|
@@ -42,5 +42,5 @@ impl Js_Error with toString(self) {
 
 ///|
 pub trait Js_Object: Js {
-  to_object(Self) -> JObject
+  to_object(Self) -> Object
 }

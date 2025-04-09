@@ -39,8 +39,8 @@ pnpm -D i @types/node tsx
 ```moonbit
 // src/entry/entry.mbt
 pub fn entry() -> Unit {
-  @jcore.console.log(@jcore.JTextDecoder::from_string("hello world"))
-  @jcore.console.log(@jcore.JDate::now() |> @jcore.JDate::from_timestamp)
+  @jcore.console.log(@jcore.TextDecoder::from_string("hello world"))
+  @jcore.console.log(@jcore.Date::now() |> @jcore.Date::from_timestamp)
 }
 ```
 
