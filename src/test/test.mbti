@@ -1,4 +1,4 @@
-package illusory0x0/jcore/test
+package "illusory0x0/jscore/test"
 
 // Values
 fn entry_test() -> Unit

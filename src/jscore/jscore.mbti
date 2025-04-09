@@ -1,4 +1,8 @@
-package illusory0x0/jcore/jcore
+package "illusory0x0/jscore/jscore"
+
+import(
+  "moonbitlang/core/builtin"
+)
 
 // Values
 let console : Console
@@ -36,7 +40,7 @@ impl Js_Array for Any
 pub extern type Array[T]
 impl Array {
   empty[T]() -> Self[T]
-  from_array[T : Js](Array[T]) -> Self[T]
+  from_builtin[T : Js](@builtin.Array[T]) -> Self[T]
   from_iterator[T](Iterator[T]) -> Self[T]
   get[T : Js_Array](Self[T], Int) -> T
   length[T](Self[T]) -> Int
@@ -139,17 +143,6 @@ impl Date {
 impl Js for Date
 impl Js_Object for Date
 
-pub extern type JError
-impl JError {
-  message(Self) -> JString
-  name(Self) -> JString
-  new(JString) -> Self
-  toString(Self) -> JString
-}
-impl Js for JError
-impl Js_Error for JError
-impl Js_Object for JError
-
 pub extern type EvalError
 impl EvalError {
   new(JString) -> Self
@@ -161,6 +154,27 @@ impl Js_Object for EvalError
 pub extern type Iterator[T]
 impl[T] Js for Iterator[T]
 impl[T] Js_Object for Iterator[T]
+
+pub extern type JError
+impl JError {
+  message(Self) -> JString
+  name(Self) -> JString
+  new(JString) -> Self
+  toString(Self) -> JString
+}
+impl Js for JError
+impl Js_Error for JError
+impl Js_Object for JError
+
+pub extern type JString
+impl JString {
+  charCodeAt(Self, Int) -> Char
+  length(Self) -> Int
+  op_get(Self, Int) -> Char
+  to_string(Self) -> String
+}
+impl Js for JString
+impl Js_Object for JString
 
 pub extern type Map[K, V]
 impl Map {
@@ -251,16 +265,6 @@ impl SharedArrayBuffer {
 impl Js for SharedArrayBuffer
 impl Js_Object for SharedArrayBuffer
 
-pub extern type JString
-impl JString {
-  charCodeAt(Self, Int) -> Char
-  length(Self) -> Int
-  op_get(Self, Int) -> Char
-  to_string(Self) -> String
-}
-impl Js for JString
-impl Js_Object for JString
-
 pub extern type SyntaxError
 impl SyntaxError {
   new(JString) -> Self
@@ -348,11 +352,11 @@ pub typealias Float32Array = TypedArray[Float]
 
 pub typealias Float64Array = TypedArray[Double]
 
-pub typealias JInt16Array = TypedArray[Int16]
-
 pub typealias Int32Array = TypedArray[Int]
 
 pub typealias Int8Array = TypedArray[Byte]
+
+pub typealias JInt16Array = TypedArray[Int16]
 
 pub typealias Uint16Array = TypedArray[UInt16]
 

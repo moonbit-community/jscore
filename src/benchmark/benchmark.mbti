@@ -1,4 +1,4 @@
-package illusory0x0/jcore/benchmark
+package "illusory0x0/jscore/benchmark"
 
 // Values
 fn benchmark_array_op_set_fill_1000() -> Unit
