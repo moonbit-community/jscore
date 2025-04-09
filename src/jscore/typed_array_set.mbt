@@ -1,9 +1,5 @@
 ///|
-fn TypedArray::_u16_set(
-  self : TypedArray[UInt16],
-  index : Int,
-  value : UInt16
-) = "illusory0x0_core_global" "set"
+fn TypedArray::_u16_set(self : TypedArray[UInt16], index : Int, value : UInt16) = "illusory0x0_core_global" "set"
 
 ///|
 fn TypedArray::_i16_set(self : TypedArray[Int16], index : Int, value : Int16) = "illusory0x0_core_global" "set"
@@ -15,11 +11,7 @@ fn TypedArray::_byte_set(self : TypedArray[Byte], index : Int, value : Byte) = "
 fn TypedArray::_char_set(self : TypedArray[Char], index : Int, value : Char) = "illusory0x0_core_global" "set"
 
 ///|
-fn TypedArray::_f64_set(
-  self : TypedArray[Double],
-  index : Int,
-  value : Double
-) = "illusory0x0_core_global" "set"
+fn TypedArray::_f64_set(self : TypedArray[Double], index : Int, value : Double) = "illusory0x0_core_global" "set"
 
 ///|
 fn TypedArray::_f32_set(self : TypedArray[Float], index : Int, value : Float) = "illusory0x0_core_global" "set"
@@ -34,11 +26,7 @@ fn TypedArray::_i32_set(self : TypedArray[Int], index : Int, value : Int) = "ill
 fn TypedArray::_i64_set(self : TypedArray[Int64], index : Int, value : Int64) = "illusory0x0_core_global" "set"
 
 ///|
-fn TypedArray::_u64_set(
-  self : TypedArray[UInt64],
-  index : Int,
-  value : UInt64
-) = "illusory0x0_core_global" "set"
+fn TypedArray::_u64_set(self : TypedArray[UInt64], index : Int, value : UInt64) = "illusory0x0_core_global" "set"
 
 ///|
 pub impl Js_TypedArray for Int with set(self, index, value) {

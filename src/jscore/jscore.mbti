@@ -143,18 +143,6 @@ impl Date {
 impl Js for Date
 impl Js_Object for Date
 
-pub extern type EvalError
-impl EvalError {
-  new(String_) -> Self
-}
-impl Js for EvalError
-impl Js_Error for EvalError
-impl Js_Object for EvalError
-
-pub extern type Iterator[T]
-impl[T] Js for Iterator[T]
-impl[T] Js_Object for Iterator[T]
-
 pub extern type Error_
 impl Error_ {
   message(Self) -> String_
@@ -166,15 +154,17 @@ impl Js for Error_
 impl Js_Error for Error_
 impl Js_Object for Error_
 
-pub extern type String_
-impl String_ {
-  charCodeAt(Self, Int) -> Char
-  length(Self) -> Int
-  op_get(Self, Int) -> Char
-  to_string(Self) -> String
+pub extern type EvalError
+impl EvalError {
+  new(String_) -> Self
 }
-impl Js for String_
-impl Js_Object for String_
+impl Js for EvalError
+impl Js_Error for EvalError
+impl Js_Object for EvalError
+
+pub extern type Iterator[T]
+impl[T] Js for Iterator[T]
+impl[T] Js_Object for Iterator[T]
 
 pub extern type Map[K, V]
 impl Map {
@@ -265,6 +255,16 @@ impl SharedArrayBuffer {
 impl Js for SharedArrayBuffer
 impl Js_Object for SharedArrayBuffer
 
+pub extern type String_
+impl String_ {
+  charCodeAt(Self, Int) -> Char
+  length(Self) -> Int
+  op_get(Self, Int) -> Char
+  to_string(Self) -> String
+}
+impl Js for String_
+impl Js_Object for String_
+
 pub extern type SyntaxError
 impl SyntaxError {
   new(String_) -> Self
@@ -352,11 +352,11 @@ pub typealias Float32Array = TypedArray[Float]
 
 pub typealias Float64Array = TypedArray[Double]
 
+pub typealias Int16Array = TypedArray[Int16]
+
 pub typealias Int32Array = TypedArray[Int]
 
 pub typealias Int8Array = TypedArray[Byte]
-
-pub typealias Int16Array = TypedArray[Int16]
 
 pub typealias Uint16Array = TypedArray[UInt16]
 

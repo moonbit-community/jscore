@@ -32,10 +32,7 @@ fn Set::_intersection(self : Set[Any], other : Set[Any]) -> Set[Any] = "illusory
 fn Set::_difference(self : Set[Any], other : Set[Any]) -> Set[Any] = "illusory0x0_core_Set" "difference"
 
 ///|
-fn Set::_symmetricDifference(
-  self : Set[Any],
-  other : Set[Any]
-) -> Set[Any] = "illusory0x0_core_Set" "symmetricDifference"
+fn Set::_symmetricDifference(self : Set[Any], other : Set[Any]) -> Set[Any] = "illusory0x0_core_Set" "symmetricDifference"
 
 ///|
 fn Set::_isSubsetOf(self : Set[Any], other : Set[Any]) -> Bool = "illusory0x0_core_Set" "isSubsetOf"

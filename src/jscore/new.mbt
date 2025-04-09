@@ -17,10 +17,7 @@ pub fn TypeError::new(msg : String_) -> TypeError = "illusory0x0_core_new" "Type
 pub fn ReferenceError::new(msg : String_) -> ReferenceError = "illusory0x0_core_new" "ReferenceError"
 
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError)
-pub fn AggregateError::new(
-  xs : Array[Error_],
-  msg : String_
-) -> AggregateError = "illusory0x0_core_new" "AggregateError"
+pub fn AggregateError::new(xs : Array[Error_], msg : String_) -> AggregateError = "illusory0x0_core_new" "AggregateError"
 
 ///|
 fn TypedArray::_u8_new(
@@ -246,12 +243,14 @@ pub fn Array::new[T]() -> Array[T] {
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry/FinalizationRegistry)
 // pub fn JFinalizationRegistry::new(callbackFn : Any) -> JFinalizationRegistry = "illusory0x0_core_new" "FinalizationRegistry"
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)
 // pub fn JPromise::_new(executor : Any) -> JPromise[Any]= "illusory0x0_core_new" "Promise"
 // pub fn JPromise::new[T](executor : Any) -> JPromise[T] { JPromise::_new(executor) |> coerce }
 
+///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)
 fn Array::_empty() -> Array[Any] = "illusory0x0_core_new" "Array"
 
+///|
 pub fn Date::from_timestamp(timestamp : Double) -> Date = "illusory0x0_core_new" "Date"
 
+///|
 pub fn Object::empty() -> Object = "illusory0x0_core_new" "Object"
