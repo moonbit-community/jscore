@@ -62,7 +62,7 @@ fn _console() -> Console = "illusory0x0_core_global" "console"
 pub let console : Console = _console()
 
 ///|
-pub fn TextDecoder::from_string(str : String) -> String_ {
+pub fn TextDecoder::from_builtin(str : String) -> String_ {
   let slen = str.length()
   let blen = slen << 1
   if blen >= buffer.val.byteLength() {
@@ -86,7 +86,7 @@ pub fn Any::from_json(json : Json) -> Any {
       }
       res |> Js::to_any
     }
-    String(str) => TextDecoder::from_string(str) |> Js::to_any
+    String(str) => TextDecoder::from_builtin(str) |> Js::to_any
     Number(num) => num |> Js::to_any
     False => js_false
     True => js_true
@@ -94,7 +94,7 @@ pub fn Any::from_json(json : Json) -> Any {
     Object(map) => {
       let obj = Object::empty()
       for key, val in map {
-        obj[TextDecoder::from_string(key)] = Any::from_json(val).to_any()
+        obj[TextDecoder::from_builtin(key)] = Any::from_json(val).to_any()
       }
       obj.to_any()
     }
@@ -105,7 +105,7 @@ pub fn Any::from_json(json : Json) -> Any {
 fn map_to_any(map : @builtin.Map[String, Any]) -> Any {
   let obj = Object::empty()
   for key, val in map {
-    obj[TextDecoder::from_string(key)] = val.to_any()
+    obj[TextDecoder::from_builtin(key)] = val.to_any()
   }
   obj.to_any()
 }

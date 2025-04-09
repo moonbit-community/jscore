@@ -39,7 +39,7 @@ let console = @jscore.console
 
 ///|
 fn test_new() -> Unit {
-  let msg = TextDecoder::from_string("hello")
+  let msg = TextDecoder::from_builtin("hello")
   let errors = Array::from_builtin([
     Error_::new(msg),
     RangeError::new(msg).to_error(),
@@ -60,11 +60,11 @@ fn test_new() -> Unit {
   (TypedArray::new(buf, 0, 0) : TypedArray[Float]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[Double]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[Char]) |> ignore
-  TextDecoder::new(TextDecoder::from_string("utf-8")) |> ignore
+  TextDecoder::new(TextDecoder::from_builtin("utf-8")) |> ignore
   TextEncoder::new() |> ignore
   Number::new(msg.to_any()) |> ignore
   Date::new(2025, 3, 6, 8, 19, 20, 20) |> ignore
-  RegExp::new(TextDecoder::from_string("abc")) |> ignore
+  RegExp::new(TextDecoder::from_builtin("abc")) |> ignore
   (Map::new() : Map[Int, Int]) |> ignore
   (WeakMap::new() : WeakMap[Int, Int]) |> ignore
   (Set::new() : Set[Int]) |> ignore
@@ -76,8 +76,8 @@ fn test_new() -> Unit {
 
 ///|
 fn test_error() -> Unit {
-  let msg = TextDecoder::from_string("hello")
-  let msg = TextDecoder::from_string("hello")
+  let msg = TextDecoder::from_builtin("hello")
+  let msg = TextDecoder::from_builtin("hello")
   let errors = [
     Error_::new(msg),
     RangeError::new(msg).to_error(),
@@ -117,7 +117,7 @@ fn test_arraybuffer() -> Unit {
 ///|
 fn test_console() -> Unit {
   // console.clear()
-  let timer1 = TextDecoder::from_string("timer1")
+  let timer1 = TextDecoder::from_builtin("timer1")
   console.time(timer1)
   console.log(0)
   console.info(0)
@@ -128,10 +128,10 @@ fn test_console() -> Unit {
   for i in 0..<5 {
     console.timeLog(timer1)
   }
-  console.log("time end" |> TextDecoder::from_string)
+  console.log("time end" |> TextDecoder::from_builtin)
   console.timeEnd(timer1)
   console.trace()
-  console.assert_(1 == 2, TextDecoder::from_string("1 == 2"))
+  console.assert_(1 == 2, TextDecoder::from_builtin("1 == 2"))
   console.count(timer1)
 }
 
@@ -139,7 +139,7 @@ fn test_console() -> Unit {
 fn test_date() -> Unit {
   let timestamp = Date::now()
   console.log(timestamp)
-  let time = TextDecoder::from_string("2019-01-01T00:00:00.000Z")
+  let time = TextDecoder::from_builtin("2019-01-01T00:00:00.000Z")
   console.log(time)
   let timestamp = Date::parse(time)
   console.log(timestamp)
@@ -157,15 +157,15 @@ fn test_date() -> Unit {
 
 ///|
 fn test_regexp() -> Unit {
-  let re = RegExp::new(TextDecoder::from_string("abc"))
+  let re = RegExp::new(TextDecoder::from_builtin("abc"))
   console.log(re.toString())
 }
 
 ///|
 fn test_map() -> Unit {
   let map : Map[String_, Int] = Map::new()
-  map[TextDecoder::from_string("a")] = 0
-  map[TextDecoder::from_string("b")] = 1
+  map[TextDecoder::from_builtin("a")] = 0
+  map[TextDecoder::from_builtin("b")] = 1
   console.log(map)
   console.log(map.entries())
   console.log(map.keys())
@@ -173,8 +173,8 @@ fn test_map() -> Unit {
   console.log(map.entries() |> Array::from_iterator)
   console.log(map.keys() |> Array::from_iterator)
   console.log(map.values() |> Array::from_iterator)
-  console.log(map[TextDecoder::from_string("a")])
-  console.log(map[TextDecoder::from_string("c")])
+  console.log(map[TextDecoder::from_builtin("a")])
+  console.log(map[TextDecoder::from_builtin("c")])
 
   // Map::clear
   map.clear()
@@ -241,9 +241,9 @@ fn test_typedarray() -> Unit {
 
 ///|
 fn test_textdecoder_from_string() -> Unit {
-  console.log(TextDecoder::from_string("hello world"))
-  console.log(TextDecoder::from_string("你好"))
-  console.log(TextDecoder::from_string("🐬"))
+  console.log(TextDecoder::from_builtin("hello world"))
+  console.log(TextDecoder::from_builtin("你好"))
+  console.log(TextDecoder::from_builtin("🐬"))
 }
 
 ///|
@@ -257,11 +257,11 @@ fn test_json_to_any() -> Unit {
 fn test_textencoder() -> Unit {
   let encoder = TextEncoder::new()
   console.log(encoder.encoding())
-  let buf = encoder.encode(TextDecoder::from_string("hello"))
+  let buf = encoder.encode(TextDecoder::from_builtin("hello"))
   console.log(buf)
   let buf = ArrayBuffer::new(4096)
   let buf = TypedArray::new(buf, 0, 4096)
-  let status = encoder.encodeInto(TextDecoder::from_string("hello"), buf)
+  let status = encoder.encodeInto(TextDecoder::from_builtin("hello"), buf)
   console.log(status)
 }
 
@@ -291,7 +291,7 @@ pub fn entry_test() -> Unit {
 /// wasm backend doesn't support now.
 /// https://github.com/moonbitlang/moonbit-docs/issues/620
 fn test_try_catch() -> Unit {
-  let e = Error_::new(TextDecoder::from_string(""))
+  let e = Error_::new(TextDecoder::from_builtin(""))
   js_try_catch_finally(fn() { js_throw(e) }, fn(e) { console.log(e) }, fn() {  })
 }
 // pub fn catch_panic() -> Unit {
