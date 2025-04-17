@@ -278,7 +278,7 @@ impl TextDecoder {
   decode[T](Self, TypedArray[T]) -> String_
   encoding(Self) -> String_
   fatal(Self) -> Bool
-  from_string(String) -> String_
+  from_builtin(String) -> String_
   ignoreBOM(Self) -> Bool
   new(String_) -> Self
 }
@@ -367,9 +367,8 @@ pub typealias Uint8Array = TypedArray[Byte]
 // Traits
 pub(open) trait Js {
   to_any(Self) -> Any
-  downcast(Any) -> Self
+  downcast(Any) -> Self = _
 }
-impl Js::downcast
 impl Js for Bool
 impl Js for Byte
 impl Js for Int
