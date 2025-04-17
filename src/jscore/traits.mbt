@@ -1,7 +1,7 @@
 ///|
 pub(open) trait Js {
   to_any(Self) -> Any
-  downcast(Any) -> Self
+  downcast(Any) -> Self = _
 }
 
 ///|
@@ -13,9 +13,9 @@ pub trait Js_Array {
 ///|
 pub trait Js_Error: Js {
   to_error(Self) -> Error_
-  name(Self) -> String_
-  message(Self) -> String_
-  toString(Self) -> String_
+  name(Self) -> String_ = _
+  message(Self) -> String_ = _
+  toString(Self) -> String_ = _
 }
 
 ///|
