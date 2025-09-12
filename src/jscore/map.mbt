@@ -37,7 +37,7 @@ pub fn[K : Js, V : Js] Map::op_get(self : Map[K, V], index : K) -> V? {
   if res == js_undefined {
     None
   } else {
-    Some(Js::downcast(res))
+    Some(Js::downcast_(res))
   }
 }
 

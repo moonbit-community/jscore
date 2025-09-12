@@ -24,7 +24,7 @@ pub fn[T] Array::empty() -> Array[T] {
 ///|
 pub fn[T : Js] Array::op_get(self : Array[T], index : Int) -> T {
   let arr : Array[Any] = coerce(self)
-  arr._op_get(index) |> Js::downcast
+  arr._op_get(index) |> Js::downcast_
 }
 
 ///|

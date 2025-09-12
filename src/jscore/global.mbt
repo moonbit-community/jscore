@@ -14,7 +14,7 @@ fn _undefined() -> Any = "illusory0x0_core_global" "undefined"
 fn js_typeof(self : Any) -> String_ = "illusory0x0_core_global" "typeof"
 
 ///|
-fn js_instanceof(self : Any, constructor : Any) -> Bool = "illusory0x0_core_global" "instanceof"
+fn js_instanceof(self : Any, constructor_ : Any) -> Bool = "illusory0x0_core_global" "instanceof"
 
 ///|
 fn js_equal(self : Any, other : Any) -> Bool = "illusory0x0_core_global" "equal"
@@ -87,7 +87,7 @@ pub fn Any::from_json(json : Json) -> Any {
       res |> Js::to_any
     }
     String(str) => TextDecoder::from_builtin(str) |> Js::to_any
-    Number(num) => num |> Js::to_any
+    Number(num, ..) => num |> Js::to_any
     False => js_false
     True => js_true
     Null => js_null

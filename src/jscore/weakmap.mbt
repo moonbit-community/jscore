@@ -21,7 +21,7 @@ pub fn[K : Js_Object, V : Js_Object] WeakMap::op_get(
   if res == js_undefined {
     None
   } else {
-    Some(Js::downcast(res))
+    Some(Js::downcast_(res))
   }
 }
 

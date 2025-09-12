@@ -8,6 +8,6 @@ pub fn[T : Js_Object] WeakRef::deref(self : WeakRef[T]) -> T? {
   if res == js_undefined {
     None
   } else {
-    Some(res |> Js::downcast)
+    Some(res |> Js::downcast_)
   }
 }

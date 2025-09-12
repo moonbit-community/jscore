@@ -1,7 +1,7 @@
 ///|
 pub(open) trait Js {
   to_any(Self) -> Any
-  downcast(Any) -> Self = _
+  downcast_(Any) -> Self = _
 }
 
 ///|
