@@ -268,12 +268,12 @@ fn test_textencoder() -> Unit {
 ///|
 pub fn entry_test() -> Unit {
   // uncomment this will encounter ICE
-  // test_array()
-  // test_dataview()
-  // test_map()
-  // test_set()
-  // test_typedarray()
-  // test_textencoder()
+  test_array()
+  test_dataview()
+  test_map()
+  test_set()
+  test_typedarray()
+  test_textencoder()
 
 
   println("BEGIN TEST")
