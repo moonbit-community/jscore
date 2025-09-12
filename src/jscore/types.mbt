@@ -1,116 +1,144 @@
 ///|
-pub extern type Any
+#external
+pub type Any
 
 ///|
-pub extern type Object
+#external
+pub type Object
 
 ///|
-pub extern type Array[T]
+#external
+pub type Array[T]
 
 ///|
-pub extern type Error_
+#external
+pub type Error_
 
 ///|
-pub extern type AggregateError
+#external
+pub type AggregateError
 
 ///|
-pub extern type EvalError
+#external
+pub type EvalError
 
 ///|
-pub extern type RangeError
+#external
+pub type RangeError
 
 ///|
-pub extern type ReferenceError
+#external
+pub type ReferenceError
 
 ///|
-pub extern type SyntaxError
+#external
+pub type SyntaxError
 
 ///|
-pub extern type TypeError
+#external
+pub type TypeError
 
 ///|
-pub extern type URIError
+#external
+pub type URIError
 
 ///|
-pub extern type String_
+#external
+pub type String_
 
 ///|
-pub extern type TextDecoder
+#external
+pub type TextDecoder
 
 ///|
-pub extern type TextEncoder
+#external
+pub type TextEncoder
 
 ///|
-pub extern type TypedArray[T]
+#external
+pub type TypedArray[T]
 
 ///|
-pub extern type ArrayBuffer
+#external
+pub type ArrayBuffer
 
 ///|
-pub typealias Uint8Array = TypedArray[Byte]
+pub typealias TypedArray[Byte] as Uint8Array
 
 ///|
-pub typealias Uint16Array = TypedArray[UInt16]
+pub typealias TypedArray[UInt16] as Uint16Array
 
 ///|
-pub typealias Uint32Array = TypedArray[UInt]
+pub typealias TypedArray[UInt] as Uint32Array
 
 ///|
-pub typealias Int8Array = TypedArray[Byte]
+pub typealias TypedArray[Byte] as Int8Array
 
 ///|
-pub typealias Int16Array = TypedArray[Int16]
+pub typealias TypedArray[Int16] as Int16Array
 
 ///|
-pub extern type Console
+#external
+pub type Console
 
 ///|
-pub typealias Int32Array = TypedArray[Int]
+pub typealias TypedArray[Int] as Int32Array
 
 ///|
-pub typealias Float32Array = TypedArray[Float]
+pub typealias TypedArray[Float] as Float32Array
 
 ///|
-pub typealias Float64Array = TypedArray[Double]
+pub typealias TypedArray[Double] as Float64Array
 
 ///|
-pub typealias BigInt64Array = TypedArray[Int64]
+pub typealias TypedArray[Int64] as BigInt64Array
 
 ///|
-pub typealias BigUint64Array = TypedArray[UInt64]
+pub typealias TypedArray[UInt64] as BigUint64Array
 
 ///|
-pub extern type Number
+#external
+pub type Number
 
 ///|
-pub extern type Date
+#external
+pub type Date
 
 ///|
-pub extern type RegExp
+#external
+pub type RegExp
 
 ///|
-pub extern type Map[K, V]
+#external
+pub type Map[K, V]
 
 ///|
-pub extern type Set[V]
+#external
+pub type Set[V]
 
 ///|
-pub extern type WeakMap[K, V]
+#external
+pub type WeakMap[K, V]
 
 ///|
-pub extern type WeakSet[V]
+#external
+pub type WeakSet[V]
 
 ///|
-pub extern type SharedArrayBuffer
+#external
+pub type SharedArrayBuffer
 
 ///|
-pub extern type DataView
+#external
+pub type DataView
 
 ///|
-pub extern type WeakRef[T]
+#external
+pub type WeakRef[T]
 
 ///|
-pub extern type Iterator[T]
+#external
+pub type Iterator[T]
 
 // TODO
 // pub extern type FinalizationRegistry

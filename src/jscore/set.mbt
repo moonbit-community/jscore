@@ -43,81 +43,97 @@ fn Set::_isSupersetOf(self : Set[Any], ohter : Set[Any]) -> Bool = "illusory0x0_
 ///|
 fn Set::_isDisjointFrom(self : Set[Any], other : Set[Any]) -> Bool = "illusory0x0_core_Set" "isDisjointFrom"
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has)
-pub fn Set::has[T : Js](self : Set[T], value : T) -> Bool {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has)
+pub fn[T : Js] Set::has(self : Set[T], value : T) -> Bool {
   coerce(Set::_has)(self, value.to_any())
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add)
-pub fn Set::add[T : Js](self : Set[T], value : T) -> Unit {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add)
+pub fn[T : Js] Set::add(self : Set[T], value : T) -> Unit {
   coerce(Set::_add)(self, value.to_any())
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete)
-pub fn Set::delete[T : Js](self : Set[T], value : T) -> Unit {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete)
+pub fn[T : Js] Set::delete(self : Set[T], value : T) -> Unit {
   coerce(Set::_delete)(self, value.to_any())
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear)
-pub fn Set::clear[T](self : Set[T]) -> Unit {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear)
+pub fn[T] Set::clear(self : Set[T]) -> Unit {
   coerce(Set::_clear)(self)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/entries)
-pub fn Set::entries[T](self : Set[T]) -> Iterator[Array[Any]] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/entries)
+pub fn[T] Set::entries(self : Set[T]) -> Iterator[Array[Any]] {
   coerce(Set::_entries)(self)
 }
 
 // TODO
+
 ///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach)
 // fn Set::forEach(self : Set[Any]) = "illusory0x0_core_Set" "forEach"
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size)
-pub fn Set::size[T](self : Set[T]) -> Int {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size)
+pub fn[T] Set::size(self : Set[T]) -> Int {
   coerce(Set::_size)(self)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/values)
-pub fn Set::values[T](self : Set[T]) -> Iterator[T] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/values)
+pub fn[T] Set::values(self : Set[T]) -> Iterator[T] {
   coerce(Set::_values)(self)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys)
-pub fn Set::keys[T](self : Set[T]) -> Iterator[T] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys)
+pub fn[T] Set::keys(self : Set[T]) -> Iterator[T] {
   coerce(Set::_keys)(self)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/union)
-pub fn Set::union[T](self : Set[T], other : Set[T]) -> Set[T] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/union)
+pub fn[T] Set::union(self : Set[T], other : Set[T]) -> Set[T] {
   coerce(Set::_union)(self, other)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection)
-pub fn Set::intersection[T](self : Set[T], other : Set[T]) -> Set[T] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection)
+pub fn[T] Set::intersection(self : Set[T], other : Set[T]) -> Set[T] {
   coerce(Set::_intersection)(self, other)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/difference)
-pub fn Set::difference[T](self : Set[T], other : Set[T]) -> Set[T] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/difference)
+pub fn[T] Set::difference(self : Set[T], other : Set[T]) -> Set[T] {
   coerce(Set::_difference)(self, other)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/symmetricDifference)
-pub fn Set::symmetricDifference[T](self : Set[T], other : Set[T]) -> Set[T] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/symmetricDifference)
+pub fn[T] Set::symmetricDifference(self : Set[T], other : Set[T]) -> Set[T] {
   coerce(Set::_symmetricDifference)(self, other)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isSubsetOf)
-pub fn Set::isSubsetOf[T](self : Set[T], other : Set[T]) -> Bool {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isSubsetOf)
+pub fn[T] Set::isSubsetOf(self : Set[T], other : Set[T]) -> Bool {
   coerce(Set::_isSubsetOf)(self, other)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isSupersetOf)
-pub fn Set::isSupersetOf[T](self : Set[T], other : Set[T]) -> Bool {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isSupersetOf)
+pub fn[T] Set::isSupersetOf(self : Set[T], other : Set[T]) -> Bool {
   coerce(Set::_isSupersetOf)(self, other)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isDisjointFrom)
-pub fn Set::isDisjointFrom[T](self : Set[T], other : Set[T]) -> Bool {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/isDisjointFrom)
+pub fn[T] Set::isDisjointFrom(self : Set[T], other : Set[T]) -> Bool {
   coerce(Set::_isDisjointFrom)(self, other)
 }

@@ -40,7 +40,7 @@ pub let js_undefined : Any = _undefined()
 pub fn js_try_catch_finally(
   fn_try : () -> Unit,
   fn_catch : (Error_) -> Unit,
-  fn_finally : () -> Unit
+  fn_finally : () -> Unit,
 ) = "illusory0x0_core_global" "try_catch_finally"
 
 ///|

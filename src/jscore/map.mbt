@@ -29,8 +29,9 @@ fn Map::_size(self : Map[Any, Any]) -> Int = "illusory0x0_core_Map" "get_size"
 ///|
 fn Map::_entries(self : Map[Any, Any]) -> Array[Array[Any]] = "illusory0x0_core_Map" "entries"
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get)
-pub fn Map::op_get[K : Js, V : Js](self : Map[K, V], index : K) -> V? {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get)
+pub fn[K : Js, V : Js] Map::op_get(self : Map[K, V], index : K) -> V? {
   let map : Map[Any, Any] = self |> coerce
   let res = map._get(index.to_any())
   if res == js_undefined {
@@ -40,51 +41,59 @@ pub fn Map::op_get[K : Js, V : Js](self : Map[K, V], index : K) -> V? {
   }
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set)
-pub fn Map::op_set[K : Js, V : Js](
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set)
+pub fn[K : Js, V : Js] Map::op_set(
   self : Map[K, V],
   index : K,
-  value : V
+  value : V,
 ) -> Unit {
   let map : Map[Any, Any] = self |> coerce
   map._set(index.to_any(), value.to_any())
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has)
-pub fn Map::has[K : Js, V : Js](self : Map[K, V], index : K) -> Bool {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has)
+pub fn[K : Js, V : Js] Map::has(self : Map[K, V], index : K) -> Bool {
   let map : Map[Any, Any] = self |> coerce
   map._has(index.to_any())
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete)
-pub fn Map::delete[K : Js, V : Js](self : Map[K, V], index : K) -> Bool {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete)
+pub fn[K : Js, V : Js] Map::delete(self : Map[K, V], index : K) -> Bool {
   let map : Map[Any, Any] = self |> coerce
   map._delete(index.to_any())
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear)
-pub fn Map::clear[K, V](self : Map[K, V]) -> Unit {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear)
+pub fn[K, V] Map::clear(self : Map[K, V]) -> Unit {
   let map : Map[Any, Any] = self |> coerce
   map._clear()
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size)
-pub fn Map::size[K, V](self : Map[K, V]) -> Int {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size)
+pub fn[K, V] Map::size(self : Map[K, V]) -> Int {
   let map : Map[Any, Any] = self |> coerce
   map._size()
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries)
-pub fn Map::entries[K, V](self : Map[K, V]) -> Iterator[Array[Any]] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries)
+pub fn[K, V] Map::entries(self : Map[K, V]) -> Iterator[Array[Any]] {
   coerce(Map::_entries)(self)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys)
-pub fn Map::keys[K, V](self : Map[K, V]) -> Iterator[K] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys)
+pub fn[K, V] Map::keys(self : Map[K, V]) -> Iterator[K] {
   coerce(Map::_keys)(self)
 }
 
-///| [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values)
-pub fn Map::values[K, V](self : Map[K, V]) -> Iterator[K] {
+///|
+/// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values)
+pub fn[K, V] Map::values(self : Map[K, V]) -> Iterator[K] {
   coerce(Map::_values)(self)
 }

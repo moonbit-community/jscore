@@ -1,2 +1,2 @@
 ///|
-fn coerce[A, B](x : A) -> B = "%identity"
+fn[A, B] coerce(x : A) -> B = "%identity"

@@ -17,43 +17,43 @@ fn Array::_op_set(self : Array[Any], index : Int, value : Any) -> Unit {
 }
 
 ///|
-pub fn Array::empty[T]() -> Array[T] {
+pub fn[T] Array::empty() -> Array[T] {
   coerce(Array::_empty())
 }
 
 ///|
-pub fn Array::op_get[T : Js](self : Array[T], index : Int) -> T {
+pub fn[T : Js] Array::op_get(self : Array[T], index : Int) -> T {
   let arr : Array[Any] = coerce(self)
   arr._op_get(index) |> Js::downcast
 }
 
 ///|
-pub fn Array::op_set[T : Js](self : Array[T], index : Int, value : T) -> Unit {
+pub fn[T : Js] Array::op_set(self : Array[T], index : Int, value : T) -> Unit {
   let arr : Array[Any] = coerce(self)
   arr._op_set(index, value.to_any())
 }
 
 ///|
-pub fn Array::get[T : Js_Array](self : Array[T], index : Int) -> T {
+pub fn[T : Js_Array] Array::get(self : Array[T], index : Int) -> T {
   T::get(self, index)
 }
 
 ///|
-pub fn Array::set[T : Js_Array](
+pub fn[T : Js_Array] Array::set(
   self : Array[T],
   index : Int,
-  value : T
+  value : T,
 ) -> Unit {
   T::set(self, index, value)
 }
 
 ///|
-pub fn Array::length[T](self : Array[T]) -> Int {
+pub fn[T] Array::length(self : Array[T]) -> Int {
   coerce(Array::_length)(self)
 }
 
 ///|
-pub fn Array::from_builtin[T : Js](xs : @builtin.Array[T]) -> Array[T] {
+pub fn[T : Js] Array::from_builtin(xs : @builtin.Array[T]) -> Array[T] {
   let res = Array::empty()
   for i, x in xs {
     res[i] = x
@@ -62,6 +62,6 @@ pub fn Array::from_builtin[T : Js](xs : @builtin.Array[T]) -> Array[T] {
 }
 
 ///|
-pub fn Array::from_iterator[T](it : Iterator[T]) -> Array[T] {
+pub fn[T] Array::from_iterator(it : Iterator[T]) -> Array[T] {
   coerce(Array::_from)(it)
 }

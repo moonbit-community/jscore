@@ -2,32 +2,32 @@
 fn TypedArray::_length(self : TypedArray[Any]) -> Int = "illusory0x0_core_global" "length"
 
 ///|
-pub fn TypedArray::length[T](self : TypedArray[T]) -> Int {
+pub fn[T] TypedArray::length(self : TypedArray[T]) -> Int {
   coerce(TypedArray::_length)(self)
 }
 
 ///|
-pub fn TypedArray::op_get[T : Js_TypedArray](
+pub fn[T : Js_TypedArray] TypedArray::op_get(
   self : TypedArray[T],
-  index : Int
+  index : Int,
 ) -> T {
   T::get(self, index)
 }
 
 ///|
-pub fn TypedArray::op_set[T : Js_TypedArray](
+pub fn[T : Js_TypedArray] TypedArray::op_set(
   self : TypedArray[T],
   index : Int,
-  value : T
+  value : T,
 ) -> Unit {
   T::set(self, index, value)
 }
 
 ///|
-pub fn TypedArray::make[T : Js_TypedArray](
+pub fn[T : Js_TypedArray] TypedArray::make(
   buffer : ArrayBuffer,
   byteOffset : Int,
-  length : Int
+  length : Int,
 ) -> TypedArray[T] {
   T::new(buffer, byteOffset, length)
 }
