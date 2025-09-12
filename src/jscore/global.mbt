@@ -71,7 +71,7 @@ pub fn TextDecoder::from_builtin(str : String) -> String_ {
   let buf = buffer.val
   let arr : TypedArray[UInt16] = TypedArray::make(buf, 0, slen)
   for i in 0..<slen {
-    arr[i] = str[i].to_int().to_uint16()
+    arr[i] = str[i].to_uint16()
   }
   utf16Decoder.decode(arr)
 }

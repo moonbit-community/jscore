@@ -1,5 +1,5 @@
 ///|
-typealias @jscore.(ArrayBuffer, Array[T], TypedArray[T])
+typealias @jscore.(ArrayBuffer, Array, TypedArray)
 
 ///|
 let typed_arr : TypedArray[Int] = TypedArray::new(

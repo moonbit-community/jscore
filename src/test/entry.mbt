@@ -17,15 +17,15 @@ typealias @jscore.(
   String_,
   Any,
   Int32Array,
-  Map[K, V],
-  WeakMap[K, V],
-  Set[V],
-  WeakRef[V],
-  WeakSet[V],
+  Map,
+  WeakMap,
+  Set,
+  WeakRef,
+  WeakSet,
   Console,
-  TypedArray[T],
+  TypedArray,
   ArrayBuffer,
-  Array[T]
+  Array
 )
 
 ///|
