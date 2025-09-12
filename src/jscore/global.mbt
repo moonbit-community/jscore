@@ -20,7 +20,7 @@ fn js_instanceof(self : Any, constructor_ : Any) -> Bool = "illusory0x0_core_glo
 fn js_equal(self : Any, other : Any) -> Bool = "illusory0x0_core_global" "equal"
 
 ///|
-impl Eq for Any with op_equal(self, other) {
+impl Eq for Any with equal(self, other) {
   self.js_equal(other)
 }
 
