@@ -267,23 +267,26 @@ fn test_textencoder() -> Unit {
 
 ///|
 pub fn entry_test() -> Unit {
+  // uncomment this will encounter ICE
+  // test_array()
+  // test_dataview()
+  // test_map()
+  // test_set()
+  // test_typedarray()
+  // test_textencoder()
+
+
   println("BEGIN TEST")
-  test_array()
-  test_arraybuffer()
-  test_dataview()
   test_date()
+  test_arraybuffer()
   test_error()
   test_global()
   test_json_to_any()
-  test_map()
   test_new()
   test_regexp()
-  test_set()
   test_textdecoder_from_string()
-  test_textencoder()
-  test_typedarray()
   test_console()
-  // test_try_catch() 
+  test_try_catch()
   println("END TEST")
 }
 
