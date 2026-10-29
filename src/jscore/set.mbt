@@ -11,7 +11,7 @@ fn Set::_delete(self : Set[Any], value : Any) = "illusory0x0_core_Set" "delete"
 fn Set::_clear(self : Set[Any]) = "illusory0x0_core_Set" "clear"
 
 ///|
-fn Set::_size(self : Set[Any]) -> Int = "illusory0x0_core_Set" "get_size"
+fn Set::_size(self : Set[Any]) -> Int32 = "illusory0x0_core_Set" "get_size"
 
 ///|
 fn Set::_entries(self : Set[Any]) -> Iterator[Any] = "illusory0x0_core_Set" "entries"
@@ -80,7 +80,7 @@ pub fn[T] Set::entries(self : Set[T]) -> Iterator[Array[Any]] {
 
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size)
-pub fn[T] Set::size(self : Set[T]) -> Int {
+pub fn[T] Set::size(self : Set[T]) -> Int32 {
   coerce(Set::_size)(self)
 }
 

@@ -1,0 +1,15 @@
+name = "illusory0x0/jscore"
+
+version = "0.1.1"
+
+readme = "README.md"
+
+repository = "https://github.com/moonbit-community/jscore"
+
+license = "Apache-2.0"
+
+keywords = [ "wasm", "ffi", "javascript", "core" ]
+
+description = "JavaScript core library' s wasm binding"
+
+source = "src"

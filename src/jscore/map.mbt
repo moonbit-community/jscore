@@ -24,7 +24,7 @@ fn Map::_keys(self : Map[Any, Any]) -> Array[Any] = "illusory0x0_core_Map" "keys
 fn Map::_values(self : Map[Any, Any]) -> Array[Any] = "illusory0x0_core_Map" "values"
 
 ///|
-fn Map::_size(self : Map[Any, Any]) -> Int = "illusory0x0_core_Map" "get_size"
+fn Map::_size(self : Map[Any, Any]) -> Int32 = "illusory0x0_core_Map" "get_size"
 
 ///|
 fn Map::_entries(self : Map[Any, Any]) -> Array[Array[Any]] = "illusory0x0_core_Map" "entries"
@@ -75,7 +75,7 @@ pub fn[K, V] Map::clear(self : Map[K, V]) -> Unit {
 
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size)
-pub fn[K, V] Map::size(self : Map[K, V]) -> Int {
+pub fn[K, V] Map::size(self : Map[K, V]) -> Int32 {
   let map : Map[Any, Any] = self |> coerce
   map._size()
 }

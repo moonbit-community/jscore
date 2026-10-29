@@ -1,8 +1,8 @@
 ///|
-typealias @jscore.(ArrayBuffer, Array, TypedArray)
+using @jscore {type ArrayBuffer, type Array, type TypedArray}
 
 ///|
-let typed_arr : TypedArray[Int] = TypedArray::new(
+let typed_arr : TypedArray[Int32] = TypedArray::new(
   ArrayBuffer::new(1000 * 4),
   0,
   1000,
@@ -16,7 +16,7 @@ pub fn benchmark_typedarray_fill_1000() -> Unit {
 }
 
 ///|
-let arr : Array[Int] = Array::new()
+let arr : Array[Int32] = Array::new()
 
 ///|
 pub fn benchmark_array_op_set_fill_1000() -> Unit {
@@ -33,7 +33,7 @@ pub fn benchmark_array_set_fill_1000() -> Unit {
 }
 
 ///|
-let mbt_fixed_arr : FixedArray[Int] = FixedArray::make(1000, 0)
+let mbt_fixed_arr : FixedArray[Int32] = FixedArray::make(1000, 0)
 
 ///|
 pub fn benchmark_moonbit_fixedarray_fill_1000() -> Unit {

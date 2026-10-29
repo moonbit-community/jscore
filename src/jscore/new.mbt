@@ -29,142 +29,142 @@ pub fn AggregateError::new(xs : Array[Error_], msg : String_) -> AggregateError 
 ///|
 fn TypedArray::_u8_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Uint8Array = "illusory0x0_core_new" "Uint8Array"
 
 ///|
 fn TypedArray::_u16_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Uint16Array = "illusory0x0_core_new" "Uint16Array"
 
 ///|
 fn TypedArray::_u32_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Uint32Array = "illusory0x0_core_new" "Uint32Array"
 
 ///|
 fn TypedArray::_i8_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Int8Array = "illusory0x0_core_new" "Uint8Array"
 
 ///|
 fn TypedArray::_i16_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Int16Array = "illusory0x0_core_new" "Int16Array"
 
 ///|
 fn TypedArray::_i32_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Int32Array = "illusory0x0_core_new" "Int32Array"
 
 ///|
 fn TypedArray::_char_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> TypedArray[Char] = "illusory0x0_core_new" "Uint32Array"
 
 ///|
 fn TypedArray::_f32_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Float32Array = "illusory0x0_core_new" "Float32Array"
 
 ///|
 fn TypedArray::_f64_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> Float64Array = "illusory0x0_core_new" "Float64Array"
 
 ///|
 fn TypedArray::_i64_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> BigInt64Array = "illusory0x0_core_new" "BigInt64Array"
 
 ///|
 fn TypedArray::_u64_new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> BigUint64Array = "illusory0x0_core_new" "BigUint64Array"
 
 ///|
-pub impl Js_TypedArray for Byte with new(buffer, offset, length) {
+pub impl Js_TypedArray for Byte with fn new(buffer, offset, length) {
   TypedArray::_u8_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for Int16 with new(buffer, offset, length) {
+pub impl Js_TypedArray for Int16 with fn new(buffer, offset, length) {
   TypedArray::_i16_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for Int with new(buffer, offset, length) {
+pub impl Js_TypedArray for Int32 with fn new(buffer, offset, length) {
   TypedArray::_i32_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for UInt with new(buffer, offset, length) {
+pub impl Js_TypedArray for UInt32 with fn new(buffer, offset, length) {
   TypedArray::_u32_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for UInt16 with new(buffer, offset, length) {
+pub impl Js_TypedArray for UInt16 with fn new(buffer, offset, length) {
   TypedArray::_u16_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for Float with new(buffer, offset, length) {
+pub impl Js_TypedArray for Float with fn new(buffer, offset, length) {
   TypedArray::_f32_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for Double with new(buffer, offset, length) {
+pub impl Js_TypedArray for Double with fn new(buffer, offset, length) {
   TypedArray::_f64_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for Int64 with new(buffer, offset, length) {
+pub impl Js_TypedArray for Int64 with fn new(buffer, offset, length) {
   TypedArray::_i64_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for UInt64 with new(buffer, offset, length) {
+pub impl Js_TypedArray for UInt64 with fn new(buffer, offset, length) {
   TypedArray::_u64_new(buffer, offset, length)
 }
 
 ///|
-pub impl Js_TypedArray for Char with new(buffer, offset, lenght) {
+pub impl Js_TypedArray for Char with fn new(buffer, offset, lenght) {
   TypedArray::_char_new(buffer, offset, lenght)
 }
 
 ///|
 pub fn[T : Js_TypedArray] TypedArray::new(
   buffer : ArrayBuffer,
-  byteOffset : Int,
-  length : Int,
+  byteOffset : Int32,
+  length : Int32,
 ) -> TypedArray[T] {
   T::new(buffer, byteOffset, length)
 }
 
 ///|
 ///  [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/ArrayBuffer)
-pub fn ArrayBuffer::new(len : Int) -> ArrayBuffer = "illusory0x0_core_new" "ArrayBuffer"
+pub fn ArrayBuffer::new(len : Int32) -> ArrayBuffer = "illusory0x0_core_new" "ArrayBuffer"
 
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder/TextEncoder)
@@ -181,13 +181,13 @@ pub fn Number::new(value : Any) -> Number = "illusory0x0_core_new" "Number"
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date)
 pub fn Date::new(
-  year : Int,
-  monthIndex : Int,
-  day : Int,
-  hours : Int,
-  minutes : Int,
-  seconds : Int,
-  milliseconds : Int,
+  year : Int32,
+  monthIndex : Int32,
+  day : Int32,
+  hours : Int32,
+  minutes : Int32,
+  seconds : Int32,
+  milliseconds : Int32,
 ) -> Date = "illusory0x0_core_new" "Date"
 
 ///|
@@ -232,14 +232,14 @@ fn WeakSet::_new() -> WeakSet[Any] = "illusory0x0_core_new" "WeakSet"
 
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/SharedArrayBuffer)
-pub fn SharedArrayBuffer::new(length : Int) -> SharedArrayBuffer = "illusory0x0_core_new" "SharedArrayBuffer"
+pub fn SharedArrayBuffer::new(length : Int32) -> SharedArrayBuffer = "illusory0x0_core_new" "SharedArrayBuffer"
 
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/DataView)
 pub fn DataView::new(
   buffer : ArrayBuffer,
-  offset : Int,
-  length : Int,
+  offset : Int32,
+  length : Int32,
 ) -> DataView = "illusory0x0_core_new" "DataView"
 
 ///|

@@ -1,0 +1,13 @@
+warnings = "-1-2-3-5-6-7-8"
+
+import {
+  "illusory0x0/jscore/jscore",
+}
+
+options(
+  link: {
+    "wasm-gc": { "exports": [ "entry_test", "catch_panic" ] },
+    "wasm": { "exports": [ "entry_test", "catch_panic" ] },
+    "js": { "exports": [ "entry_test", "catch_panic" ] },
+  },
+)

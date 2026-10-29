@@ -1,0 +1,404 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "illusory0x0/jscore/jscore"
+
+import {
+  "moonbitlang/core/builtin",
+}
+
+// Values
+pub let console : Console
+
+pub let js_false : Any
+
+pub let js_null : Any
+
+pub fn js_throw(Error_) -> Unit
+
+pub let js_true : Any
+
+pub fn js_try_catch_finally(() -> Unit, (Error_) -> Unit, () -> Unit) -> Unit
+
+pub let js_undefined : Any
+
+pub let utf16Decoder : TextDecoder
+
+// Errors
+
+// Types and methods
+#external
+pub type AggregateError
+pub fn AggregateError::new(Array[Error_], String_) -> Self
+pub impl Js for AggregateError
+pub impl Js_Error for AggregateError
+pub impl Js_Object for AggregateError
+
+#external
+pub type Any
+pub fn Any::from_json(Json) -> Self
+pub impl Js for Any
+pub impl Js_Array for Any
+
+#external
+pub type Array[T]
+pub fn[T] Array::empty() -> Self[T]
+pub fn[T : Js] Array::from_builtin(@builtin.Array[T]) -> Self[T]
+pub fn[T] Array::from_iterator(Iterator[T]) -> Self[T]
+pub fn[T : Js_Array] Array::get(Self[T], Int32) -> T
+pub fn[T] Array::length(Self[T]) -> Int32
+pub fn[T] Array::new() -> Self[T]
+pub fn[T : Js] Array::op_get(Self[T], Int32) -> T
+pub fn[T : Js] Array::op_set(Self[T], Int32, T) -> Unit
+pub fn[T : Js_Array] Array::set(Self[T], Int32, T) -> Unit
+pub impl[T] Js for Array[T]
+pub impl[T] Js_Object for Array[T]
+
+#external
+pub type ArrayBuffer
+pub fn ArrayBuffer::byteLength(Self) -> Int32
+pub fn ArrayBuffer::detached(Self) -> Bool
+pub fn ArrayBuffer::isView(Any) -> Bool
+pub fn ArrayBuffer::maxByteLength(Self) -> Int32
+pub fn ArrayBuffer::new(Int32) -> Self
+pub fn ArrayBuffer::resizable(Self) -> Bool
+pub fn ArrayBuffer::resize(Self, Int32) -> Unit
+pub fn ArrayBuffer::slice(Self, Int32, Int32) -> Self
+pub fn ArrayBuffer::transfer(Self, Int32) -> Self
+pub fn ArrayBuffer::transferToFixedLength(Self, Int32) -> Self
+pub impl Js for ArrayBuffer
+pub impl Js_Object for ArrayBuffer
+
+#external
+pub type Console
+pub fn[T : Js] Console::assert_(Self, Bool, T) -> Unit
+pub fn Console::clear(Self) -> Unit
+pub fn Console::count(Self, String_) -> Unit
+pub fn Console::countReset(Self, String_) -> Unit
+pub fn[T : Js] Console::debug(Self, T) -> Unit
+pub fn[T : Js] Console::dir(Self, T) -> Unit
+pub fn[T : Js] Console::dirxml(Self, T) -> Unit
+pub fn[T : Js] Console::error(Self, T) -> Unit
+pub fn Console::group(Self, String_) -> Unit
+pub fn Console::groupCollapsed(Self, String_) -> Unit
+pub fn Console::groupEnd(Self, String_) -> Unit
+pub fn[T : Js] Console::info(Self, T) -> Unit
+pub fn[T : Js] Console::log(Self, T) -> Unit
+pub fn[T] Console::table(Self, Array[T]) -> Unit
+pub fn Console::time(Self, String_) -> Unit
+pub fn Console::timeEnd(Self, String_) -> Unit
+pub fn Console::timeLog(Self, String_) -> Unit
+pub fn Console::trace(Self) -> Unit
+pub fn[T : Js] Console::warn(Self, T) -> Unit
+pub impl Js for Console
+pub impl Js_Object for Console
+
+#external
+pub type DataView
+pub fn DataView::buffer(Self) -> ArrayBuffer
+pub fn DataView::byteLength(Self) -> Int32
+pub fn DataView::byteOffset(Self) -> Int32
+pub fn DataView::getBigInt64(Self, Int32, Bool) -> Int64
+pub fn DataView::getBigUint64(Self, Int32, Bool) -> UInt64
+pub fn DataView::getFloat32(Self, Int32, Bool) -> Float
+pub fn DataView::getFloat64(Self, Int32, Bool) -> Double
+pub fn DataView::getInt16(Self, Int32, Bool) -> Int16
+pub fn DataView::getInt32(Self, Int32, Bool) -> Int32
+pub fn DataView::getInt8(Self, Int32) -> Byte
+pub fn DataView::getUint16(Self, Int32, Bool) -> UInt16
+pub fn DataView::getUint32(Self, Int32, Bool) -> UInt32
+pub fn DataView::getUint8(Self, Int32) -> Byte
+pub fn DataView::new(ArrayBuffer, Int32, Int32) -> Self
+pub fn DataView::setBigInt64(Self, Int32, Int64, Bool) -> Unit
+pub fn DataView::setBigUint64(Self, Int32, UInt64, Bool) -> Unit
+pub fn DataView::setFloat32(Self, Int32, Float, Bool) -> Unit
+pub fn DataView::setFloat64(Self, Int32, Double, Bool) -> Unit
+pub fn DataView::setInt16(Self, Int32, Int16, Bool) -> Unit
+pub fn DataView::setInt32(Self, Int32, Int32, Bool) -> Unit
+pub fn DataView::setInt8(Self, Int32, Byte) -> Unit
+pub fn DataView::setUint16(Self, Int32, UInt16, Bool) -> Unit
+pub fn DataView::setUint32(Self, Int32, UInt32, Bool) -> Unit
+pub fn DataView::setUint8(Self, Int32, Byte) -> Unit
+pub impl Js for DataView
+pub impl Js_Object for DataView
+
+#external
+pub type Date
+pub fn Date::from_timestamp(Double) -> Self
+pub fn Date::new(Int32, Int32, Int32, Int32, Int32, Int32, Int32) -> Self
+pub fn Date::now() -> Double
+pub fn Date::parse(String_) -> Double
+pub fn Date::toDateString(Self) -> String_
+pub fn Date::toISOString(Self) -> String_
+pub fn Date::toJSON(Self) -> Object
+pub fn Date::toLocaleDateString(Self) -> String_
+pub fn Date::toLocaleString(Self) -> String_
+pub fn Date::toLocaleTimeString(Self) -> String_
+pub fn Date::toString(Self) -> String_
+pub fn Date::toTimeString(Self) -> String_
+pub fn Date::toUTCString(Self) -> String_
+pub fn Date::utc(Int32, Int32, Int32, Int32, Int32, Int32, Int32) -> Self
+pub impl Js for Date
+pub impl Js_Object for Date
+
+#external
+pub type Error_
+pub fn Error_::message(Self) -> String_
+pub fn Error_::name(Self) -> String_
+pub fn Error_::new(String_) -> Self
+pub fn Error_::toString(Self) -> String_
+pub impl Js for Error_
+pub impl Js_Error for Error_
+pub impl Js_Object for Error_
+
+#external
+pub type EvalError
+pub fn EvalError::new(String_) -> Self
+pub impl Js for EvalError
+pub impl Js_Error for EvalError
+pub impl Js_Object for EvalError
+
+#external
+pub type Iterator[T]
+pub impl[T] Js for Iterator[T]
+pub impl[T] Js_Object for Iterator[T]
+
+#external
+pub type Map[K, V]
+pub fn[K, V] Map::clear(Self[K, V]) -> Unit
+pub fn[K : Js, V : Js] Map::delete(Self[K, V], K) -> Bool
+pub fn[K, V] Map::entries(Self[K, V]) -> Iterator[Array[Any]]
+pub fn[K : Js, V : Js] Map::has(Self[K, V], K) -> Bool
+pub fn[K, V] Map::keys(Self[K, V]) -> Iterator[K]
+pub fn[K, V] Map::new() -> Self[K, V]
+pub fn[K : Js, V : Js] Map::op_get(Self[K, V], K) -> V?
+pub fn[K : Js, V : Js] Map::op_set(Self[K, V], K, V) -> Unit
+pub fn[K, V] Map::size(Self[K, V]) -> Int32
+pub fn[K, V] Map::values(Self[K, V]) -> Iterator[K]
+pub impl[K, V] Js for Map[K, V]
+pub impl[K, V] Js_Object for Map[K, V]
+
+#external
+pub type Number
+pub fn Number::new(Any) -> Self
+pub impl Js for Number
+
+#external
+pub type Object
+pub fn Object::empty() -> Self
+pub fn Object::op_get(Self, String_) -> Any
+pub fn Object::op_set(Self, String_, Any) -> Unit
+pub impl Js for Object
+pub impl Js_Object for Object
+
+#external
+pub type RangeError
+pub fn RangeError::new(String_) -> Self
+pub impl Js for RangeError
+pub impl Js_Error for RangeError
+pub impl Js_Object for RangeError
+
+#external
+pub type ReferenceError
+pub fn ReferenceError::new(String_) -> Self
+pub impl Js for ReferenceError
+pub impl Js_Error for ReferenceError
+pub impl Js_Object for ReferenceError
+
+#external
+pub type RegExp
+pub fn RegExp::new(String_) -> Self
+pub fn RegExp::toString(Self) -> String_
+pub impl Js for RegExp
+pub impl Js_Object for RegExp
+
+#external
+pub type Set[V]
+pub fn[T : Js] Set::add(Self[T], T) -> Unit
+pub fn[T] Set::clear(Self[T]) -> Unit
+pub fn[T : Js] Set::delete(Self[T], T) -> Unit
+pub fn[T] Set::difference(Self[T], Self[T]) -> Self[T]
+pub fn[T] Set::entries(Self[T]) -> Iterator[Array[Any]]
+pub fn[T : Js] Set::has(Self[T], T) -> Bool
+pub fn[T] Set::intersection(Self[T], Self[T]) -> Self[T]
+pub fn[T] Set::isDisjointFrom(Self[T], Self[T]) -> Bool
+pub fn[T] Set::isSubsetOf(Self[T], Self[T]) -> Bool
+pub fn[T] Set::isSupersetOf(Self[T], Self[T]) -> Bool
+pub fn[T] Set::keys(Self[T]) -> Iterator[T]
+pub fn[V] Set::new() -> Self[V]
+pub fn[T] Set::size(Self[T]) -> Int32
+pub fn[T] Set::symmetricDifference(Self[T], Self[T]) -> Self[T]
+pub fn[T] Set::union(Self[T], Self[T]) -> Self[T]
+pub fn[T] Set::values(Self[T]) -> Iterator[T]
+pub impl[T] Js for Set[T]
+pub impl[T] Js_Object for Set[T]
+
+#external
+pub type SharedArrayBuffer
+pub fn SharedArrayBuffer::byteLength(Self) -> Int32
+pub fn SharedArrayBuffer::grow(Self, Int32) -> Unit
+pub fn SharedArrayBuffer::growable(Self) -> Bool
+pub fn SharedArrayBuffer::maxByteLength(Self) -> Int32
+pub fn SharedArrayBuffer::new(Int32) -> Self
+pub fn SharedArrayBuffer::slice(Self, Int32, Int32) -> Self
+pub impl Js for SharedArrayBuffer
+pub impl Js_Object for SharedArrayBuffer
+
+#external
+pub type String_
+pub fn String_::charCodeAt(Self, Int32) -> Char
+pub fn String_::length(Self) -> Int32
+pub fn String_::op_get(Self, Int32) -> Char
+pub fn String_::to_string(Self) -> String
+pub impl Js for String_
+pub impl Js_Object for String_
+
+#external
+pub type SyntaxError
+pub fn SyntaxError::new(String_) -> Self
+pub impl Js for SyntaxError
+pub impl Js_Error for SyntaxError
+pub impl Js_Object for SyntaxError
+
+#external
+pub type TextDecoder
+pub fn[T] TextDecoder::decode(Self, TypedArray[T]) -> String_
+pub fn TextDecoder::encoding(Self) -> String_
+pub fn TextDecoder::fatal(Self) -> Bool
+pub fn TextDecoder::from_builtin(String) -> String_
+pub fn TextDecoder::ignoreBOM(Self) -> Bool
+pub fn TextDecoder::new(String_) -> Self
+
+#external
+pub type TextEncoder
+pub fn TextEncoder::encode(Self, String_) -> TypedArray[Byte]
+pub fn TextEncoder::encodeInto(Self, String_, TypedArray[Byte]) -> Object
+pub fn TextEncoder::encoding(Self) -> String_
+pub fn TextEncoder::new() -> Self
+pub impl Js for TextEncoder
+pub impl Js_Object for TextEncoder
+
+#external
+pub type TypeError
+pub fn TypeError::new(String_) -> Self
+pub impl Js for TypeError
+pub impl Js_Error for TypeError
+pub impl Js_Object for TypeError
+
+#external
+pub type TypedArray[T]
+pub fn[T] TypedArray::length(Self[T]) -> Int32
+pub fn[T : Js_TypedArray] TypedArray::make(ArrayBuffer, Int32, Int32) -> Self[T]
+pub fn[T : Js_TypedArray] TypedArray::new(ArrayBuffer, Int32, Int32) -> Self[T]
+pub fn[T : Js_TypedArray] TypedArray::op_get(Self[T], Int32) -> T
+pub fn[T : Js_TypedArray] TypedArray::op_set(Self[T], Int32, T) -> Unit
+pub impl[T] Js for TypedArray[T]
+pub impl[T] Js_Object for TypedArray[T]
+
+#external
+pub type URIError
+
+#external
+pub type WeakMap[K, V]
+pub fn[K : Js_Object, V : Js_Object] WeakMap::delete(Self[K, V], K) -> Bool
+pub fn[K : Js_Object, V : Js_Object] WeakMap::has(Self[K, V], K) -> Bool
+pub fn[K, V] WeakMap::new() -> Self[K, V]
+pub fn[K : Js_Object, V : Js_Object] WeakMap::op_get(Self[K, V], K) -> V?
+pub fn[K : Js_Object, V : Js_Object] WeakMap::op_set(Self[K, V], K, V) -> Unit
+pub impl[K, V] Js for WeakMap[K, V]
+pub impl[K, V] Js_Object for WeakMap[K, V]
+
+#external
+pub type WeakRef[T]
+pub fn[T : Js_Object] WeakRef::deref(Self[T]) -> T?
+pub fn[T : Js] WeakRef::new(T) -> Self[T]
+pub impl[T] Js for WeakRef[T]
+pub impl[T] Js_Object for WeakRef[T]
+
+#external
+pub type WeakSet[V]
+pub fn[T : Js_Object] WeakSet::add(Self[T], T) -> Unit
+pub fn[T : Js_Object] WeakSet::delete(Self[T], T) -> Unit
+pub fn[T : Js_Object] WeakSet::has(Self[T], T) -> Bool
+pub fn[V] WeakSet::new() -> Self[V]
+pub impl[T] Js for WeakSet[T]
+pub impl[T] Js_Object for WeakSet[T]
+
+// Type aliases
+pub type BigInt64Array = TypedArray[Int64]
+
+pub type BigUint64Array = TypedArray[UInt64]
+
+pub type Float32Array = TypedArray[Float]
+
+pub type Float64Array = TypedArray[Double]
+
+pub type Int16Array = TypedArray[Int16]
+
+pub type Int32Array = TypedArray[Int32]
+
+pub type Int8Array = TypedArray[Byte]
+
+pub type Uint16Array = TypedArray[UInt16]
+
+pub type Uint32Array = TypedArray[UInt32]
+
+pub type Uint8Array = TypedArray[Byte]
+
+// Traits
+pub(open) trait Js {
+  fn to_any(Self) -> Any
+  fn downcast_(Any) -> Self = _
+}
+pub impl Js for Bool
+pub impl Js for Byte
+pub impl Js for Int32
+pub impl Js for Int16
+pub impl Js for Int64
+pub impl Js for UInt32
+pub impl Js for UInt16
+pub impl Js for UInt64
+pub impl Js for Float
+pub impl Js for Double
+pub impl[T : Js] Js for T?
+
+pub trait Js_Array {
+  fn get(Array[Self], Int32) -> Self
+  fn set(Array[Self], Int32, Self) -> Unit
+}
+pub impl Js_Array for Bool
+pub impl Js_Array for Byte
+pub impl Js_Array for Char
+pub impl Js_Array for Int32
+pub impl Js_Array for Int16
+pub impl Js_Array for Int64
+pub impl Js_Array for UInt32
+pub impl Js_Array for UInt16
+pub impl Js_Array for UInt64
+pub impl Js_Array for Float
+pub impl Js_Array for Double
+
+pub trait Js_Error : Js {
+  fn to_error(Self) -> Error_
+  fn name(Self) -> String_
+  fn message(Self) -> String_
+  fn toString(Self) -> String_
+}
+
+pub trait Js_Object : Js {
+  fn to_object(Self) -> Object
+}
+
+pub trait Js_TypedArray {
+  fn get(TypedArray[Self], Int32) -> Self
+  fn set(TypedArray[Self], Int32, Self) -> Unit
+  fn new(ArrayBuffer, Int32, Int32) -> TypedArray[Self]
+}
+pub impl Js_TypedArray for Byte
+pub impl Js_TypedArray for Char
+pub impl Js_TypedArray for Int32
+pub impl Js_TypedArray for Int16
+pub impl Js_TypedArray for Int64
+pub impl Js_TypedArray for UInt32
+pub impl Js_TypedArray for UInt16
+pub impl Js_TypedArray for UInt64
+pub impl Js_TypedArray for Float
+pub impl Js_TypedArray for Double

@@ -62,6 +62,19 @@ let global = {
   number_to_bool,
   bool_to_number,
   try_catch_finally,
+  try_catch: (action: () => void) => {
+    try {
+      action()
+      return { caught: false }
+    } catch (error) {
+      return { caught: true, error }
+    }
+  },
+  has_exception: (result: { caught: boolean }) => result.caught,
+  exception: (result: { error: unknown }) => result.error,
+  try_finally: (action: () => void, finally_: () => void) => {
+    try { action() } finally { finally_() }
+  },
   throw_error,
   set: object_setter,
   get: object_getter,

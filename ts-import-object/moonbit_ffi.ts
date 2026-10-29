@@ -115,13 +115,13 @@ export let moonbit_ffi = async (
   }
 
   if (backend === Backend.js) {
-    let import_path = `file:///${cwd}/target/${backend_path}/${build_type}/build/${package_path}/${package_path}.${backend_suffix}`
+    let import_path = `file:///${cwd}/_build/${backend_path}/${build_type}/build/${package_path}/${package_path}.${backend_suffix}`
     import_object(globalThis)
     return import(import_path)
   } if (backend === Backend.wasm || backend === Backend.wasm_gc) {
     let importObject = {}
     import_object(importObject)
-    let import_path = `target/${backend_path}/${build_type}/build/${package_path}/${package_path}.${backend_suffix}`
+    let import_path = `_build/${backend_path}/${build_type}/build/${package_path}/${package_path}.${backend_suffix}`
     // fetch API doesn't fetch resource from file protocol, e.g. `file:///`
     let instance = await WebAssembly.instantiate(await fs.readFile(import_path), importObject)
     return instance.instance.exports
