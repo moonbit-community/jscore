@@ -15,6 +15,10 @@ let main = async (backend: Backend, build_type : BuildType) => {
 
 
 
-main(Backend.wasm,BuildType.debug)   
-// main(Backend.js,BuildType.debug) 
-// main(Backend.wasm_gc,BuildType.debug) 
+const backendName = process.argv[2] ?? "wasm"
+const buildName = process.argv[3] ?? "debug"
+const backends = { wasm: Backend.wasm, "wasm-gc": Backend.wasm_gc, js: Backend.js }
+if (!(backendName in backends) || !["debug", "release"].includes(buildName)) {
+  throw new Error("Usage: test.ts [wasm|wasm-gc|js] [debug|release]")
+}
+await main(backends[backendName as keyof typeof backends], buildName as BuildType)

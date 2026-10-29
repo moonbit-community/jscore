@@ -11,16 +11,16 @@ fn _null() -> Any = "illusory0x0_core_global" "null"
 fn _undefined() -> Any = "illusory0x0_core_global" "undefined"
 
 ///|
-fn js_typeof(self : Any) -> String_ = "illusory0x0_core_global" "typeof"
+fn Any::js_typeof(self : Any) -> String_ = "illusory0x0_core_global" "typeof"
 
 ///|
-fn js_instanceof(self : Any, constructor_ : Any) -> Bool = "illusory0x0_core_global" "instanceof"
+fn Any::js_instanceof(self : Any, constructor_ : Any) -> Bool = "illusory0x0_core_global" "instanceof"
 
 ///|
-fn js_equal(self : Any, other : Any) -> Bool = "illusory0x0_core_global" "equal"
+fn Any::js_equal(self : Any, other : Any) -> Bool = "illusory0x0_core_global" "equal"
 
 ///|
-impl Eq for Any with equal(self, other) {
+impl Eq for Any with fn equal(self, other) {
   self.js_equal(other)
 }
 
@@ -41,7 +41,31 @@ pub fn js_try_catch_finally(
   fn_try : () -> Unit,
   fn_catch : (Error_) -> Unit,
   fn_finally : () -> Unit,
-) = "illusory0x0_core_global" "try_catch_finally"
+) -> Unit {
+  // Pass external values back through a typed FFI return. A raw JavaScript
+  // object is not a linear-memory Wasm closure argument.
+  js_finally(
+    fn() {
+      let result = js_try(fn_try)
+      if js_has_exception(result) {
+        fn_catch(js_exception(result))
+      }
+    },
+    fn_finally,
+  )
+}
+
+///|
+fn js_try(action : () -> Unit) -> Any = "illusory0x0_core_global" "try_catch"
+
+///|
+fn js_has_exception(result : Any) -> Bool = "illusory0x0_core_global" "has_exception"
+
+///|
+fn js_exception(result : Any) -> Error_ = "illusory0x0_core_global" "exception"
+
+///|
+fn js_finally(action : () -> Unit, finally_ : () -> Unit) = "illusory0x0_core_global" "try_finally"
 
 ///|
 pub fn js_throw(e : Error_) = "illusory0x0_core_global" "throw_error"
@@ -71,7 +95,7 @@ pub fn TextDecoder::from_builtin(str : String) -> String_ {
   let buf = buffer.val
   let arr : TypedArray[UInt16] = TypedArray::make(buf, 0, slen)
   for i in 0..<slen {
-    arr[i] = str[i].to_uint16()
+    arr[i] = str[i]
   }
   utf16Decoder.decode(arr)
 }

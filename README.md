@@ -82,3 +82,26 @@ Because the performance of the WASM FFI call is a concern, it is not recommended
 * JSON
 * Promise
 * FinalizationRegistry
+
+## Tests
+
+Install JavaScript tooling with `pnpm install --frozen-lockfile --ignore-scripts`.
+For each of `wasm`, `wasm-gc`, and `js`, run:
+
+```sh
+moon build --target wasm --debug
+pnpm exec tsx src/test/test.ts wasm debug
+moon build --target wasm --release
+pnpm exec tsx src/test/test.ts wasm release
+```
+
+The harness exercises JavaScript constructors, strings, errors, and callback
+control flow. It includes assertions for UTF-16 round trips and nested
+try/catch/finally behavior. The older collection smoke tests marked as disabled
+in `entry.mbt` remain disabled; they are not included in the coverage claim.
+Use the checked-in pnpm lockfile; the legacy npm lockfile is not synchronized.
+
+When updating the MoonBit package, also use the matching `ts-import-object`
+files. The exception bridge now returns caught errors through typed FFI calls,
+which requires the new `try_catch`, `has_exception`, `exception`, and
+`try_finally` host imports.

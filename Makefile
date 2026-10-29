@@ -3,7 +3,7 @@ mbt:
 
 test:
 	npx tsx \
-	--watch-path=target \
+	--watch-path=_build \
 	--watch-path=./src/test/test.ts \
 	./src/test/test.ts
 

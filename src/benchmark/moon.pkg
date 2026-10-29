@@ -1,32 +1,34 @@
-{
-  "warn-list": "-1-2-3-5-6-7-8",
-  "link": {
+warnings = "-1-2-3-5-6-7-8"
+
+import {
+  "illusory0x0/jscore/jscore",
+}
+
+options(
+  link: {
     "wasm-gc": {
       "exports": [
         "benchmark_array_op_set_fill_1000",
         "benchmark_array_set_fill_1000",
         "benchmark_typedarray_fill_1000",
-        "benchmark_moonbit_fixedarray_fill_1000"
-      ]
+        "benchmark_moonbit_fixedarray_fill_1000",
+      ],
     },
     "wasm": {
       "exports": [
         "benchmark_array_op_set_fill_1000",
         "benchmark_array_set_fill_1000",
         "benchmark_typedarray_fill_1000",
-        "benchmark_moonbit_fixedarray_fill_1000"
-      ]
+        "benchmark_moonbit_fixedarray_fill_1000",
+      ],
     },
     "js": {
       "exports": [
         "benchmark_array_op_set_fill_1000",
         "benchmark_array_set_fill_1000",
         "benchmark_typedarray_fill_1000",
-        "benchmark_moonbit_fixedarray_fill_1000"
-      ]
-    }
+        "benchmark_moonbit_fixedarray_fill_1000",
+      ],
+    },
   },
-  "import": [
-    "illusory0x0/jscore/jscore"
-  ]
-}
+)

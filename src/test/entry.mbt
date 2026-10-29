@@ -1,32 +1,32 @@
 ///|
-typealias @jscore.(
-  TextDecoder,
-  Error_,
-  ReferenceError,
-  RangeError,
-  EvalError,
-  SyntaxError,
-  TypeError,
-  AggregateError,
-  DataView,
-  TextEncoder,
-  Number,
-  RegExp,
-  Date,
-  SharedArrayBuffer,
-  String_,
-  Any,
-  Int32Array,
-  Map,
-  WeakMap,
-  Set,
-  WeakRef,
-  WeakSet,
-  Console,
-  TypedArray,
-  ArrayBuffer,
-  Array
-)
+using @jscore {
+  type TextDecoder,
+  type Error_,
+  type ReferenceError,
+  type RangeError,
+  type EvalError,
+  type SyntaxError,
+  type TypeError,
+  type AggregateError,
+  type DataView,
+  type TextEncoder,
+  type Number,
+  type RegExp,
+  type Date,
+  type SharedArrayBuffer,
+  type String_,
+  type Any,
+  type Int32Array,
+  type Map,
+  type WeakMap,
+  type Set,
+  type WeakRef,
+  type WeakSet,
+  type Console,
+  type TypedArray,
+  type ArrayBuffer,
+  type Array,
+}
 
 ///|
 let js_try_catch_finally = @jscore.js_try_catch_finally
@@ -52,10 +52,10 @@ fn test_new() -> Unit {
   let buf = ArrayBuffer::new(1024)
   (TypedArray::new(buf, 0, 0) : TypedArray[Byte]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[Int16]) |> ignore
-  (TypedArray::new(buf, 0, 0) : TypedArray[Int]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[Int32]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[Int64]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[UInt16]) |> ignore
-  (TypedArray::new(buf, 0, 0) : TypedArray[UInt]) |> ignore
+  (TypedArray::new(buf, 0, 0) : TypedArray[UInt32]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[UInt64]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[Float]) |> ignore
   (TypedArray::new(buf, 0, 0) : TypedArray[Double]) |> ignore
@@ -65,10 +65,10 @@ fn test_new() -> Unit {
   Number::new(msg.to_any()) |> ignore
   Date::new(2025, 3, 6, 8, 19, 20, 20) |> ignore
   RegExp::new(TextDecoder::from_builtin("abc")) |> ignore
-  (Map::new() : Map[Int, Int]) |> ignore
-  (WeakMap::new() : WeakMap[Int, Int]) |> ignore
-  (Set::new() : Set[Int]) |> ignore
-  (WeakSet::new() : WeakSet[Int]) |> ignore
+  (Map::new() : Map[Int32, Int32]) |> ignore
+  (WeakMap::new() : WeakMap[Int32, Int32]) |> ignore
+  (Set::new() : Set[Int32]) |> ignore
+  (WeakSet::new() : WeakSet[Int32]) |> ignore
   SharedArrayBuffer::new(1024) |> ignore
   DataView::new(buf, 0, 1024) |> ignore
   WeakRef::new(buf.to_any()) |> ignore
@@ -163,7 +163,7 @@ fn test_regexp() -> Unit {
 
 ///|
 fn test_map() -> Unit {
-  let map : Map[String_, Int] = Map::new()
+  let map : Map[String_, Int32] = Map::new()
   map[TextDecoder::from_builtin("a")] = 0
   map[TextDecoder::from_builtin("b")] = 1
   console.log(map)
@@ -184,11 +184,11 @@ fn test_map() -> Unit {
 
 ///|
 fn test_set() -> Unit {
-  let set1 : Set[Int] = Set::new()
+  let set1 : Set[Int32] = Set::new()
   set1.add(0)
   set1.add(1)
   set1.add(2)
-  let set2 : Set[Int] = Set::new()
+  let set2 : Set[Int32] = Set::new()
   set2.add(4)
   set2.add(5)
   set2.add(6)
@@ -213,7 +213,7 @@ fn test_dataview() -> Unit {
   console.log(dv.byteOffset())
   let arr : Array[Any] = Array::empty()
   let arr1 : Array[Double] = Array::empty()
-  let arr2 : Array[Int] = Array::empty()
+  let arr2 : Array[Int32] = Array::empty()
   arr1[0] = 1.2
   arr2[0] = 99
   arr[0] = arr1.to_any()
@@ -223,7 +223,7 @@ fn test_dataview() -> Unit {
 
 ///|
 fn test_array() -> Unit {
-  let arr1 : Array[Int] = Array::empty()
+  let arr1 : Array[Int32] = Array::empty()
   arr1[0] = 322
   console.log(arr1)
   let arr1 : Array[Double] = Array::empty()
@@ -275,8 +275,8 @@ pub fn entry_test() -> Unit {
   // test_typedarray()
   // test_textencoder()
 
-
   println("BEGIN TEST")
+  test_ffi_regressions()
   test_date()
   test_arraybuffer()
   test_error()
@@ -306,3 +306,49 @@ fn test_try_catch() -> Unit {
 
 //   })
 // }
+
+///|
+fn test_ffi_regressions() -> Unit {
+  for text in ["", "ASCII", "你好", "🐬", "x".repeat(9000)] {
+    if TextDecoder::from_builtin(text).to_string() != text {
+      abort("UTF-16 conversion did not round-trip")
+    }
+  }
+  let events = Ref("")
+  js_try_catch_finally(
+    fn() { events.val += "try;" },
+    fn(_) { abort("catch called without an exception") },
+    fn() { events.val += "finally;" },
+  )
+  if events.val != "try;finally;" {
+    abort("normal finally order")
+  }
+  events.val = ""
+  let first = Error_::new(TextDecoder::from_builtin("first"))
+  let second = Error_::new(TextDecoder::from_builtin("second"))
+  js_try_catch_finally(
+    fn() {
+      js_try_catch_finally(
+        fn() { js_throw(first) },
+        fn(error) {
+          if error.message().to_string() != "first" {
+            abort("wrong first error")
+          }
+          events.val += "catch;"
+          js_throw(second)
+        },
+        fn() { events.val += "inner-finally;" },
+      )
+    },
+    fn(error) {
+      if error.message().to_string() != "second" {
+        abort("wrong rethrown error")
+      }
+      events.val += "outer-catch;"
+    },
+    fn() { events.val += "outer-finally;" },
+  )
+  if events.val != "catch;inner-finally;outer-catch;outer-finally;" {
+    abort("exception finally order")
+  }
+}

@@ -1,15 +1,15 @@
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
-pub fn String_::charCodeAt(self : String_, index : Int) -> Char = "illusory0x0_core_String" "charCodeAt"
+pub fn String_::charCodeAt(self : String_, index : Int32) -> Char = "illusory0x0_core_String" "charCodeAt"
 
 ///|
-pub fn String_::op_get(self : String_, index : Int) -> Char {
+pub fn String_::op_get(self : String_, index : Int32) -> Char {
   self.charCodeAt(index)
 }
 
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length)
-pub fn String_::length(self : String_) -> Int = "illusory0x0_core_global" "length"
+pub fn String_::length(self : String_) -> Int32 = "illusory0x0_core_global" "length"
 
 ///|
 pub fn String_::to_string(self : String_) -> String {

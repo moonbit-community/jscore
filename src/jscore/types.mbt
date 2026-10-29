@@ -63,38 +63,38 @@ pub type TypedArray[T]
 pub type ArrayBuffer
 
 ///|
-pub typealias TypedArray[Byte] as Uint8Array
+pub type Uint8Array = TypedArray[Byte]
 
 ///|
-pub typealias TypedArray[UInt16] as Uint16Array
+pub type Uint16Array = TypedArray[UInt16]
 
 ///|
-pub typealias TypedArray[UInt] as Uint32Array
+pub type Uint32Array = TypedArray[UInt32]
 
 ///|
-pub typealias TypedArray[Byte] as Int8Array
+pub type Int8Array = TypedArray[Byte]
 
 ///|
-pub typealias TypedArray[Int16] as Int16Array
+pub type Int16Array = TypedArray[Int16]
 
 ///|
 #external
 pub type Console
 
 ///|
-pub typealias TypedArray[Int] as Int32Array
+pub type Int32Array = TypedArray[Int32]
 
 ///|
-pub typealias TypedArray[Float] as Float32Array
+pub type Float32Array = TypedArray[Float]
 
 ///|
-pub typealias TypedArray[Double] as Float64Array
+pub type Float64Array = TypedArray[Double]
 
 ///|
-pub typealias TypedArray[Int64] as BigInt64Array
+pub type BigInt64Array = TypedArray[Int64]
 
 ///|
-pub typealias TypedArray[UInt64] as BigUint64Array
+pub type BigUint64Array = TypedArray[UInt64]
 
 ///|
 #external

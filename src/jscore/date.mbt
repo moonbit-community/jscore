@@ -9,13 +9,13 @@ pub fn Date::parse(self : String_) -> Double = "illusory0x0_core_Date" "static_p
 ///|
 /// [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC)
 pub fn Date::utc(
-  year : Int,
-  monthIndex : Int,
-  day : Int,
-  hours : Int,
-  minutes : Int,
-  seconds : Int,
-  milliseconds : Int,
+  year : Int32,
+  monthIndex : Int32,
+  day : Int32,
+  hours : Int32,
+  minutes : Int32,
+  seconds : Int32,
+  milliseconds : Int32,
 ) -> Date = "illusory0x0_core_Date" "static_UTC"
 
 ///|

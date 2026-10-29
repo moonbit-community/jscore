@@ -1,0 +1,38 @@
+name: check
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: [latest, nightly]
+        backend: [wasm, wasm-gc, js]
+    env:
+      MOON_WORK: "off"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hustcer/setup-moonbit@develop
+        with:
+          version: ${{ matrix.toolchain }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.0
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: moon check --target ${{ matrix.backend }}
+      - name: Debug integration tests
+        run: |
+          moon build --target ${{ matrix.backend }} --debug
+          pnpm exec tsx src/test/test.ts ${{ matrix.backend }} debug
+      - name: Release integration tests
+        run: |
+          moon build --target ${{ matrix.backend }} --release
+          pnpm exec tsx src/test/test.ts ${{ matrix.backend }} release
